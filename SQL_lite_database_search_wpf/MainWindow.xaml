@@ -8,27 +8,31 @@
         mc:Ignorable="d"
                   
                   xmlns:UI="clr-namespace:SQL_lite_database_search_wpf.UI"
-                  ContentSource="/UI/EventView/ListPage.xaml"
+                  ContentSource="/UI/PageBuilder.xamll"
                   IsTitleVisible="True"
                   UIControllHeader="/UI/Controlls.xaml"
         Title="MainWindow" Height="500" Width="860" Closing="Window_Closing">
     
     
     <mui:ModernWindow.TitleLinks>
-        <mui:Link DisplayName="Settings" Source="/UI/Settings/SettingsPage.xaml"/>
+        <mui:Link DisplayName="Settings" Source="/UI/EventView/ListPage.xaml"/>
         <mui:Link DisplayName="Help" Source="https://github.com/firstfloorsoftware/mui/wiki" />
     </mui:ModernWindow.TitleLinks>
 
     <mui:ModernWindow.MenuLinkGroups>
-
-        <mui:LinkGroup DisplayName="List">
+        <mui:LinkGroup DisplayName="List" >
             <mui:LinkGroup.Links >
-                <mui:Link DisplayName="ListPage" Source="/UI/EventView/ListPage.xaml" />
+                <mui:Link Source="/UI/EventView/ListPage.xaml"/>
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
-        <mui:LinkGroup DisplayName="Page">
-            <mui:LinkGroup.Links>
-                <mui:Link DisplayName="Day" Source="/UI/DayView/DayPage.xaml" />
+        <mui:LinkGroup DisplayName="Day" >
+            <mui:LinkGroup.Links >
+                <mui:Link Source="/UI/DayView/DayPage.xaml"/>
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+        <mui:LinkGroup DisplayName="Project" >
+            <mui:LinkGroup.Links >
+                <mui:Link Source="/UI/ProjectView/ProjectPage.xaml"/>
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
     </mui:ModernWindow.MenuLinkGroups>

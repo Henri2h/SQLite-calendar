@@ -8,9 +8,8 @@
              mc:Ignorable="d" 
              
              d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded">
-    <Grid Style="{StaticResource ContentRoot}">
+    <Grid >
         <DataGrid x:Name="dataGrid" VerticalAlignment="Stretch" Cursor="Arrow" Margin="10" />
-        <UI:Controlls VerticalAlignment="Bottom"/>
     </Grid>
     
 </UserControl>

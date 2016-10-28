@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Controls;
 
-namespace SQL_lite_database_search_wpf.UI
+namespace SQL_lite_database_search_wpf.UI.Controls
 {
     public partial class DateTimePicker : UserControl
     {

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="SQL_lite_database_search_wpf.UI.NumberSelect"
+﻿<UserControl x:Class="SQL_lite_database_search_wpf.UI.Controls.NumberSelect"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,14 +9,14 @@
         <StackPanel Orientation="Vertical" >
             <Button x:Name="btMinus" Click="btMinus_Click" Content="" Foreground="Black">
                 <Button.Background>
-                    <ImageBrush ImageSource="..\Assets\ArrowUp.png"/>
+                    <ImageBrush ImageSource="..\..\Assets\ArrowUp.png"/>
                 </Button.Background>
             </Button>
             <ListView x:Name="lsElements" MouseEnter="lsElements_MouseEnter" Height="70" VerticalAlignment="Bottom" />
 
             <Button x:Name="btAdd" Click="btAdd_Click" Height="20"  VerticalAlignment="Bottom" d:LayoutOverrides="Height">
                 <Button.Background>
-                    <ImageBrush ImageSource="..\Assets\ArrowDown.png"/>
+                    <ImageBrush ImageSource="..\..\Assets\ArrowDown.png"/>
                 </Button.Background>
             </Button>
         </StackPanel>

@@ -66,12 +66,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Core\AppCore.cs" />
+    <Compile Include="Core\Project.cs" />
     <Compile Include="ErrorHandeler\ErrorMessage.cs" />
     <Compile Include="Files.cs" />
     <Compile Include="UI\Controlls.xaml.cs">
       <DependentUpon>Controlls.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\DateTimePicker.xaml.cs">
+    <Compile Include="UI\Controls\DateTimePicker.xaml.cs">
       <DependentUpon>DateTimePicker.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\DayView\Day.cs" />
@@ -84,8 +85,13 @@
     <Compile Include="UI\EventView\ListPage.xaml.cs">
       <DependentUpon>ListPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\NumberSelect.xaml.cs">
+    <Compile Include="UI\Controls\NumberSelect.xaml.cs">
       <DependentUpon>NumberSelect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProjectView\Project.cs" />
+    <Compile Include="UI\ProjectView\ProjectManager.cs" />
+    <Compile Include="UI\ProjectView\ProjectPage.xaml.cs">
+      <DependentUpon>ProjectPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Settings\Apparence.xaml.cs">
       <DependentUpon>Apparence.xaml</DependentUpon>
@@ -102,7 +108,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\DateTimePicker.xaml">
+    <Page Include="UI\Controls\DateTimePicker.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -139,7 +145,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\NumberSelect.xaml">
+    <Page Include="UI\Controls\NumberSelect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ProjectView\ProjectPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -186,6 +196,9 @@
   <ItemGroup>
     <Resource Include="Assets\ArrowDown.png" />
     <Resource Include="Assets\ArrowUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Core\Doc.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

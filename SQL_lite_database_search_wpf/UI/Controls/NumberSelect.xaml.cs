@@ -14,9 +14,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SQL_lite_database_search_wpf.UI
+namespace SQL_lite_database_search_wpf.UI.Controls
 {
-  
+
     public partial class NumberSelect : UserControl
     {
         List<int> objects = new List<int>();
