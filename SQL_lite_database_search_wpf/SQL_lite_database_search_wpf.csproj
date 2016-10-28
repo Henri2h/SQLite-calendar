@@ -66,9 +66,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Core\AppCore.cs" />
+    <Compile Include="Core\DatabaseManager\DatabaseCore.cs" />
+    <Compile Include="Core\DatabaseManager\ObjectManager.cs" />
+    <Compile Include="Core\DatabaseManager\ProjectManager.cs" />
+    <Compile Include="Core\DatabaseManager\Request.cs" />
     <Compile Include="Core\Project.cs" />
     <Compile Include="ErrorHandeler\ErrorMessage.cs" />
-    <Compile Include="Files.cs" />
+    <Compile Include="Core\Files.cs" />
     <Compile Include="UI\Controlls.xaml.cs">
       <DependentUpon>Controlls.xaml</DependentUpon>
     </Compile>
@@ -103,7 +107,7 @@
     <Compile Include="UI\Settings\Database.xaml.cs">
       <DependentUpon>Database.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Core\RequestBuilder.cs" />
+    <Compile Include="Core\DatabaseManager\RequestBuilder.cs" />
     <Page Include="UI\Controlls.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -128,7 +132,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Core\calendarObject.cs" />
-    <Compile Include="Core\db_SQLite.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

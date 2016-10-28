@@ -20,6 +20,6 @@ namespace SQL_lite_database_search_wpf
         public int priorite { get; set; }
         public int completion { get; set; }
         public string equipe { get; set; }
-
+        public string tableName { get; set; }
     }
 }

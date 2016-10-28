@@ -9,14 +9,14 @@ namespace SQL_lite_database_search_wpf.Core
 {
     public class AppCore
     {
-        public static db_SQLite SQLite;
+        public static DatabaseManager.DatabaseCore dCore;
         public static MainWindow Wi;
         public static ProjectManager projectmanager;
         public AppCore(MainWindow wi)
         {
             wi = Wi;
-            SQLite = new db_SQLite();
-            SQLite.OpenDataBase();
+            dCore = new DatabaseManager.DatabaseCore();
+            dCore.OpenDataBase();
             projectmanager = new ProjectManager();
 
         }
