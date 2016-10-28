@@ -1,0 +1,35 @@
+﻿<mui:ModernWindow x:Class="SQL_lite_database_search_wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SQL_lite_database_search_wpf"
+        xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+        mc:Ignorable="d"
+                  
+                  xmlns:UI="clr-namespace:SQL_lite_database_search_wpf.UI"
+                  ContentSource="/UI/EventView/ListPage.xaml"
+                  IsTitleVisible="True"
+                  UIControllHeader="/UI/Controlls.xaml"
+        Title="MainWindow" Height="500" Width="860" Closing="Window_Closing">
+    
+    
+    <mui:ModernWindow.TitleLinks>
+        <mui:Link DisplayName="Settings" Source="/UI/Settings/SettingsPage.xaml"/>
+        <mui:Link DisplayName="Help" Source="https://github.com/firstfloorsoftware/mui/wiki" />
+    </mui:ModernWindow.TitleLinks>
+
+    <mui:ModernWindow.MenuLinkGroups>
+
+        <mui:LinkGroup DisplayName="List">
+            <mui:LinkGroup.Links >
+                <mui:Link DisplayName="ListPage" Source="/UI/EventView/ListPage.xaml" />
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+        <mui:LinkGroup DisplayName="Page">
+            <mui:LinkGroup.Links>
+                <mui:Link DisplayName="Day" Source="/UI/DayView/DayPage.xaml" />
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+    </mui:ModernWindow.MenuLinkGroups>
+</mui:ModernWindow>
