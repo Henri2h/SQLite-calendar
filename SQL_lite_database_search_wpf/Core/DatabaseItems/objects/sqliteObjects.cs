@@ -9,7 +9,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseItems.objects
     public class sqliteBool : sqliteBase
     {
         public sqliteBool(string Name) : base(Name) { }
-        public object value { get; set; }
+        public bool value { get; set; }
     }
     public class sqliteInt : sqliteBase
     {

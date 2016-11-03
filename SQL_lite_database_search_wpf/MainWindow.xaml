@@ -15,8 +15,8 @@
 
 
     <mui:ModernWindow.TitleLinks>
-        <mui:Link DisplayName="Settings" Source="/UI/EventView/ListPage.xaml"/>
-        <mui:Link DisplayName="Help" Source="https://github.com/firstfloorsoftware/mui/wiki" />
+        <mui:Link DisplayName="Settings" Source="/UI/Settings/SettingsPage.xaml"/>
+        <mui:Link DisplayName="Help" Source="mailto:henri.carnot@hotmail.fr" />
     </mui:ModernWindow.TitleLinks>
 
     <mui:ModernWindow.MenuLinkGroups>

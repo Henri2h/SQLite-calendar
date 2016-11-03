@@ -1,4 +1,5 @@
 ﻿using SQL_lite_database_search_wpf.Core;
+using SQL_lite_database_search_wpf.Core.DatabaseItems;
 using System;
 using System.Collections.Generic;
 using System.Linq;
