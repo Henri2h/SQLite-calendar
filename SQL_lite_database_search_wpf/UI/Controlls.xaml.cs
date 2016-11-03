@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SQL_lite_database_search_wpf.UI
 {
@@ -20,6 +9,9 @@ namespace SQL_lite_database_search_wpf.UI
     /// </summary>
     public partial class Controlls : UserControl
     {
+        public delegate void UIEvent();
+        public UIEvent RefreshISNeeded;
+
         public Controlls()
         {
             InitializeComponent();
@@ -31,14 +23,11 @@ namespace SQL_lite_database_search_wpf.UI
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder output = new StringBuilder();
-            Add_window inputDialog = new Add_window();
+            Add_Project inputDialog = new Add_Project(Core.objectMode.calendarObject);
             inputDialog.Style = (Style)App.Current.Resources["BlankWindow"];
 
-            if (inputDialog.ShowDialog() == true)
-            {
-                calendarObject obj = inputDialog.Answer;
-                Core.AppCore.SQLite.addCObjectInTable(obj);
-            }
+            inputDialog.ShowDialog();
+            RefreshISNeeded?.Invoke();
         }
         private void btRefresch_Click(object sender, RoutedEventArgs e) { }
     }

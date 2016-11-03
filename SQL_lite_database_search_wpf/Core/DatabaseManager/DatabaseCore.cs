@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQL_lite_database_search_wpf.Core;
+using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.IO;
@@ -15,73 +16,64 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
         string inputFile = @"D:\sqlite\cal.sqlite";
         public SQLiteConnection m_dbConnection;
 
-        public DatabaseCore() { OpenDataBase(); }
+        public DatabaseCore() { }
 
         public void OpenDataBase()
         {
             m_dbConnection = new SQLiteConnection("Data Source=" + inputFile + ";Version=3;");
-            bool create = false;
+            bool isTableJustCreated = false;
             string direct = Directory.GetParent(inputFile).FullName;
-            if (Directory.Exists(direct) == false)
-            {
-                Directory.CreateDirectory(direct);
-            }
+
+            if (Directory.Exists(direct) == false) { Directory.CreateDirectory(direct); }
             if (File.Exists(inputFile) == false)
             {
                 SQLiteConnection.CreateFile(inputFile);
-                create = true;
+                isTableJustCreated = true;
             }
 
             m_dbConnection.Open();
-            if (create == true)
+            if (isTableJustCreated == true)
             {
                 createTable(TableProject);
+
+                Project prj = new Project();
+                prj.name.value = "DefaultTasks";
+                prj.isDateUsed.value = false;
+                AppCore.projectmanager.addProject(prj);
+
             }
+
         }
         public void createTable(string name)
         {
             //create a table
-            string sql_command = "CREATE TABLE " + name + " (name Text, domaine Text, priorite INT, description TEXT, time_start TEXT, time_end TEXT, completion INT, equipe TEXT)";
-            SQLiteCommand command_sql = new SQLiteCommand(sql_command, m_dbConnection);
-            //execute the command
-            command_sql.ExecuteNonQuery();
+            string sql_command = "CREATE TABLE " + name + " (name Text, domaine Text, priorite INT, description TEXT, time_start TEXT, time_end TEXT, completion INT, equipe TEXT, isDateUsed BLOB)";
+            SQLiteCommandsExecuter.executeNonQuery(sql_command);
         }
-        public List<calendarObject> readTableElements(string tableName)
-        {
-            string sql = "select * from " + tableName + " order by ID ASC";
-            SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
-            SQLiteDataReader reader = command.ExecuteReader();
-            List<calendarObject> cObjects = new List<calendarObject>();
-            while (reader.Read())
-            {
 
-                if (reader != null)
-                {
-                    calendarObject obj = new calendarObject();
-                    obj.name = reader["name"].ToString();
-                    obj.ID = Convert.ToInt32(reader["ID"].ToString());
-                    obj.domaine = (reader["domaine"].ToString());
-                    obj.priorite = int.Parse(reader["priorite"].ToString());
-                    obj.description = reader["description"].ToString();
-                    obj.completion = int.Parse(reader["completion"].ToString());
-                    obj.equipe = reader["equipe"].ToString();
-                    obj.startTime = DateTime.FromBinary(long.Parse(reader["time_start"].ToString()));
-                    obj.endTime = DateTime.FromBinary(long.Parse(reader["time_end"].ToString()));
-                    cObjects.Add(obj);
-                }
-            }
+        /// <summary>
+        /// Read all the elements from specific table ordered by ID
+        /// </summary>
+        /// <param name="tableName"></param>
+        /// <returns></returns>
+        public List<calendarObject> readCObjInTable(string tableName)
+        {
+            string sql = "select * from " + tableName + " order by _rowid_ ASC";
+            SQLiteDataReader reader = SQLiteCommandsExecuter.executeDataReader(sql);
+            List<calendarObject> cObjects = ObjectManager.readerToCobjs(reader);
             return cObjects;
         }
-        public void addCalendatObject(calendarObject cObj)
+
+        public void addCalendarObject(calendarObject cObj)
         {
-            ObjectManager objManager = new ObjectManager();
-            
+            string request = cObj.createRequest();
+            SQLiteCommandsExecuter.executeNonQuery(request);
         }
+
         public void updateCalandarObject(string tableName, string element, string value, int id)
         {
-            string sql_addTable = "update " + tableName + " set '" + element + "'='" + value + "' where '_rowid_'='" + id + "'";
-            SQLiteCommand command_addTable = new SQLiteCommand(sql_addTable, m_dbConnection);
-            command_addTable.ExecuteNonQuery();
+            string request = "update " + tableName + " set '" + element + "'='" + value + "' where '_rowid_'='" + id + "'";
+            SQLiteCommandsExecuter.executeNonQuery(request);
         }
 
         public void CloseDatabase()

@@ -8,12 +8,12 @@
         mc:Ignorable="d"
                   
                   xmlns:UI="clr-namespace:SQL_lite_database_search_wpf.UI"
-                  ContentSource="/UI/PageBuilder.xamll"
+                  ContentSource="/UI/EventView/ListPage.xaml"
                   IsTitleVisible="True"
-                  UIControllHeader="/UI/Controlls.xaml"
+                  
         Title="MainWindow" Height="500" Width="860" Closing="Window_Closing">
-    
-    
+
+
     <mui:ModernWindow.TitleLinks>
         <mui:Link DisplayName="Settings" Source="/UI/EventView/ListPage.xaml"/>
         <mui:Link DisplayName="Help" Source="https://github.com/firstfloorsoftware/mui/wiki" />

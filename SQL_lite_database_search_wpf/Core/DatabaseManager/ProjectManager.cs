@@ -9,39 +9,45 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
 {
     public class ProjectManager
     {
-        // in order to simplify the names
-        SQLiteConnection m_dbConnection { get { return Core.AppCore.dCore.m_dbConnection; } }
-        DatabaseCore dCore { get { return Core.AppCore.dCore; } }
+        public ProjectManager() { }
 
-        string TableProject { get { return Core.AppCore.dCore.TableProject; } }
+        // in order to simplify the names
+        SQLiteConnection m_dbConnection { get { return AppCore.dCore.m_dbConnection; } }
+        DatabaseCore dCore { get { return AppCore.dCore; } }
+
+        string TableProject { get { return AppCore.dCore.TableProject; } }
 
         // project
         public List<Project> loadProject()
         {
-            List<Project> projects = new List<Project>();
             string sql = "select * from " + TableProject + " order by _rowid_ ASC";
-            SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
-            SQLiteDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-
-                if (reader != null)
-                {
-                    Project prj = new Project();
-                    prj.events = new List<calendarObject>();
-                    prj.name = reader["name"].ToString();
-                }
-            }
+            SQLiteDataReader reader = SQLiteCommandsExecuter.executeDataReader(sql);
+            List<Project> projects = ObjectManager.readerToProjects(reader);
             return projects;
         }
+
+        public void addProject(Project prj)
+        {
+            AppCore.projects.Add(prj);
+
+            calendarObject c = prj;
+            AppCore.dCore.addCalendarObject(c);
+            AppCore.dCore.createTable(prj.projectTableName);
+        }
+
+
         public List<Project> loadProjectsElements(List<Project> projects)
         {
             foreach (Project prj in projects)
             {
-                prj.events = dCore.readTableElements(prj.name + "Events");
+                prj.events = dCore.readCObjInTable(prj.projectTableName);
             }
             return projects;
+        }
+        public Project loadProjectElements(Project project)
+        {
+            project.events = dCore.readCObjInTable(project.projectTableName);
+            return project;
         }
 
     }

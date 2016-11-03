@@ -8,28 +8,38 @@
         mc:Ignorable="d"    >
     <Grid Style="{StaticResource ContentRoot}">
         <StackPanel Margin="10" >
-            <StackPanel Orientation="Horizontal">
-                <StackPanel Orientation="Vertical">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Name : "/>
-                        <TextBox x:Name="tbName" MinWidth="50"/>
+            <StackPanel x:Name="UIActive" Orientation="Horizontal">
+                <StackPanel>
+                    <!--Names-->
+                    <StackPanel Orientation="Vertical">
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Name : "/>
+                            <TextBox x:Name="tbName" MinWidth="50"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Projects : "/>
+                            <ComboBox x:Name="UIProject" Text="Project : " SelectionChanged="UIProject_SelectionChanged"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Domaine"/>
+                            <TextBox x:Name="tbDomaine" MinWidth="50"/>
+                        </StackPanel>
                     </StackPanel>
 
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Domaine"/>
-                        <TextBox x:Name="tbDomaine" MinWidth="50"/>
-                    </StackPanel>
-                </StackPanel>
+                    <!--Completion and priority-->
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Priorité :"/>
+                            <Slider x:Name="slPriorite" Value="5" Height="Auto" Width="72" Maximum="5" SmallChange="1"/>
+                        </StackPanel>
 
-                <StackPanel Orientation="Vertical">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Priorité :"/>
-                        <Slider x:Name="slPriorite" Value="5" Height="Auto" Width="72" Maximum="5" SmallChange="1"/>
-                    </StackPanel>
-
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Completion :"/>
-                        <Slider x:Name="slCompletion" Value="0" Height="Auto" Width="111" Maximum="100" SmallChange="10"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Completion :"/>
+                            <Slider x:Name="slCompletion" Value="0" Height="Auto" Width="111" Maximum="100" SmallChange="10"/>
+                        </StackPanel>
                     </StackPanel>
                 </StackPanel>
 
@@ -43,12 +53,7 @@
                         <TextBox x:Name="tbEquipe" MinWidth="50"/>
                     </StackPanel>
                 </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-
-                    <local:DateTimePicker x:Name="dpTime_start" />
-                    <local:DateTimePicker x:Name="dpTime_end" />
-                </StackPanel>
+                <local:DateTimeManager x:Name="UIDateTimeManager"/>
 
             </StackPanel>
 

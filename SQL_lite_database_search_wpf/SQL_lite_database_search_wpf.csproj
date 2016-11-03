@@ -66,18 +66,35 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Core\AppCore.cs" />
+    <Compile Include="Core\DatabaseItems\objects\sqliteBase.cs" />
+    <Compile Include="Core\DatabaseItems\objects\sqliteObjects.cs" />
+    <Compile Include="Core\DatabaseItems\UICalendarObjectView.cs" />
     <Compile Include="Core\DatabaseManager\DatabaseCore.cs" />
     <Compile Include="Core\DatabaseManager\ObjectManager.cs" />
     <Compile Include="Core\DatabaseManager\ProjectManager.cs" />
     <Compile Include="Core\DatabaseManager\Request.cs" />
-    <Compile Include="Core\Project.cs" />
+    <Compile Include="Core\DatabaseItems\Project.cs" />
+    <Compile Include="Core\DatabaseManager\SQLiteCommandsExecuter.cs" />
+    <Compile Include="Core\objectMode.cs" />
     <Compile Include="ErrorHandeler\ErrorMessage.cs" />
     <Compile Include="Core\Files.cs" />
+    <Compile Include="UI\Controls\AddElement.xaml.cs">
+      <DependentUpon>AddElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Add_Project.xaml.cs">
+      <DependentUpon>Add_Project.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\CalendarInformations.xaml.cs">
+      <DependentUpon>CalendarInformations.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Controlls.xaml.cs">
       <DependentUpon>Controlls.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Controls\DateTimePicker.xaml.cs">
       <DependentUpon>DateTimePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\DateTimeManager.xaml.cs">
+      <DependentUpon>DateTimeManager.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\DayView\Day.cs" />
     <Compile Include="UI\DayView\DayUI.xaml.cs">
@@ -92,8 +109,10 @@
     <Compile Include="UI\Controls\NumberSelect.xaml.cs">
       <DependentUpon>NumberSelect.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\EventView\ProjectView.xaml.cs">
+      <DependentUpon>ProjectView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\ProjectView\Project.cs" />
-    <Compile Include="UI\ProjectView\ProjectManager.cs" />
     <Compile Include="UI\ProjectView\ProjectPage.xaml.cs">
       <DependentUpon>ProjectPage.xaml</DependentUpon>
     </Compile>
@@ -107,7 +126,18 @@
     <Compile Include="UI\Settings\Database.xaml.cs">
       <DependentUpon>Database.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Core\DatabaseManager\RequestBuilder.cs" />
+    <Page Include="UI\Controls\AddElement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Add_Project.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\CalendarInformations.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\Controlls.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -131,11 +161,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Core\calendarObject.cs" />
+    <Compile Include="Core\DatabaseItems\calendarObject.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UI\Controls\DateTimeManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\DayView\DayUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -149,6 +183,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Controls\NumberSelect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\EventView\ProjectView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

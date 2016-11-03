@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SQL_lite_database_search_wpf
+namespace SQL_lite_database_search_wpf.Core.DatabaseItems
 {
-    public class calendarObject
+    public class UICalendarObjectView
     {
         public int ID { get; set; }
         public string name { get; set; }
 
+        public bool isDateUsed { get; set; }
         public DateTime startTime { get; set; }
         public DateTime endTime { get; set; }
 

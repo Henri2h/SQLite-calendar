@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="SQL_lite_database_search_wpf.UI.Controls.CalendarInformations"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SQL_lite_database_search_wpf.UI.Controls"
+             mc:Ignorable="d" >
+    
+    <Grid VerticalAlignment="Top">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Vertical" Grid.Column="0" Margin="0,0,5,0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Name : "/>
+                <TextBox x:Name="UITbName" MinWidth="50"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Description"/>
+                <TextBox x:Name="UITbDescription" MinWidth="50"/>
+            </StackPanel>
+        </StackPanel>
+
+
+        <StackPanel Orientation="Horizontal" Grid.Column="1" x:Name="UIStackProjects">
+            <TextBlock Text="Projects : "/>
+            <ComboBox x:Name="UIProject" Text="Project : " SelectionChanged="UIProject_SelectionChanged"/>
+        </StackPanel>
+
+
+
+        <!--Completion and priority-->
+        <StackPanel Orientation="Vertical" Grid.Column="2" Margin="5,0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Priorité :"/>
+                <Slider x:Name="UIslPriorite" Value="5" Width="100" Maximum="5" SmallChange="1"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Completion :"/>
+                <Slider x:Name="UIslCompletion" Value="0" Width="100" Maximum="100" SmallChange="10"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!--domain and equipe-->
+        <StackPanel Orientation="Vertical" Grid.Column="3" Margin="5,0,0,0">
+
+            <!--domaine-->
+            <StackPanel Orientation="Horizontal" Height="30">
+                <TextBlock Text="Domaine"/>
+                <TextBox x:Name="UITbDomaine" AcceptsReturn="True" MinWidth="50"/>
+            </StackPanel>
+
+            <!--equipe-->
+            <StackPanel Orientation="Horizontal" Height="30">
+                <TextBlock Text="Equipe :"/>
+                <TextBox x:Name="UITbEquipe" MinWidth="50"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

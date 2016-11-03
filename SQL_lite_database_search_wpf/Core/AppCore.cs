@@ -1,4 +1,5 @@
-﻿using SQL_lite_database_search_wpf.UI.ProjectView;
+﻿using SQL_lite_database_search_wpf.Core.DatabaseManager;
+using SQL_lite_database_search_wpf.UI.ProjectView;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,16 +10,20 @@ namespace SQL_lite_database_search_wpf.Core
 {
     public class AppCore
     {
-        public static DatabaseManager.DatabaseCore dCore;
+        public static List<Project> projects;
+        public static DatabaseManager.DatabaseCore dCore = new DatabaseCore();
+        public static ProjectManager projectmanager = new ProjectManager();
         public static MainWindow Wi;
-        public static ProjectManager projectmanager;
+
+
         public AppCore(MainWindow wi)
         {
-            wi = Wi;
-            dCore = new DatabaseManager.DatabaseCore();
-            dCore.OpenDataBase();
-            projectmanager = new ProjectManager();
+            if (dCore == null) { dCore = new DatabaseCore(); }
+            if (projectmanager == null) { projectmanager = new ProjectManager(); }
 
+            wi = Wi;
+            dCore.OpenDataBase();
+            projects = projectmanager.loadProject();
         }
     }
 }

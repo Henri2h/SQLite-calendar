@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using SQL_lite_database_search_wpf.Core;
+using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace SQL_lite_database_search_wpf.UI.EventView
@@ -8,31 +10,29 @@ namespace SQL_lite_database_search_wpf.UI.EventView
     /// </summary>
     public partial class ListPage : UserControl
     {
-        bool isLoaded = false;
         public ListPage()
         {
-
             InitializeComponent();
-            if (!isLoaded)
-            {
-                dataGrid.CanUserAddRows = true;
-                loadElement();
-            }
-            isLoaded = true;
-        }
-        private void loadElement()
-        {
-            dataGrid.ItemsSource = Core.AppCore.SQLite.cElements;
+            loadElements();
+            UIControls.RefreshISNeeded += loadElements;
         }
 
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        void loadElements()
         {
-            if (!isLoaded)
+            UIStackData.Children.Clear();
+            Project pro = new Project();
+            pro.name.value = "Projects";
+            pro.projectTableName = Core.AppCore.dCore.TableProject;
+
+            UIStackData.Children.Add(new ProjectView(pro));
+
+            foreach (Project pr in Core.AppCore.projects)
             {
-                dataGrid.CanUserAddRows = true;
-                loadElement();
+                UIStackData.Children.Add(new ProjectView(pr));
             }
-            isLoaded = true;
+
         }
+
+
     }
 }

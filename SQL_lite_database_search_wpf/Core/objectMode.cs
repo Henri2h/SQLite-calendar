@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SQL_lite_database_search_wpf.UI.ProjectView
+namespace SQL_lite_database_search_wpf.Core
 {
-    public class ProjectManager
+    public enum objectMode
     {
+        project,
+        calendarObject
     }
-
-
 }
