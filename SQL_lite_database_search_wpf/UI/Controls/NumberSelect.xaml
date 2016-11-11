@@ -6,18 +6,9 @@
       mc:Ignorable="d">
     <StackPanel Orientation="Horizontal">
         <StackPanel Orientation="Vertical" >
-            <Button x:Name="btMinus" Click="btMinus_Click" Content="" Foreground="Black">
-                <Button.Background>
-                    <ImageBrush ImageSource="..\..\Assets\ArrowUp.png"/>
-                </Button.Background>
-            </Button>
+            <Button x:Name="btMinus" Click="btMinus_Click" Content="-" Foreground="Black"/>
             <ListView x:Name="lsElements" MouseEnter="lsElements_MouseEnter" Height="70" VerticalAlignment="Bottom" />
-
-            <Button x:Name="btAdd" Click="btAdd_Click" Height="20"  VerticalAlignment="Bottom" d:LayoutOverrides="Height">
-                <Button.Background>
-                    <ImageBrush ImageSource="..\..\Assets\ArrowDown.png"/>
-                </Button.Background>
-            </Button>
+            <Button x:Name="btAdd" Click="btAdd_Click" Content="+" VerticalAlignment="Bottom" />
         </StackPanel>
 
         <Slider x:Name="slider" HorizontalAlignment="Right"  Maximum="4" Orientation="Vertical" SmallChange="1" Value="2" Foreground="Black" ValueChanged="slider_ValueChanged" ManipulationCompleted="slider_ManipulationCompleted" MouseLeave="slider_Update" MouseLeftButtonUp="slider_MouseLeftButtonUp"/>

@@ -13,11 +13,11 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
         static string TableProject { get { return Core.AppCore.dCore.TableProject; } }
 
         //add data
+        [Obsolete("Nobody shoud use it and i don't understant the parameters, will be removed in future update")]
         public void addDataTable(string tableName, string row, string values)
         {
             try
             {
-
                 string sql_addTable = "insert into " + tableName + " (" + row + ") values (" + values + ")";
                 SQLiteCommand command_addTable = new SQLiteCommand(sql_addTable, m_dbConnection);
                 command_addTable.ExecuteNonQuery();
@@ -26,12 +26,12 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
             {
                 ex.Source = "db_SQLite.addDataTable";
                 ErrorHandeler.ErrorMessage.printOut(ex);
-
                 Core.AppCore.Wi.showMessageBox(ex.Message, "SQLite Error");
             }
         }
 
 
+        // calendar object reader
         /// <summary>
         /// Convert reader to CalendarObject
         /// </summary>
@@ -69,6 +69,8 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
             }
             return cObjs;
         }
+
+        // projects reader
         public static Project readerToProject(SQLiteDataReader reader)
         {
             if (reader != null)
@@ -85,6 +87,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
         }
         public static List<Project> readerToProjects(SQLiteDataReader reader)
         {
+
             List<Project> projects = new List<Project>();
             while (reader.Read())
             {

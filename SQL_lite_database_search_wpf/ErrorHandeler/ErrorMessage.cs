@@ -10,6 +10,12 @@ namespace SQL_lite_database_search_wpf.ErrorHandeler
 {
   public  class ErrorMessage
     {
+        
+        /// <summary>
+        /// retrurn the representation in a string of the function
+        /// </summary>
+        /// <param name="ex"></param>
+        /// <returns></returns>
         public static string getErrorString(Exception ex)
         {
             StringBuilder output = new StringBuilder();
@@ -23,6 +29,12 @@ namespace SQL_lite_database_search_wpf.ErrorHandeler
 
             return output.ToString();
         }
+
+
+        /// <summary>
+        /// print the error in the console and save the error
+        /// </summary>
+        /// <param name="ex"></param>
         public static void printOut(Exception ex)
         {
             string err = getErrorString(ex);
@@ -32,9 +44,13 @@ namespace SQL_lite_database_search_wpf.ErrorHandeler
             File.AppendAllText(tempFile, err);
             //  files.saveFile(".err", err + Environment.NewLine + tempFile);
         }
+        /// <summary>
+        /// just to save the error without printing the error
+        /// </summary>
+        /// <param name="ex"></param>
         public static void saveOut(Exception ex)
         {
-            //just to save without printing the error
+            
             string err = getErrorString(ex);
             string tempFile = Files.getTempFile(".err");
 

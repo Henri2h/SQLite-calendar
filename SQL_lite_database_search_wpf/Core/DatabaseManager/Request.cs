@@ -10,6 +10,8 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
         StringBuilder elementsName;
 
         bool justCreated = false;
+
+        // create the request
         public Request()
         {
             elements = new StringBuilder();
