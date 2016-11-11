@@ -10,7 +10,7 @@ namespace SQL_lite_database_search_wpf.Core
 {
     public class AppCore
     {
-        public static List<Project> projects;
+        public static List<Project> projects = new List<Project>();
         public static DatabaseManager.DatabaseCore dCore = new DatabaseCore();
         public static ProjectManager projectmanager = new ProjectManager();
         public static MainWindow Wi;

@@ -33,7 +33,12 @@ namespace SQL_lite_database_search_wpf.UI.EventView
         }
         private void loadElement(Project project)
         {
-            dataGrid.ItemsSource = AppCore.dCore.readCObjInTable(project.projectTableName);
+            List<UICalendarObjectView> cView = new List<UICalendarObjectView>();
+            foreach (calendarObject cObj in AppCore.dCore.readCObjInTable(project.projectTableName))
+            {
+                cView.Add(new UICalendarObjectView(cObj));
+            }
+            dataGrid.ItemsSource = cView;
         }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {

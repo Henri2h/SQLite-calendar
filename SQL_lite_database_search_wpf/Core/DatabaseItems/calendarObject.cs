@@ -2,6 +2,7 @@
 using SQL_lite_database_search_wpf.Core.DatabaseManager;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,8 +24,39 @@ namespace SQL_lite_database_search_wpf
         public sqliteString domaine = new sqliteString("domaine");
 
         public sqliteInt priorite = new sqliteInt("priorite");
-        public sqliteInt completion = new sqliteInt("");
+        public sqliteInt completion = new sqliteInt("completion");
         public sqliteString equipe = new sqliteString("tableName");
+        public Color c = new Color();
+
+        public bool isOneDayLenght
+        {
+            get
+            {
+                if (isDateUsed.value)
+                {
+                    if ((endTime.value - startTime.value).Days == 0)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+        public bool isOneWeekLenght
+        {
+            get
+            {
+                if (isDateUsed.value)
+                {
+                    if ((endTime.value - startTime.value).Days < 8)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+
         public string tableName { get; set; }
         /// <summary>
         /// Create a request in order to create and write into the database this object

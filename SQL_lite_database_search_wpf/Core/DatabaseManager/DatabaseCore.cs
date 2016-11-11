@@ -21,24 +21,28 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
         public void OpenDataBase()
         {
             m_dbConnection = new SQLiteConnection("Data Source=" + inputFile + ";Version=3;");
-            bool isTableJustCreated = false;
+            bool isTheFileJustCreated = false;
             string direct = Directory.GetParent(inputFile).FullName;
 
             if (Directory.Exists(direct) == false) { Directory.CreateDirectory(direct); }
             if (File.Exists(inputFile) == false)
             {
                 SQLiteConnection.CreateFile(inputFile);
-                isTableJustCreated = true;
+                isTheFileJustCreated = true;
             }
 
+            // just open the database in order to make changes or just dislay the infos
             m_dbConnection.Open();
-            if (isTableJustCreated == true)
+
+            if (isTheFileJustCreated == true)
             {
                 createTable(TableProject);
 
+                // default task table
                 Project prj = new Project();
                 prj.name.value = "DefaultTasks";
                 prj.isDateUsed.value = false;
+
                 AppCore.projectmanager.addProject(prj);
 
             }
@@ -46,7 +50,9 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
         }
         public void createTable(string name)
         {
+            calendarObject xc = new calendarObject();
             //create a table
+            // TODO : make a change to remove all this string from here
             string sql_command = "CREATE TABLE " + name + " (name Text, domaine Text, priorite INT, description TEXT, time_start TEXT, time_end TEXT, completion INT, equipe TEXT, isDateUsed BLOB)";
             SQLiteCommandsExecuter.executeNonQuery(sql_command);
         }
@@ -80,5 +86,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
         {
             m_dbConnection.Close();
         }
+        // just close the database anyway
+        ~DatabaseCore() { m_dbConnection.Close(); }
     }
 }
