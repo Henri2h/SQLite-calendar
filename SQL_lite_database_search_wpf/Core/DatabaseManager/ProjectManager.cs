@@ -16,7 +16,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
         DatabaseCore dCore { get { return AppCore.dCore; } }
 
         string TableProject { get { return AppCore.dCore.TableProject; } }
-
+        
         // project
         public List<Project> loadProject()
         {
@@ -49,6 +49,8 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
             project.events = dCore.readCObjInTable(project.projectTableName);
             return project;
         }
+
+       
 
     }
 }

@@ -17,6 +17,9 @@ namespace SQL_lite_database_search_wpf.UI.Controls
         public DateTimeManager()
         {
             InitializeComponent();
+            // default
+            isDateUsed = false;
+            setValue(isDateUsed);
         }
         private void ModernToggleButton_Click(object sender, RoutedEventArgs e)
         {
@@ -32,6 +35,20 @@ namespace SQL_lite_database_search_wpf.UI.Controls
                 isDateUsed = false;
             }
 
+        }
+
+        void setValue(bool val)
+        {
+            if (val)
+            {
+                UIStackDate.Visibility = Visibility.Visible;
+                isDateUsed = true;
+            }
+            else
+            {
+                UIStackDate.Visibility = Visibility.Collapsed;
+                isDateUsed = false;
+            }
         }
     }
 }

@@ -84,7 +84,7 @@ namespace SQL_lite_database_search_wpf.UI.Controls
             foreach (Project pr in Core.AppCore.projects)
             {
                 ComboBoxItem cItem = new ComboBoxItem();
-                cItem.Content = pr.name;
+                cItem.Content = pr.name.value;
 
                 // adding the resource into the comboBox item
                 cItem.Resources.Add("tableName", pr.projectTableName);

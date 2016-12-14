@@ -20,7 +20,7 @@
         <Frame BorderThickness="0,0,0,1" HorizontalAlignment="Left" Width="70" Background="#FF292929" Grid.Row="1" />
         <StackPanel Orientation="Horizontal" Grid.Row="2">
             <TextBlock Text="Is date used : "/>
-            <mui:ModernToggleButton Click="ModernToggleButton_Click" IsChecked="True"/>
+            <mui:ModernToggleButton x:Name="UITbtIsDateUsed" Click="ModernToggleButton_Click" IsChecked="True"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal"  x:Name="UIStackDate" Grid.Row="3">

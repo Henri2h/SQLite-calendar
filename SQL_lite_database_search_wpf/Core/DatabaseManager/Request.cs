@@ -3,7 +3,7 @@ using System.Text;
 
 namespace SQL_lite_database_search_wpf.Core.DatabaseManager
 {
-    public class Request
+    public class Requestb
     {
         // DATA
         StringBuilder elements;
@@ -12,7 +12,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
         bool justCreated = false;
 
         // create the request
-        public Request()
+        public Requestb()
         {
             elements = new StringBuilder();
             elementsName = new StringBuilder();

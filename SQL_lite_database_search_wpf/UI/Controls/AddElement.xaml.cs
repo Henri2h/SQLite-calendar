@@ -48,7 +48,7 @@ namespace SQL_lite_database_search_wpf.UI.Controls
         {
             if (mode == objectMode.project) { throw new NotImplementedException(); }
             calendarObject cObj = getCalendarObjectFromUI();
-            cObj.tableName = UICalendarInformations.tableName;
+            cObj.tableName.value = UICalendarInformations.tableName;
             return cObj;
         }
 
@@ -70,7 +70,7 @@ namespace SQL_lite_database_search_wpf.UI.Controls
             prj.priorite = cObj.priorite;
             prj.completion = cObj.completion;
 
-            prj.tableName = Core.AppCore.dCore.TableProject;
+            prj.tableName.value = Core.AppCore.dCore.TableProject;
 
             return prj;
         }

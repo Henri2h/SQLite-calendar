@@ -12,23 +12,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
         SQLiteConnection m_dbConnection { get { return Core.AppCore.dCore.m_dbConnection; } }
         static string TableProject { get { return Core.AppCore.dCore.TableProject; } }
 
-        //add data
-        [Obsolete("Nobody shoud use it and i don't understant the parameters, will be removed in future update")]
-        public void addDataTable(string tableName, string row, string values)
-        {
-            try
-            {
-                string sql_addTable = "insert into " + tableName + " (" + row + ") values (" + values + ")";
-                SQLiteCommand command_addTable = new SQLiteCommand(sql_addTable, m_dbConnection);
-                command_addTable.ExecuteNonQuery();
-            }
-            catch (SQLiteException ex)
-            {
-                ex.Source = "db_SQLite.addDataTable";
-                ErrorHandeler.ErrorMessage.printOut(ex);
-                Core.AppCore.Wi.showMessageBox(ex.Message, "SQLite Error");
-            }
-        }
+
 
 
         // calendar object reader
@@ -51,8 +35,13 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
                 obj.description.value = reader[obj.description.valueName].ToString();
                 obj.completion.value = int.Parse(reader[obj.completion.valueName].ToString());
                 obj.equipe.value = reader[obj.equipe.valueName].ToString();
-                obj.startTime.value = DateTime.FromBinary(long.Parse(reader[obj.startTime.valueName].ToString()));
-                obj.endTime.value = DateTime.FromBinary(long.Parse(reader[obj.endTime.valueName].ToString()));
+
+                obj.isDateUsed.value = bool.Parse(reader[obj.isDateUsed.valueName].ToString());
+                if (obj.isDateUsed.value)
+                {
+                    obj.startTime.value = DateTime.FromBinary(long.Parse(reader[obj.startTime.valueName].ToString()));
+                    obj.endTime.value = DateTime.FromBinary(long.Parse(reader[obj.endTime.valueName].ToString()));
+                }
                 return obj;
             }
             return null;
@@ -78,7 +67,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
                 Project prj = new Project();
                 prj.events = new List<calendarObject>();
                 prj.name.value = reader[prj.name.valueName].ToString();
-                prj.tableName = TableProject;
+                prj.tableName.value = TableProject;
                 prj.projectTableName = prj.name.value + "Events";
                 return prj;
             }

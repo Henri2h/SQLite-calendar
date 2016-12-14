@@ -30,7 +30,7 @@ namespace SQL_lite_database_search_wpf
             foreach (Project pr in Core.AppCore.projects)
             {
                 ComboBoxItem cItem = new ComboBoxItem();
-                cItem.Content = pr.name;
+                cItem.Content = pr.name.value;
                 cItem.Resources.Add("tableName", pr.projectTableName);
                 mItems.Add(cItem);
             }
@@ -57,7 +57,7 @@ namespace SQL_lite_database_search_wpf
 
                 ComboBoxItem cItem = (ComboBoxItem)UIProject.SelectedItem;
                 object item = cItem.Resources["tableName"];
-                obj.tableName = item.ToString();
+                obj.tableName.value = item.ToString();
 
                 if (isDateUse)
                 {

@@ -36,7 +36,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
 
             if (isTheFileJustCreated == true)
             {
-                createTable(TableProject);
+                createProjectTable();
 
                 // default task table
                 Project prj = new Project();
@@ -53,7 +53,18 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
             calendarObject xc = new calendarObject();
             //create a table
             // TODO : make a change to remove all this string from here
+
             string sql_command = "CREATE TABLE " + name + " (name Text, domaine Text, priorite INT, description TEXT, time_start TEXT, time_end TEXT, completion INT, equipe TEXT, isDateUsed BLOB)";
+            SQLiteCommandsExecuter.executeNonQuery(sql_command);
+        }
+
+        public void createProjectTable()
+        {
+            calendarObject xc = new calendarObject();
+            //create a table
+            // TODO : make a change to remove all this string from here
+
+            string sql_command = "CREATE TABLE " + "project" + " (name Text, domaine Text, priorite INT, description TEXT, time_start TEXT, time_end TEXT, completion INT, equipe TEXT, isDateUsed BLOB , tableName TEXT)";
             SQLiteCommandsExecuter.executeNonQuery(sql_command);
         }
 
@@ -72,8 +83,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
 
         public void addCalendarObject(calendarObject cObj)
         {
-            string request = cObj.createRequest();
-            SQLiteCommandsExecuter.executeNonQuery(request);
+            SQLiteCommandsExecuter.insert(cObj);
         }
 
         public void updateCalandarObject(string tableName, string element, string value, int id)
