@@ -13,7 +13,6 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
     public class DatabaseCore
     {
         //definition
-        public const string TableProject = "project";
 
 
 
@@ -66,7 +65,6 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
 
         public void createProjectTable()
         {
-            calendarObject xc = new calendarObject();
             //create a table
             // TODO : make a change to remove all this string from here
 
@@ -92,13 +90,11 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
             SQLiteCommandsExecuter.insert(cObj);
         }
 
-       
 
-        public void updateCalandarObject(string tableName, string element, string value, int id)
-        {
-            string request = "update " + tableName + " set '" + element + "'='" + value + "' where '_rowid_'='" + id + "'";
-            SQLiteCommandsExecuter.executeNonQuery(request);
-        }
+
+        public void delElement(string tableName, int rowID) { }
+
+      
 
         public void CloseDatabase()
         {

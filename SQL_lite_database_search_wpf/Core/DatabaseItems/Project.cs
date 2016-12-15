@@ -11,10 +11,10 @@ namespace SQL_lite_database_search_wpf.Core
         // load default parameters for a project
         public Project()
         {
-            tableName.value = Core.AppCore.dCore.TableProject;
             isDateUsed.value = false;
-
         }
+
+
         public bool isAutomated = true;
         public List<calendarObject> events { get; set; }
         string projecttablename = "";
