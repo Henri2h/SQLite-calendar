@@ -41,8 +41,28 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
         }
 
 
-        public void addCalendarObject(calendarObject cObj) { }
+        public void addCalendarObject(calendarObject cObj)
+        {
 
+            Request.RequestBuilder rb = new Request.RequestBuilder(cObj.tableName.value);
+            rb.addElement(cObj.name.valueName, cObj.name.value);
+            rb.addElement(cObj.priorite.valueName, cObj.name.value);
+
+            rb.addElement(cObj.completion.valueName, cObj.completion.value);
+
+            rb.addElement(cObj.description.valueName, cObj.description.value);
+            rb.addElement(cObj.equipe.valueName, cObj.equipe.value);
+
+            // time
+            rb.addElement(cObj.startTime.valueName, cObj.startTime.value);
+            rb.addElement(cObj.endTime.valueName, cObj.endTime.value);
+            rb.addElement(cObj.isDateUsed.valueName, cObj.isDateUsed.value);
+
+
+            SQLiteCommand cmd = Request.CommandBuilder.getCommand(rb);
+            cmd.ExecuteNonQuery();
+
+        }
         public void deleteCalendarObject(int id, string tableName)
         {
             AppCore.dCore.delElement(tableName, id);

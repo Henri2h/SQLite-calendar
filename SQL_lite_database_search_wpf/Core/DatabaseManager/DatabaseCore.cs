@@ -1,5 +1,6 @@
 ﻿using SQL_lite_database_search_wpf.Core;
 using SQL_lite_database_search_wpf.Core.DatabaseItems;
+using SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -17,7 +18,8 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
 
 
         // control types
-        public ObjectsManager.EquipeManager EquipeMemberManager = new ObjectsManager.EquipeManager();
+        public EquipeManager EquipeMemberManager = new EquipeManager();
+        public CalendarObjectManager calendarObjectManager = new CalendarObjectManager();
 
         // sqlite
         string inputFile = @"D:\sqlite\cal.sqlite";
@@ -55,21 +57,12 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
         }
         public void createTable(string name)
         {
-            calendarObject xc = new calendarObject();
-            //create a table
-            // TODO : make a change to remove all this string from here
-
-            string sql_command = "CREATE TABLE " + name + " (name Text, domaine Text, priorite INT, description TEXT, time_start TEXT, time_end TEXT, completion INT, equipe TEXT, isDateUsed BLOB)";
-            SQLiteCommandsExecuter.executeNonQuery(sql_command);
+            calendarObjectManager.createCalendarTable("name");
         }
 
         public void createProjectTable()
         {
-            //create a table
-            // TODO : make a change to remove all this string from here
-
-            string sql_command = "CREATE TABLE " + "project" + " (name Text, domaine Text, priorite INT, description TEXT, time_start TEXT, time_end TEXT, completion INT, equipe TEXT, isDateUsed BLOB , tableName TEXT)";
-            SQLiteCommandsExecuter.executeNonQuery(sql_command);
+            calendarObjectManager.createCalendarTable("project");
         }
 
         /// <summary>
@@ -94,7 +87,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
 
         public void delElement(string tableName, int rowID) { }
 
-      
+
 
         public void CloseDatabase()
         {

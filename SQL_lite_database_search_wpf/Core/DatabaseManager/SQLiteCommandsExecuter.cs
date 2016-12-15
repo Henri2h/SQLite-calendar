@@ -30,31 +30,14 @@ command.ExecuteNonQuery();
             SQLiteDataReader reader = command.ExecuteReader();
             return reader;
         }
+
+        // todo : to complete
         public static void select(string select, string tableName, string orderBy = "_rowid_")
         {
             string sql = "select " + select + " from " + tableName + " order by " + orderBy + " ASC";
         }
 
-        public static void insert(calendarObject cObj)
-        {
-            Request.RequestBuilder rb = new Request.RequestBuilder(cObj.tableName.value);
-            rb.addElement(cObj.name.valueName, cObj.name.value);
-            rb.addElement(cObj.priorite.valueName, cObj.name.value);
-
-            rb.addElement(cObj.completion.valueName, cObj.completion.value);
-
-            rb.addElement(cObj.description.valueName, cObj.description.value);
-            rb.addElement(cObj.equipe.valueName, cObj.equipe.value);
-
-            // time
-            rb.addElement(cObj.startTime.valueName, cObj.startTime.value);
-            rb.addElement(cObj.endTime.valueName, cObj.endTime.value);
-            rb.addElement(cObj.isDateUsed.valueName, cObj.isDateUsed.value);
-
-
-            SQLiteCommand cmd = Request.CommandBuilder.getCommand(rb);
-            cmd.ExecuteNonQuery();
-        }
+     
 
     }
 }
