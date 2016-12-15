@@ -18,7 +18,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
             elementsName = new StringBuilder();
             justCreated = true;
         }
-
+        
         public void addElement(string name, object value)
         {
             addElements(name, value.ToString());
@@ -43,7 +43,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
             elements.Append(value);
             justCreated = false;
         }
-
+        public void delElement(string tableName, int rowID) { }
         public string elementsValue { get { return elements.ToString(); } }
         public string elementsNamesValue { get { return elementsName.ToString(); } }
     }

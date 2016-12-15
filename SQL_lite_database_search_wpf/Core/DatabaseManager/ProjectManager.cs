@@ -9,8 +9,6 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
 {
     public class ProjectManager
     {
-        public ProjectManager() { }
-
         // in order to simplify the names
         SQLiteConnection m_dbConnection { get { return AppCore.dCore.m_dbConnection; } }
         DatabaseCore dCore { get { return AppCore.dCore; } }
