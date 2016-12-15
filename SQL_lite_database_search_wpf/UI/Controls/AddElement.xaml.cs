@@ -48,31 +48,21 @@ namespace SQL_lite_database_search_wpf.UI.Controls
         {
             if (mode == objectMode.project) { throw new NotImplementedException(); }
             calendarObject cObj = getCalendarObjectFromUI();
-            cObj.tableName.value = UICalendarInformations.tableName;
+            cObj.tableName = UICalendarInformations.tableName;
             return cObj;
         }
 
-        public Project getProject()
+        public calendarObject getProject()
         {
             if (mode == objectMode.calendarObject) { throw new NotImplementedException(); }
-            Project prj = new Project();
+
             calendarObject cObj = getCalendarObjectFromUI();
 
-            prj.name = cObj.name;
-            prj.equipe = cObj.equipe;
-            prj.domaine = cObj.domaine;
-            prj.description = cObj.description;
 
-            prj.startTime = cObj.startTime;
-            prj.endTime = cObj.endTime;
-            prj.isDateUsed = cObj.isDateUsed;
+            cObj.isRepository.value = true;
+            cObj.tableName = Core.AppCore.mainProjectTableName;
 
-            prj.priorite = cObj.priorite;
-            prj.completion = cObj.completion;
-
-            prj.tableName.value = Core.AppCore.dCore.TableProject;
-
-            return prj;
+            return cObj;
         }
 
         calendarObject getCalendarObjectFromUI()

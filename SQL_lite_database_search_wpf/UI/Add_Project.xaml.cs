@@ -26,13 +26,13 @@ namespace SQL_lite_database_search_wpf.UI
             mode = UIAddElement.Mode;
             if (mode == objectMode.project)
             {
-                Project prj = UIAddElement.getProject();
-                AppCore.projectmanager.addProject(prj);
+                calendarObject prj = UIAddElement.getProject();
+                AppCore.dCore.calendarObjectManager.addCalendarObject(prj);
             }
             else
             {
                 calendarObject obj = UIAddElement.getCalendarObject();
-                AppCore.dCore.addCalendarObject(obj);
+                AppCore.dCore.calendarObjectManager.addCalendarObject(obj);
             }
             this.DialogResult = true;
         }
