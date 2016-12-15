@@ -22,7 +22,7 @@ namespace SQL_lite_database_search_wpf.UI.EventView
     /// </summary>
     public partial class ProjectView : UserControl
     {
-        public ProjectView(Project pr)
+        public ProjectView(calendarObject pr)
         {
 
             InitializeComponent();
@@ -31,10 +31,10 @@ namespace SQL_lite_database_search_wpf.UI.EventView
             loadElement(pr);
 
         }
-        private void loadElement(Project project)
+        private void loadElement(calendarObject project)
         {
             List<UICalendarObjectView> cView = new List<UICalendarObjectView>();
-            foreach (calendarObject cObj in AppCore.dCore.calendarObjectManager.listCalendarObjects(project.projectTableName))
+            foreach (calendarObject cObj in AppCore.dCore.calendarObjectManager.listCalendarObjects(project.projectTableName.value))
             {
                 cView.Add(new UICalendarObjectView(cObj));
             }

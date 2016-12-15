@@ -60,20 +60,18 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
         }
 
         // projects reader
-        public static Project readerToProject(SQLiteDataReader reader)
+        public static void readerToProject(SQLiteDataReader reader)
         {
             if (reader != null)
             {
-                Project prj = new Project();
                 prj.events = new List<calendarObject>();
                 prj.name.value = reader[prj.name.valueName].ToString();
                 prj.tableName.value = reader[prj.name.valueName].ToString();
 
                 prj.projectTableName = prj.name.value + "Events";
-                return prj;
+               
             }
-
-            return null;
+            
         }
         public static List<Project> readerToProjects(SQLiteDataReader reader)
         {

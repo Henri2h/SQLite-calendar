@@ -35,8 +35,12 @@ namespace SQL_lite_database_search_wpf
 
         // table and repository
         public sqliteBool isRepository = new sqliteBool("isRepository");
-        public sqliteString tableName = new sqliteString("tableName");
+        public sqliteString projectTableName = new sqliteString("tableName");
 
+
+
+        // other parameters
+        public string tableName { get; set; }
 
         // if isRepository
         public List<calendarObject> events
