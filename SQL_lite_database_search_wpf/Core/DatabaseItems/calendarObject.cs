@@ -17,6 +17,7 @@ namespace SQL_lite_database_search_wpf
     {
         public sqliteString name = new sqliteString("name");
 
+        // date
         public sqliteBool isDateUsed = new sqliteBool("isDateUsed");
         public sqliteDateTime startTime = new sqliteDateTime("time_start");
         public sqliteDateTime endTime = new sqliteDateTime("time_end");
@@ -30,11 +31,12 @@ namespace SQL_lite_database_search_wpf
         public sqliteString tableName = new sqliteString("tableName");
 
 
+        public string databaseName { get; set; }
+
+
+        // others
         public Color color = new Color();
         public DayManager days { get; set; }
-
-
-
 
         public bool isOneDayLenght
         {
@@ -65,29 +67,5 @@ namespace SQL_lite_database_search_wpf
             }
         }
 
-       
-        /*
-        /// <summary>
-        /// list the elements names
-        /// </summary>
-        /// <returns></returns>
-        public string[] getElementNames()
-        {
-            Request rb = new Request();
-            rb.addElement(this.name.valueName, this.name.value);
-            rb.addElement(this.priorite.valueName, this.priorite.value);
-
-            rb.addElement(this.startTime.valueName, this.startTime.value.ToBinary());
-            rb.addElement(this.description.valueName, this.description.value);
-            rb.addElement(this.endTime.valueName, this.endTime.value.ToBinary());
-
-            rb.addElement(this.completion.valueName, this.completion.value);
-            rb.addElement(this.equipe.valueName, this.equipe.value);
-            rb.addElement(this.isDateUsed.valueName, this.isDateUsed.value.ToString());
-
-
-            string[] elements = { rb.elementsNamesValue, rb.elementsValue };
-            return elements;
-        }*/
     }
 }

@@ -14,7 +14,16 @@ namespace SQL_lite_database_search_wpf.Core
         public static DatabaseManager.DatabaseCore dCore = new DatabaseCore();
         public static ProjectManager projectmanager = new ProjectManager();
         public static MainWindow Wi;
+        public static List<string> Equipe { get; set; }
 
+        public static List<string> getEquipe()
+        {
+            List<string> equipeMember = new List<string>();
+
+            return equipeMember ;
+        }
+
+        public static bool databaseOpened = false;
 
         public AppCore(MainWindow wi)
         {
@@ -23,6 +32,7 @@ namespace SQL_lite_database_search_wpf.Core
 
             wi = Wi;
             dCore.OpenDataBase();
+            databaseOpened = true;
             projects = projectmanager.loadProject();
         }
     }

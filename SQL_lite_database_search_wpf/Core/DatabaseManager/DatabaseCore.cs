@@ -1,4 +1,5 @@
 ﻿using SQL_lite_database_search_wpf.Core;
+using SQL_lite_database_search_wpf.Core.DatabaseItems;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -12,11 +13,16 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
     public class DatabaseCore
     {
         //definition
-        public string TableProject = "project";
+        public const string TableProject = "project";
+
+
+
+        // control types
+        public ObjectsManager.EquipeManager EquipeMemberManager = new ObjectsManager.EquipeManager();
+
+        // sqlite
         string inputFile = @"D:\sqlite\cal.sqlite";
         public SQLiteConnection m_dbConnection;
-
-        public DatabaseCore() { }
 
         public void OpenDataBase()
         {
@@ -85,6 +91,8 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
         {
             SQLiteCommandsExecuter.insert(cObj);
         }
+
+       
 
         public void updateCalandarObject(string tableName, string element, string value, int id)
         {

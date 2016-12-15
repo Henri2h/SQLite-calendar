@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQL_lite_database_search_wpf.Core.DatabaseItems;
+using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Linq;
@@ -86,6 +87,24 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
                 }
             }
             return projects;
+        }
+
+
+        public static List<EquipeMember> getEquipeFromReader(SQLiteDataReader reader)
+        {
+            List<EquipeMember> equipeMemeber = new List<EquipeMember>();
+            while (reader.Read())
+            {
+                EquipeMember mb = new EquipeMember();
+                mb.name.value = reader[mb.name.valueName].ToString();
+                mb.id.value = int.Parse(reader[mb.id.valueName].ToString());
+
+
+                equipeMemeber.Add(mb);
+            }
+
+            return equipeMemeber;
+
         }
 
     }
