@@ -11,7 +11,6 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
     public class ObjectManager
     {
         SQLiteConnection m_dbConnection { get { return Core.AppCore.dCore.m_dbConnection; } }
-        static string TableProject { get { return Core.AppCore.dCore.TableProject; } }
 
 
 
@@ -68,7 +67,8 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
                 Project prj = new Project();
                 prj.events = new List<calendarObject>();
                 prj.name.value = reader[prj.name.valueName].ToString();
-                prj.tableName.value = TableProject;
+                prj.tableName.value = reader[prj.name.valueName].ToString();
+
                 prj.projectTableName = prj.name.value + "Events";
                 return prj;
             }
