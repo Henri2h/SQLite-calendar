@@ -9,9 +9,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
 {
     public class ProjectManager
     {
-
-
-        public const string TableProject = "project";
+        
 
         // in order to simplify the names
         SQLiteConnection m_dbConnection { get { return AppCore.dCore.m_dbConnection; } }

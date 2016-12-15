@@ -10,9 +10,11 @@ namespace SQL_lite_database_search_wpf.Core
 {
     public class AppCore
     {
-        public static List<Project> projects = new List<Project>();
-        public static DatabaseManager.DatabaseCore dCore = new DatabaseCore();
-        public static ProjectManager projectmanager = new ProjectManager();
+
+        public static string mainProjectTableName = "projects";
+
+        public static List<calendarObject> projects = new List<calendarObject>();
+        public static DatabaseCore dCore = new DatabaseCore();
         public static MainWindow Wi;
         public static List<string> Equipe { get; set; }
 
@@ -28,12 +30,11 @@ namespace SQL_lite_database_search_wpf.Core
         public AppCore(MainWindow wi)
         {
             if (dCore == null) { dCore = new DatabaseCore(); }
-            if (projectmanager == null) { projectmanager = new ProjectManager(); }
 
             wi = Wi;
             dCore.OpenDataBase();
             databaseOpened = true;
-            projects = projectmanager.loadProject();
+            projects = dCore.calendarObjectManager.listCalendarObjects(mainProjectTableName);
         }
     }
 }
