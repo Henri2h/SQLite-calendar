@@ -28,7 +28,11 @@ namespace SQL_lite_database_search_wpf
         public sqliteInt priorite = new sqliteInt("priorite");
         public sqliteInt completion = new sqliteInt("completion");
         public sqliteString equipe = new sqliteString("equipe");
+
+        // table and repository
+        public sqliteBool isRepository = new sqliteBool("isRepository");
         public sqliteString tableName = new sqliteString("tableName");
+
 
 
         public string databaseName { get; set; }
