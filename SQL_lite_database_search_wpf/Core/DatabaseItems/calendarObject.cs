@@ -15,7 +15,11 @@ namespace SQL_lite_database_search_wpf
     /// </summary>
     public class calendarObject
     {
+
+        // definitions
         public sqliteString name = new sqliteString("name");
+        public sqliteInt elementID = new sqliteInt("elementID");
+
 
         // date
         public sqliteBool isDateUsed = new sqliteBool("isDateUsed");
@@ -34,6 +38,20 @@ namespace SQL_lite_database_search_wpf
         public sqliteString tableName = new sqliteString("tableName");
 
 
+        // if isRepository
+        public List<calendarObject> events
+        {
+            get
+            {
+                if (isRepository.value)
+                {
+                    return eventsLocal;
+                }
+                throw new NotImplementedException();
+            }
+            set { eventsLocal = value; }
+        }
+        List<calendarObject> eventsLocal;
 
         public string databaseName { get; set; }
 

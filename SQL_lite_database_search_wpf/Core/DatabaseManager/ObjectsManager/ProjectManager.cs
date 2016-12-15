@@ -31,8 +31,10 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
             AppCore.projects.Add(prj);
 
             calendarObject c = prj;
-            AppCore.dCore.addCalendarObject(c);
-            AppCore.dCore.createTable(prj.projectTableName);
+
+            AppCore.dCore.calendarObjectManager.addCalendarObject(c);
+            AppCore.dCore.calendarObjectManager.createCalendarTable(prj.projectTableName);
+
         }
 
 
@@ -40,13 +42,13 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
         {
             foreach (Project prj in projects)
             {
-                prj.events = dCore.readCObjInTable(prj.projectTableName);
+                prj.events = dCore.calendarObjectManager.listCalendarObjects(prj.projectTableName);
             }
             return projects;
         }
         public Project loadProjectElements(Project project)
         {
-            project.events = dCore.readCObjInTable(project.projectTableName);
+            project.events = dCore.calendarObjectManager.listCalendarObjects(project.projectTableName);
             return project;
         }
     }

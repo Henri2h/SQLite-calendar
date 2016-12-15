@@ -34,7 +34,7 @@ namespace SQL_lite_database_search_wpf.UI.EventView
         private void loadElement(Project project)
         {
             List<UICalendarObjectView> cView = new List<UICalendarObjectView>();
-            foreach (calendarObject cObj in AppCore.dCore.readCObjInTable(project.projectTableName))
+            foreach (calendarObject cObj in AppCore.dCore.calendarObjectManager.listCalendarObjects(project.projectTableName))
             {
                 cView.Add(new UICalendarObjectView(cObj));
             }

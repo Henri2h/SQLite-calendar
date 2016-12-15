@@ -28,7 +28,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
                 calendarObject obj = new calendarObject();
                 obj.name.value = reader[obj.name.valueName].ToString();
 
-                // obj.ID = Convert.ToInt32(reader["_rowid_"].ToString());
+                obj.elementID.value = Convert.ToInt32(reader[obj.elementID.valueName].ToString());
 
                 obj.domaine.value = (reader[obj.domaine.valueName].ToString());
                 obj.priorite.value = int.Parse(reader[obj.priorite.valueName].ToString());

@@ -10,6 +10,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
 {
     public class CalendarObjectManager
     {
+        public const string elementID = "elementID";
 
         public void createCalendarTable(string tableName)
         {
@@ -18,6 +19,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
                 " (" +
 
                 "name Text, " +
+                elementID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "domaine Text, " +
                 "priorite INT, " +
                 "description TEXT, " +
@@ -65,7 +67,10 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
         }
         public void deleteCalendarObject(int id, string tableName)
         {
-            AppCore.dCore.delElement(tableName, id);
+            sqliteInt sIntID = new sqliteInt("elementID");
+            sIntID.value = id;
+
+            AppCore.dCore.delElement(tableName, sIntID);
         }
 
         public calendarObject getCalendarObject(string objectID, string tableName)

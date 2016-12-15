@@ -1,5 +1,6 @@
 ﻿using SQL_lite_database_search_wpf.Core;
 using SQL_lite_database_search_wpf.Core.DatabaseItems;
+using SQL_lite_database_search_wpf.Core.DatabaseItems.objects;
 using SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager;
 using System;
 using System.Collections.Generic;
@@ -46,47 +47,33 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
                 createProjectTable();
 
                 // default task table
-                Project prj = new Project();
+                calendarObject prj = new calendarObject();
                 prj.name.value = "DefaultTasks";
+
+                // define that he is a project
+                prj.isRepository.value = true;
                 prj.isDateUsed.value = false;
 
-                AppCore.projectmanager.addProject(prj);
 
+                calendarObjectManager.addCalendarObject(prj);
             }
 
         }
-        public void createTable(string name)
-        {
-            calendarObjectManager.createCalendarTable("name");
-        }
+
 
         public void createProjectTable()
         {
             calendarObjectManager.createCalendarTable("project");
         }
 
-        /// <summary>
-        /// Read all the elements from specific table ordered by ID
-        /// </summary>
-        /// <param name="tableName"></param>
-        /// <returns></returns>
-        public List<calendarObject> readCObjInTable(string tableName)
+
+
+        public void delElement(string tableName, sqliteInt rowID)
         {
-            string sql = "select * from " + tableName + " order by _rowid_ ASC";
-            SQLiteDataReader reader = SQLiteCommandsExecuter.executeDataReader(sql);
-            List<calendarObject> cObjects = ObjectManager.readerToCobjs(reader);
-            return cObjects;
+            string sql = "DELETE FROM " + tableName + " WHERE " + rowID.valueName + " = " + rowID.value;
+
+            SQLiteCommandsExecuter.executeNonQuery(sql);
         }
-
-        public void addCalendarObject(calendarObject cObj)
-        {
-            SQLiteCommandsExecuter.insert(cObj);
-        }
-
-
-
-        public void delElement(string tableName, int rowID) { }
-
 
 
         public void CloseDatabase()
