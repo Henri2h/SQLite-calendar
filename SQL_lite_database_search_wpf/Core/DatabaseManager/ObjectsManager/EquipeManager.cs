@@ -12,6 +12,19 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
     {
 
         public const string equipeTable = "equipe";
+        public const string memberRowID = "memberID";
+
+        public void createEquipeTable()
+        {
+            string sql_command = "CREATE TABLE " +
+                equipeTable +
+                " (" +
+                memberRowID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "name Text" +
+                ")";
+            SQLiteCommandsExecuter.executeNonQuery(sql_command);
+        }
+
 
         // equipe manager
         public List<EquipeMember> getEquipeMembers()
@@ -29,5 +42,9 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
             string sql = "DELETE FROM " + equipeTable + " WHERE " + "memberID" + " = " + memberID;
             SQLiteCommandsExecuter.executeNonQuery(sql);
         }
+
+
+
+
     }
 }
