@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SQL_lite_database_search_wpf.UI.Controls"
+             xmlns:star="clr-namespace:SQL_lite_database_search_wpf.UI.Controls.StarSelection"
              mc:Ignorable="d" >
     
     <Grid VerticalAlignment="Top">
@@ -39,9 +40,10 @@
         <StackPanel Orientation="Vertical" Grid.Column="2" Margin="5,0">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Priorité :"/>
-                <Slider x:Name="UIslPriorite" Value="5" Width="100" Maximum="5" SmallChange="1"/>
+                <star:StarsSelecter x:Name="UIslPriorite"/>
+                
             </StackPanel>
-
+            
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Completion :"/>
                 <Slider x:Name="UIslCompletion" Value="0" Width="100" Maximum="100" SmallChange="10"/>

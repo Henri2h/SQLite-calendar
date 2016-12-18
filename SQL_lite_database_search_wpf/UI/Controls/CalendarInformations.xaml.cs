@@ -38,7 +38,7 @@ namespace SQL_lite_database_search_wpf.UI.Controls
         public string Description { get { return UITbDescription.Text; } }
 
         public int Completion { get { return Convert.ToInt32(UIslCompletion.Value); } }
-        public int Priorite { get { return Convert.ToInt32(UIslPriorite.Value); } }
+        public int Priorite { get { return Convert.ToInt32(UIslPriorite.starPosition); } }
 
         public string Domaine { get { return UITbDomaine.Text; } }
         public string Equipe { get { return UITbEquipe.Text; } }
@@ -81,7 +81,7 @@ namespace SQL_lite_database_search_wpf.UI.Controls
         public void loadMenuItems()
         {
             List<ComboBoxItem> mItems = new List<ComboBoxItem>();
-            foreach (Project pr in Core.AppCore.projects)
+            foreach (calendarObject pr in Core.AppCore.projects)
             {
                 ComboBoxItem cItem = new ComboBoxItem();
                 cItem.Content = pr.name.value;
@@ -111,14 +111,6 @@ namespace SQL_lite_database_search_wpf.UI.Controls
             {
                 projectModeChanged?.Invoke(objectMode.project);
 
-                /*   Add_Project addPr = new Add_Project(objectMode.project);
-                   addPr.Style = (Style)App.Current.Resources["BlankWindow"];
-                   addPr.ResizeMode = ResizeMode.CanResizeWithGrip;
-                   addPr.Show();
-
-                   while (addPr.IsActive) { Thread.Sleep(1); }
-
-       */
                 loadMenuItems();
             }
             else if (cb.SelectedIndex == NewProjectEmpty) { MessageBox.Show("Not implemented", "New Project empty"); }
