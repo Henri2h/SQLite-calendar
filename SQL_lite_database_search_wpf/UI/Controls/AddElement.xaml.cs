@@ -79,6 +79,7 @@ namespace SQL_lite_database_search_wpf.UI.Controls
             cObj.isDateUsed.value = UIDateTimemanager.isDateUsed;
             cObj.startTime.value = UIDateTimemanager.time_start;
             cObj.endTime.value = UIDateTimemanager.time_end;
+            cObj.isRepository.value = !UIRdMode.IsChecked.Value;
 
             return cObj;
         }

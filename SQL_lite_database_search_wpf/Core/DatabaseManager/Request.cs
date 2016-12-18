@@ -43,7 +43,6 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
             elements.Append(value);
             justCreated = false;
         }
-        public void delElement(string tableName, int rowID) { }
         public string elementsValue { get { return elements.ToString(); } }
         public string elementsNamesValue { get { return elementsName.ToString(); } }
     }

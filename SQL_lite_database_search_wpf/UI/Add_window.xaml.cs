@@ -27,7 +27,7 @@ namespace SQL_lite_database_search_wpf
         void loadMenuItems()
         {
             List<ComboBoxItem> mItems = new List<ComboBoxItem>();
-            foreach (Project pr in Core.AppCore.projects)
+            foreach (calendarObject pr in Core.AppCore.projects)
             {
                 ComboBoxItem cItem = new ComboBoxItem();
                 cItem.Content = pr.name.value;
@@ -57,7 +57,7 @@ namespace SQL_lite_database_search_wpf
 
                 ComboBoxItem cItem = (ComboBoxItem)UIProject.SelectedItem;
                 object item = cItem.Resources["tableName"];
-                obj.tableName.value = item.ToString();
+                obj.tableName = item.ToString();
 
                 if (isDateUse)
                 {
