@@ -47,15 +47,18 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
                 calendarObjectManager.createCalendarTable(AppCore.mainProjectTableName);
 
                 // default task table
-                calendarObject prj = new calendarObject();
-                prj.name.value = "DefaultTasks";
+                calendarObject prj = new calendarObject("Defaults");
+                prj.tableName = AppCore.mainProjectTableName;
 
                 // define that he is a project
                 prj.isRepository.value = true;
                 prj.isDateUsed.value = false;
 
 
+
                 calendarObjectManager.addCalendarObject(prj);
+
+                calendarObjectManager.createCalendarTable(prj.projectTableName.value);
             }
 
         }

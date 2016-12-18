@@ -36,12 +36,23 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
                 obj.completion.value = int.Parse(reader[obj.completion.valueName].ToString());
                 obj.equipe.value = reader[obj.equipe.valueName].ToString();
 
-                obj.isDateUsed.value = bool.Parse(reader[obj.isDateUsed.valueName].ToString());
+                obj.isDateUsed.value = Convert.ToBoolean(int.Parse(reader[obj.isDateUsed.valueName].ToString()));
                 if (obj.isDateUsed.value)
                 {
                     obj.startTime.value = DateTime.FromBinary(long.Parse(reader[obj.startTime.valueName].ToString()));
                     obj.endTime.value = DateTime.FromBinary(long.Parse(reader[obj.endTime.valueName].ToString()));
                 }
+
+
+                
+                obj.isRepository.value = Convert.ToBoolean(int.Parse(reader[obj.isRepository.valueName].ToString()));
+
+                if (obj.isRepository.value)
+                {
+                    obj.projectTableName.value = reader[obj.projectTableName.valueName].ToString();
+                }
+
+
                 return obj;
             }
             return null;
@@ -59,34 +70,34 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
             return cObjs;
         }
 
-        // projects reader
-        public static void readerToProject(SQLiteDataReader reader)
-        {
-            if (reader != null)
-            {
-                prj.events = new List<calendarObject>();
-                prj.name.value = reader[prj.name.valueName].ToString();
-                prj.tableName.value = reader[prj.name.valueName].ToString();
+        /*  // projects reader
+           public static void readerToProject(SQLiteDataReader reader)
+           {
+               if (reader != null)
+               {
+                   prj.events = new List<calendarObject>();
+                   prj.name.value = reader[prj.name.valueName].ToString();
+                   prj.tableName.value = reader[prj.name.valueName].ToString();
 
-                prj.projectTableName = prj.name.value + "Events";
-               
-            }
-            
-        }
-        public static List<Project> readerToProjects(SQLiteDataReader reader)
-        {
+                   prj.projectTableName = prj.name.value + "Events";
 
-            List<Project> projects = new List<Project>();
-            while (reader.Read())
-            {
-                if (reader != null)
-                {
-                    projects.Add(readerToProject(reader));
-                }
-            }
-            return projects;
-        }
+               }
 
+           }
+           public static List<Project> readerToProjects(SQLiteDataReader reader)
+           {
+
+               List<Project> projects = new List<Project>();
+               while (reader.Read())
+               {
+                   if (reader != null)
+                   {
+                       projects.Add(readerToProject(reader));
+                   }
+               }
+               return projects;
+           }
+           */
 
         public static List<EquipeMember> getEquipeFromReader(SQLiteDataReader reader)
         {
