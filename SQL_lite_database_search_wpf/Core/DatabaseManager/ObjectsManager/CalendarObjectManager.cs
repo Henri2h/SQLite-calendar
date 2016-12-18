@@ -14,40 +14,35 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
 
         public void createCalendarTable(string tableName)
         {
-            string sql_command = "CREATE TABLE " +
-                tableName +
-                " (" +
+            calendarObject cObj = new calendarObject();
 
-                "name Text, " +
-                elementID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "domaine Text, " +
-                "priorite INT, " +
-                "description TEXT, " +
+            StringBuilder sbElements = new StringBuilder();
+            {
+                bool justCreated = true;
 
-                // time
-                "time_start TEXT, " +
-                "time_end TEXT, " +
-                "isDateUsed BLOB , " +
+                foreach (sqliteBase sElement in cObj.values)
+                {
+                    if (justCreated) { justCreated = false; }
+                    else { sbElements.Append(", "); }
+                    sbElements.Append(sElement.valueName + " " + sElement.dataType);
 
-                "completion INT, " +
+                }
+            }
 
-                // equipe: JSON string of list of member ids
-                "equipe TEXT, " +
-
-                //associate table name
-                "isRepository," +
-                "tableName TEXT" +
-
-                ")";
+            string sql_command = "CREATE TABLE " + tableName + " ( " + sbElements.ToString() + ")";
             SQLiteCommandsExecuter.executeNonQuery(sql_command);
         }
 
 
         public void addCalendarObject(calendarObject cObj)
         {
+            if (cObj.tableName == null) { throw new ArgumentNullException(); }
 
-            Request.RequestBuilder rb = new Request.RequestBuilder(cObj.tableName.value);
+            Request.RequestBuilder rb = new Request.RequestBuilder(cObj.tableName);
             rb.addElement(cObj.name.valueName, cObj.name.value);
+
+
+
             rb.addElement(cObj.priorite.valueName, cObj.name.value);
 
             rb.addElement(cObj.completion.valueName, cObj.completion.value);
@@ -59,6 +54,9 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
             rb.addElement(cObj.startTime.valueName, cObj.startTime.value);
             rb.addElement(cObj.endTime.valueName, cObj.endTime.value);
             rb.addElement(cObj.isDateUsed.valueName, cObj.isDateUsed.value);
+
+            rb.addElement(cObj.isRepository.valueName, cObj.isRepository.value);
+            rb.addElement(cObj.projectTableName.valueName, cObj.projectTableName.value);
 
 
             SQLiteCommand cmd = Request.CommandBuilder.getCommand(rb);
@@ -75,12 +73,14 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
 
         public calendarObject getCalendarObject(string objectID, string tableName)
         {
-            string sql = "select * from " + tableName + " order by _rowid_ ASC";
+            string sql = "select * from " + tableName + " where (" + elementID + " = " + objectID + ")  order by _rowid_ ASC";
             SQLiteDataReader reader = SQLiteCommandsExecuter.executeDataReader(sql);
             calendarObject cObjects = ObjectManager.readerToCobj(reader);
             return cObjects;
 
         }
+
+
         public List<calendarObject> listCalendarObjects(string tableName)
         {
             string sql = "select * from " + tableName + " order by _rowid_ ASC";

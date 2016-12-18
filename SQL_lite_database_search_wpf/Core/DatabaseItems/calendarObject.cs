@@ -16,30 +16,80 @@ namespace SQL_lite_database_search_wpf
     public class calendarObject
     {
 
+        // ==============  data values ==============
+        public sqliteBase[] values = new sqliteBase[12];
+
+
+        // data access:
+        //=============
+
         // definitions
-        public sqliteString name = new sqliteString("name");
-        public sqliteInt elementID = new sqliteInt("elementID");
+        public sqliteString name { get { return (sqliteString)values[0]; } set { values[0] = value; } }
+        public sqliteInt elementID { get { return (sqliteInt)values[1]; } set { values[1] = value; } }
 
 
         // date
-        public sqliteBool isDateUsed = new sqliteBool("isDateUsed");
-        public sqliteDateTime startTime = new sqliteDateTime("time_start");
-        public sqliteDateTime endTime = new sqliteDateTime("time_end");
+        public sqliteBool isDateUsed { get { return (sqliteBool)values[2]; } set { values[2] = value; } }
+        public sqliteDateTime startTime { get { return (sqliteDateTime)values[3]; } set { values[3] = value; } }
+        public sqliteDateTime endTime { get { return (sqliteDateTime)values[4]; } set { values[4] = value; } }
 
-        public sqliteString description = new sqliteString("description");
-        public sqliteString domaine = new sqliteString("domaine");
+        public sqliteString description { get { return (sqliteString)values[5]; } set { values[5] = value; } }
+        public sqliteString domaine { get { return (sqliteString)values[6]; } set { values[6] = value; } }
 
-        public sqliteInt priorite = new sqliteInt("priorite");
-        public sqliteInt completion = new sqliteInt("completion");
-        public sqliteString equipe = new sqliteString("equipe");
+        public sqliteInt priorite { get { return (sqliteInt)values[7]; } set { values[7] = value; } }
+        public sqliteInt completion { get { return (sqliteInt)values[8]; } set { values[8] = value; } }
+        public sqliteString equipe { get { return (sqliteString)values[9]; } set { values[9] = value; } }
 
         // table and repository
-        public sqliteBool isRepository = new sqliteBool("isRepository");
-        public sqliteString projectTableName = new sqliteString("tableName");
+        public sqliteBool isRepository { get { return (sqliteBool)values[10]; } set { values[10] = value; } }
+        public sqliteString projectTableName { get { return (sqliteString)values[11]; } set { values[11] = value; } }
 
 
 
-        // other parameters
+
+
+
+        // declarations
+        public calendarObject(string inputName)
+        {
+            createCalendarObject();
+            name.value = inputName;
+            projectTableName.value = name.value + "Tasks";
+            isDateUsed.value = false;
+        }
+        public calendarObject() { createCalendarObject(); }
+
+        void createCalendarObject()
+        {
+            values[0] = new sqliteString("name");
+            values[1] = new sqliteInt("elementID", "INTEGER PRIMARY KEY AUTOINCREMENT");
+
+            // date time
+            values[2] = new sqliteBool("isDateUsed");
+            values[3] = new sqliteDateTime("time_start");
+            values[4] = new sqliteDateTime("time_end");
+
+            values[5] = new sqliteString("description");
+            values[6] = new sqliteString("domain");
+            values[7] = new sqliteInt("priority");
+            values[8] = new sqliteInt("completion");
+            values[9] = new sqliteString("team");
+
+
+            // repository
+
+            values[10] = new sqliteBool("isRepository");
+            values[11] = new sqliteString("tableName");
+        }
+
+
+
+
+
+
+        // other parameters:
+        // =================
+
         public string tableName { get; set; }
 
         // if isRepository
