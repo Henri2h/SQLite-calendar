@@ -16,12 +16,6 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
         {
             SQLiteCommand command = new SQLiteCommand(request, m_dbConnection);
             command.ExecuteNonQuery();
-            /*
-             * 
-             * SQLiteCommand Command = "UPDATE SUBCONTRACTOR SET JobSite = NULL WHERE JobSite = @JobSite";
-Command.Parameters.Add(new SQLiteParameter("@JobSite", JobSiteVariable));
-command.ExecuteNonQuery();
-             */
         }
 
         public static SQLiteDataReader executeDataReader(string request)

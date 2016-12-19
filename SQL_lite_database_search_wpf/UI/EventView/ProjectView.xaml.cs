@@ -16,15 +16,13 @@ namespace SQL_lite_database_search_wpf.UI.EventView
             InitializeComponent();
 
         }
+
         public List<string> tableSourceHistory = new List<string>();
         public string tableSource { get; set; }
 
         public void loadElement()
         {
-
             UIStackCalendarObjects.Children.Clear();
-
-
 
             List<calendarObject> cObjs = AppCore.dCore.calendarObjectManager.listCalendarObjects(tableSource);
             if (cObjs.ToArray().Length != 0)
@@ -35,13 +33,18 @@ namespace SQL_lite_database_search_wpf.UI.EventView
                     CalendarObjectView cObjView = new CalendarObjectView(cObj);
                     cObjView.MouseDoubleClick += CObjView_MouseDoubleClick;
                     UIStackCalendarObjects.Children.Add(cObjView);
-
-
-
-
                 }
             }
             else { TextBlock tb = new TextBlock(); tb.Text = "No events"; UIStackCalendarObjects.Children.Add(tb); }
+        }
+
+        public void addNewElement() {
+
+            Add_Project inputDialog = new Add_Project();
+            inputDialog.Style = (Style)App.Current.Resources["BlankWindow"];
+            inputDialog.parentTable = tableSource;
+            inputDialog.ShowDialog();
+            loadElement();
         }
 
         private void CObjView_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -49,7 +52,6 @@ namespace SQL_lite_database_search_wpf.UI.EventView
             CalendarObjectView cView = (CalendarObjectView)sender;
             if (cView.CalendarObject.isRepository.value == true && cView.CalendarObject.projectTableName.value != null)
             {
-
                 setNewValue(cView.CalendarObject.projectTableName.value);
             }
             else MessageBox.Show("Not repository");
@@ -63,9 +65,5 @@ namespace SQL_lite_database_search_wpf.UI.EventView
             loadElement();
         }
 
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            dataGrid.CanUserAddRows = true;
-        }
     }
 }

@@ -11,6 +11,7 @@ namespace SQL_lite_database_search_wpf.UI
     {
         public delegate void UIEvent();
         public UIEvent RefreshISNeeded;
+        public UIEvent AddNewElementAsked;
 
         public Controlls()
         {
@@ -22,12 +23,7 @@ namespace SQL_lite_database_search_wpf.UI
         }
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
-            StringBuilder output = new StringBuilder();
-            Add_Project inputDialog = new Add_Project();
-            inputDialog.Style = (Style)App.Current.Resources["BlankWindow"];
-
-            inputDialog.ShowDialog();
-            RefreshISNeeded?.Invoke();
+            AddNewElementAsked?.Invoke();
         }
         private void btRefresch_Click(object sender, RoutedEventArgs e)
         {

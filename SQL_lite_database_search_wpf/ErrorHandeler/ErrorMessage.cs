@@ -39,11 +39,12 @@ namespace SQL_lite_database_search_wpf.ErrorHandeler
         {
             string err = getErrorString(ex);
             Console.WriteLine(err);
-            string tempFile = Files.getTempFile(".err");
+            System.Diagnostics.Debug.WriteLine(err);
 
+            string tempFile = Files.getTempFile(".err");
             File.AppendAllText(tempFile, err);
-            //  files.saveFile(".err", err + Environment.NewLine + tempFile);
         }
+
         /// <summary>
         /// just to save the error without printing the error
         /// </summary>
@@ -53,9 +54,7 @@ namespace SQL_lite_database_search_wpf.ErrorHandeler
             
             string err = getErrorString(ex);
             string tempFile = Files.getTempFile(".err");
-
             File.AppendAllText(tempFile, err);
-            //  files.saveFile(".err", err + Environment.NewLine + tempFile);
         }
 
         
