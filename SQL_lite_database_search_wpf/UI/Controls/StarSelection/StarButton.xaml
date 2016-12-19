@@ -7,6 +7,6 @@
              mc:Ignorable="d" 
              Click="Button_Click" HorizontalAlignment="Left" VerticalAlignment="Top">
     <Grid>
-        <Image x:Name="UIImage"/>
+        <Image x:Name="UIImage" Source="/SQL_lite_database_search_wpf;component/Assets/Stars/appbar.star.disabled.png" />
     </Grid>
 </Button>

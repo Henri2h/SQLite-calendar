@@ -25,14 +25,11 @@ namespace SQL_lite_database_search_wpf.UI.Controls.StarSelection
 
 
         public bool enabled = false;
-        public enum displayMode
-        {
-            switchMode,
-            alwaysEnabledMode
-        }
-        public displayMode mode = displayMode.alwaysEnabledMode;
+        public enum displayMode { switchMode, alwaysEnabledMode }
 
+        public displayMode mode = displayMode.alwaysEnabledMode;
         public displayMode modeD { set { mode = value; } get { return mode; } }
+
         public StarButton()
         {
             InitializeComponent();
@@ -41,11 +38,7 @@ namespace SQL_lite_database_search_wpf.UI.Controls.StarSelection
 
         public bool isStarEnabled
         {
-            set
-            {
-                enabled = value;
-                updateUI();
-            }
+            set { enabled = value; updateUI(); }
             get { return enabled; }
         }
 
@@ -54,16 +47,14 @@ namespace SQL_lite_database_search_wpf.UI.Controls.StarSelection
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (mode == displayMode.switchMode) enabled = !enabled;
-
             updateUI();
         }
 
 
         void updateUI()
         {
-            
-            if (enabled == false) { UIImage.Source = new BitmapImage(new Uri("pack://application:,,,/UI/Controls/StarSelection/appbar.star.disabled.png")); }
-            else { UIImage.Source = new BitmapImage(new Uri("pack://application:,,,/UI/Controls/StarSelection/appbar.star.png")); }
+            if (enabled == false) { UIImage.Source = new BitmapImage(new Uri("/SQL_lite_database_search_wpf;component/Assets/Stars/appbar.star.disabled.png", UriKind.RelativeOrAbsolute)); }
+            else { UIImage.Source = new BitmapImage(new Uri("pack://SQL_lite_database_search_wpf;component/Assets/Stars/appbar.star.png")); }
         }
     }
 }
