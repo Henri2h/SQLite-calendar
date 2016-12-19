@@ -57,7 +57,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
 
 
                 calendarObjectManager.addCalendarObject(prj);
-                
+
             }
 
         }
@@ -76,6 +76,14 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
             m_dbConnection.Close();
         }
         // just close the database anyway
-        ~DatabaseCore() { m_dbConnection.Close(); }
+        ~DatabaseCore()
+        {
+            try
+            {
+                m_dbConnection.Close();
+                m_dbConnection.Dispose();
+            }
+            catch { }
+        }
     }
 }
