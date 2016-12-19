@@ -21,7 +21,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
         /// </summary>
         /// <param name="reader"></param>
         /// <returns></returns>
-        public static calendarObject readerToCobj(SQLiteDataReader reader)
+        public static calendarObject readerToCobj(SQLiteDataReader reader, string tbaleName)
         {
             if (reader != null)
             {
@@ -53,52 +53,27 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
                 }
                 else { obj.projectTableName.value = "error:isRepository=False for " + obj.name.value; }
 
+                obj.tableName = tbaleName;
+
 
                 return obj;
             }
             return null;
         }
-        public static List<calendarObject> readerToCobjs(SQLiteDataReader reader)
+        public static List<calendarObject> readerToCobjs(SQLiteDataReader reader, string tableName)
         {
             List<calendarObject> cObjs = new List<calendarObject>();
             while (reader.Read())
             {
                 if (reader != null)
                 {
-                    cObjs.Add(readerToCobj(reader));
+                    cObjs.Add(readerToCobj(reader, tableName));
                 }
             }
             return cObjs;
         }
 
-        /*  // projects reader
-           public static void readerToProject(SQLiteDataReader reader)
-           {
-               if (reader != null)
-               {
-                   prj.events = new List<calendarObject>();
-                   prj.name.value = reader[prj.name.valueName].ToString();
-                   prj.tableName.value = reader[prj.name.valueName].ToString();
 
-                   prj.projectTableName = prj.name.value + "Events";
-
-               }
-
-           }
-           public static List<Project> readerToProjects(SQLiteDataReader reader)
-           {
-
-               List<Project> projects = new List<Project>();
-               while (reader.Read())
-               {
-                   if (reader != null)
-                   {
-                       projects.Add(readerToProject(reader));
-                   }
-               }
-               return projects;
-           }
-           */
 
         public static List<EquipeMember> getEquipeFromReader(SQLiteDataReader reader)
         {

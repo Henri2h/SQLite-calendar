@@ -85,7 +85,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
         {
             string sql = "select * from " + tableName + " where (" + elementID + " = " + objectID + ")  order by _rowid_ ASC";
             SQLiteDataReader reader = SQLiteCommandsExecuter.executeDataReader(sql);
-            calendarObject cObjects = ObjectManager.readerToCobj(reader);
+            calendarObject cObjects = ObjectManager.readerToCobj(reader, tableName);
             return cObjects;
 
         }
@@ -95,7 +95,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
         {
             string sql = "select * from " + tableName + " order by _rowid_ ASC";
             SQLiteDataReader reader = SQLiteCommandsExecuter.executeDataReader(sql);
-            List<calendarObject> cObjects = ObjectManager.readerToCobjs(reader);
+            List<calendarObject> cObjects = ObjectManager.readerToCobjs(reader, tableName);
             return cObjects;
         }
 

@@ -165,6 +165,9 @@
     <Compile Include="UI\DayView\DayPage.xaml.cs">
       <DependentUpon>DayPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\EventView\CalendarObjectView.xaml.cs">
+      <DependentUpon>CalendarObjectView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\EventView\ListPage.xaml.cs">
       <DependentUpon>ListPage.xaml</DependentUpon>
     </Compile>
@@ -208,17 +211,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\Add_window.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="UI\Add_window.xaml.cs">
-      <DependentUpon>Add_window.xaml</DependentUpon>
-    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -245,6 +241,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\DayView\DayPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\EventView\CalendarObjectView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
