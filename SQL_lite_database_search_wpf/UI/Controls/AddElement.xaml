@@ -12,15 +12,13 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="0">
-            <TextBlock Text="Mode : "/>
-            <RadioButton x:Name="UIRdMode" Click="UIRdMode_Click" />
-        </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="1">
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+
             <local:CalendarInformations x:Name="UICalendarInformations"/>
-            <local:DateTimeManager x:Name="UIDateTimemanager"/>
-            <Button x:Name="UIBtRefresh" Content="Refresh UI" VerticalAlignment="Top" Click="UIBtRefresh_Click"/>
+
+            <!--not usefull-->
+            <Button x:Name="UIBtRefresh" Content="Refresh UI" VerticalAlignment="Top" Click="UIBtRefresh_Click" Visibility="Collapsed"/>
         </StackPanel>
     </Grid>
 </UserControl>

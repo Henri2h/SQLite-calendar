@@ -22,40 +22,44 @@ namespace SQL_lite_database_search_wpf.UI.Controls
     /// </summary>
     public partial class CalendarInformations : UserControl
     {
-        objectMode mode = objectMode.calendarObject;
-        public objectMode Mode
-        {
-            get { return mode; }
-            set
-            {
-                mode = value;
-                if (mode == objectMode.calendarObject) { UIStackProjects.Visibility = Visibility.Visible; }
-                else { UIStackProjects.Visibility = Visibility.Collapsed; }
-            }
-        }
-
-        public string name { get { return UITbName.Text; } }
-        public string Description { get { return UITbDescription.Text; } }
-
-        public int Completion { get { return Convert.ToInt32(UIslCompletion.Value); } }
-        public int Priorite { get { return Convert.ToInt32(UIslPriorite.starPosition); } }
-
-        public string Domaine { get { return UITbDomaine.Text; } }
-        public string Equipe { get { return UITbEquipe.Text; } }
-
-        public delegate void UIAppend(objectMode mode);
-        public event UIAppend projectModeChanged;
-
-        public string tableName
+        public calendarObject CalendarObject
         {
             get
             {
-                ComboBoxItem cItem = (ComboBoxItem)UIProject.SelectedItem;
-                object item = cItem.Resources["tableName"];
-                return item.ToString();
+                // ===================== table elements ==========================
+                // create a new calendarObject element with it's name
+                calendarObject cObj = new calendarObject(UITbName.Text);
+
+
+                cObj.description.value = UITbDescription.Text;
+
+
+                cObj.priorite.value = UIslPriorite.starPosition;
+                cObj.completion.value = Convert.ToInt32(UIslCompletion.Value);
+
+                cObj.domaine.value = UITbDomaine.Text;
+
+                // team
+                // TODO : change it's value to a JSON array of the ID of the element of the team
+                cObj.equipe.value = UITbEquipe.Text;
+                cObj.isRepository.value = UIIsMainProject.IsChecked.Value;
+
+
+                // ====================== other properties =========================
+                cObj.tableName = getTableName();
+
+                return cObj;
+
             }
         }
 
+        public string getTableName()
+        {
+            ComboBoxItem cItem = (ComboBoxItem)UIProject.SelectedItem;
+            object item = cItem.Resources["tableName"];
+            return item.ToString();
+
+        }
 
         public CalendarInformations()
         {
@@ -107,12 +111,7 @@ namespace SQL_lite_database_search_wpf.UI.Controls
             ComboBox cb = (ComboBox)sender;
 
             // new project selected
-            if (cb.SelectedIndex == NewProject)
-            {
-                projectModeChanged?.Invoke(objectMode.project);
-
-                loadMenuItems();
-            }
+            if (cb.SelectedIndex == NewProject) { MessageBox.Show("Not implemented", "New Project empty"); }
             else if (cb.SelectedIndex == NewProjectEmpty) { MessageBox.Show("Not implemented", "New Project empty"); }
         }
     }

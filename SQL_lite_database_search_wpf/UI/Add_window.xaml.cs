@@ -88,7 +88,7 @@ namespace SQL_lite_database_search_wpf
             if (cb.SelectedIndex == NewProject)
             {
                 MessageBox.Show("Not implemented", "New Project");
-                Add_Project addPr = new Add_Project(objectMode.project);
+                Add_Project addPr = new Add_Project();
                 addPr.Style = (Style)App.Current.Resources["BlankWindow"];
                 addPr.ResizeMode = ResizeMode.CanResizeWithGrip;
                 bool? result = addPr.ShowDialog();

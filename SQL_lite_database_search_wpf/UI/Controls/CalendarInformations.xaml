@@ -6,14 +6,16 @@
              xmlns:local="clr-namespace:SQL_lite_database_search_wpf.UI.Controls"
              xmlns:star="clr-namespace:SQL_lite_database_search_wpf.UI.Controls.StarSelection"
              mc:Ignorable="d" >
-    
+
     <Grid VerticalAlignment="Top">
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
         <StackPanel Orientation="Vertical" Grid.Column="0" Margin="0,0,5,0">
@@ -41,9 +43,9 @@
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Priorité :"/>
                 <star:StarsSelecter x:Name="UIslPriorite"/>
-                
+
             </StackPanel>
-            
+
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Completion :"/>
                 <Slider x:Name="UIslCompletion" Value="0" Width="100" Maximum="100" SmallChange="10"/>
@@ -65,5 +67,8 @@
                 <TextBox x:Name="UITbEquipe" MinWidth="50"/>
             </StackPanel>
         </StackPanel>
+
+        <RadioButton x:Name="UIIsMainProject" Content="isMainProject" Grid.Column="4"/>
+        <local:DateTimeManager x:Name="UIDateTimemanager" Grid.Column="5"/>
     </Grid>
 </UserControl>
