@@ -122,14 +122,13 @@
     <Compile Include="Core\DatabaseItems\objects\sqliteObjects.cs" />
     <Compile Include="Core\DatabaseManager\ObjectsManager\CalendarObjectManager.cs" />
     <Compile Include="Core\DatabaseManager\ObjectsManager\EquipeManager.cs" />
-    <Compile Include="Core\DatabaseManager\Request\CommandBuilder.cs" />
+    <Compile Include="Core\DatabaseManager\SQLiteCore\Request\CommandBuilder.cs" />
     <Compile Include="Core\DatabaseManager\DatabaseCore.cs" />
     <Compile Include="Core\DatabaseManager\ObjectsManager\ObjectManager.cs" />
-    <Compile Include="Core\DatabaseManager\Request.cs" />
-    <Compile Include="Core\DatabaseManager\Request\RequestBuilder.cs" />
-    <Compile Include="Core\DatabaseManager\Request\RequestElement.cs" />
-    <Compile Include="Core\DatabaseManager\SQLiteCommandsExecuter.cs" />
-    <Compile Include="Core\objectMode.cs" />
+    <Compile Include="Core\DatabaseManager\SQLiteCore\Request\Request.cs" />
+    <Compile Include="Core\DatabaseManager\SQLiteCore\Request\RequestBuilder.cs" />
+    <Compile Include="Core\DatabaseManager\SQLiteCore\Request\RequestElement.cs" />
+    <Compile Include="Core\DatabaseManager\SQLiteCore\SQLiteCommandsExecuter.cs" />
     <Compile Include="ErrorHandeler\ErrorMessage.cs" />
     <Compile Include="Core\Files.cs" />
     <Compile Include="UI\Controls\AddElement.xaml.cs">
@@ -309,7 +308,7 @@
     <Resource Include="Assets\ArrowUp.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Core\Doc.txt" />
+    <Resource Include="Documentation\Doc.txt" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

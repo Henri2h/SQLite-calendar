@@ -1,8 +1,0 @@
-﻿Documentation:
-
-Database :
-==========
-
-It comport several tables :
-- projects : list all the different projects
-- List + <project name> : all the elements to do in this project

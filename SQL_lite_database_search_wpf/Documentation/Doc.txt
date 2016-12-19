@@ -1,0 +1,22 @@
+﻿Documentation:
+
+Database :
+==========
+
+It comport several tables :
+- projects : list all the different projects
+- List + <project name> : all the elements to do in this project
+
+
+
+// notes
+// french content :
+
+team = chef de projet et participants
+
+vue par membre
+
+pour chaque projet : durée prévue (nombre d'heure : charge)
++ nombre d'heures par personne
+
+structurer le temps : numéro de semaine, jour 2
