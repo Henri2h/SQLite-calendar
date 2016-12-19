@@ -44,13 +44,14 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
                 }
 
 
-                
+
                 obj.isRepository.value = Convert.ToBoolean(int.Parse(reader[obj.isRepository.valueName].ToString()));
 
                 if (obj.isRepository.value)
                 {
                     obj.projectTableName.value = reader[obj.projectTableName.valueName].ToString();
                 }
+                else { obj.projectTableName.value = "error:isRepository=False for " + obj.name.value; }
 
 
                 return obj;

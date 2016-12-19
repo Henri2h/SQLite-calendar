@@ -57,8 +57,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
 
 
                 calendarObjectManager.addCalendarObject(prj);
-
-                calendarObjectManager.createCalendarTable(prj.projectTableName.value);
+                
             }
 
         }

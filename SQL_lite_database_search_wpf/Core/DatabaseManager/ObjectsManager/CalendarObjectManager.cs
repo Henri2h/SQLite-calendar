@@ -34,9 +34,18 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
         }
 
 
-        public void addCalendarObject(calendarObject cObj)
+        /// <summary>
+        /// Add the calendar object to the table and create it associated projecttablename if needed
+        /// </summary>
+        /// <param name="cObj"></param>
+        public void addCalendarObject(calendarObject cObj, bool createAssociatedTable = true)
         {
             if (cObj.tableName == null) { throw new ArgumentNullException(); }
+            if (cObj.isRepository.value && createAssociatedTable)
+            {
+                cObj.projectTableName.value = Guid.NewGuid().ToString("n");
+                createCalendarTable(cObj.projectTableName.value);
+            }
 
             Request.RequestBuilder rb = new Request.RequestBuilder(cObj.tableName);
             rb.addElement(cObj.name.valueName, cObj.name.value);
@@ -61,6 +70,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
 
             SQLiteCommand cmd = Request.CommandBuilder.getCommand(rb);
             cmd.ExecuteNonQuery();
+
 
         }
         public void deleteCalendarObject(int id, string tableName)
