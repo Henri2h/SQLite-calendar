@@ -29,6 +29,9 @@ namespace SQL_lite_database_search_wpf.UI
             inputDialog.ShowDialog();
             RefreshISNeeded?.Invoke();
         }
-        private void btRefresch_Click(object sender, RoutedEventArgs e) { }
+        private void btRefresch_Click(object sender, RoutedEventArgs e)
+        {
+            RefreshISNeeded?.Invoke();
+        }
     }
 }

@@ -117,11 +117,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Core\AppCore.cs" />
-    <Compile Include="Core\DatabaseItems\DayManager.cs" />
     <Compile Include="Core\DatabaseItems\EquipeMember.cs" />
     <Compile Include="Core\DatabaseItems\objects\sqliteBase.cs" />
     <Compile Include="Core\DatabaseItems\objects\sqliteObjects.cs" />
-    <Compile Include="Core\DatabaseItems\UICalendarObjectView.cs" />
     <Compile Include="Core\DatabaseManager\ObjectsManager\CalendarObjectManager.cs" />
     <Compile Include="Core\DatabaseManager\ObjectsManager\EquipeManager.cs" />
     <Compile Include="Core\DatabaseManager\Request\CommandBuilder.cs" />

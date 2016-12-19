@@ -14,7 +14,6 @@ namespace SQL_lite_database_search_wpf.UI.EventView
         {
             InitializeComponent();
             UIControls.RefreshISNeeded += UIProjectView.loadElement;
-
             UIProjectView.tableSource = AppCore.mainProjectTableName;
             UIProjectView.loadElement();
 

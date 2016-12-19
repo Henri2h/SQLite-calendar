@@ -76,7 +76,6 @@ namespace SQL_lite_database_search_wpf
             values[8] = new sqliteInt("completion");
             values[9] = new sqliteString("team");
 
-
             // repository
 
             values[10] = new sqliteBool("isRepository");
@@ -113,36 +112,7 @@ namespace SQL_lite_database_search_wpf
 
         // others
         public System.Windows.Media.Color color = new Color();
-        public DayManager days { get; set; }
 
-        public bool isOneDayLenght
-        {
-            get
-            {
-                if (isDateUsed.value)
-                {
-                    if ((endTime.value - startTime.value).Days == 0)
-                    {
-                        return true;
-                    }
-                }
-                return false;
-            }
-        }
-        public bool isOneWeekLenght
-        {
-            get
-            {
-                if (isDateUsed.value)
-                {
-                    if ((endTime.value - startTime.value).Days < 8)
-                    {
-                        return true;
-                    }
-                }
-                return false;
-            }
-        }
 
     }
 }

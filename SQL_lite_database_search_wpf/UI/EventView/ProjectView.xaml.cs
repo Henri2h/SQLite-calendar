@@ -14,6 +14,7 @@ namespace SQL_lite_database_search_wpf.UI.EventView
         public ProjectView()
         {
             InitializeComponent();
+            
         }
         public List<string> tableSourceHistory = new List<string>();
         public string tableSource { get; set; }
