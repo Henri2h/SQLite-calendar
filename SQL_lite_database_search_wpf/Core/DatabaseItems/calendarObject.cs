@@ -3,10 +3,11 @@ using SQL_lite_database_search_wpf.Core.DatabaseItems.objects;
 using SQL_lite_database_search_wpf.Core.DatabaseManager;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
+using System.Media;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace SQL_lite_database_search_wpf
 {
@@ -111,7 +112,7 @@ namespace SQL_lite_database_search_wpf
 
 
         // others
-        public Color color = new Color();
+        public System.Windows.Media.Color color = new Color();
         public DayManager days { get; set; }
 
         public bool isOneDayLenght
