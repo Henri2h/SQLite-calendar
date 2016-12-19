@@ -84,28 +84,28 @@ namespace SQL_lite_database_search_wpf.UI.Controls
 
         public void loadMenuItems()
         {
-            List<ComboBoxItem> mItems = new List<ComboBoxItem>();
+            UIProject.Items.Clear();
+
+            addSelectionInMenuItems("MainProjectTable", Core.AppCore.mainProjectTableName);
             foreach (calendarObject pr in Core.AppCore.projects)
             {
-                ComboBoxItem cItem = new ComboBoxItem();
-                cItem.Content = pr.name.value;
-
-                // adding the resource into the comboBox item
-                cItem.Resources.Add("tableName", pr.projectTableName);
-                cItem.VerticalAlignment = VerticalAlignment.Top;
-                cItem.HorizontalAlignment = HorizontalAlignment.Stretch;
-                mItems.Add(cItem);
+                addSelectionInMenuItems(pr.name.value, pr.projectTableName.value);
             }
-            ComboBoxItem cItemProject = new ComboBoxItem();
-            cItemProject.Content = "<New project ...>";
-            mItems.Add(cItemProject);
 
-            ComboBoxItem cItemProjectEmpty = new ComboBoxItem();
-            cItemProjectEmpty.Content = "<New empty project...>";
-            mItems.Add(cItemProjectEmpty);
-
-            UIProject.ItemsSource = mItems;
+            addSelectionInMenuItems("<New project ...>", null);
+            addSelectionInMenuItems("<New empty project ...>", null);
         }
+
+        void addSelectionInMenuItems(string name, string tableName)
+        {
+            ComboBoxItem cItem = new ComboBoxItem();
+
+            cItem.Content = name;
+            cItem.Resources.Add("tableName", tableName);
+
+            UIProject.Items.Add(cItem);
+        }
+
         private void UIProject_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox cb = (ComboBox)sender;
