@@ -54,7 +54,7 @@ namespace SQL_lite_database_search_wpf.UI.Controls.StarSelection
         void updateUI()
         {
             if (enabled == false) { UIImage.Source = new BitmapImage(new Uri("/SQL_lite_database_search_wpf;component/Assets/Stars/appbar.star.disabled.png", UriKind.RelativeOrAbsolute)); }
-            else { UIImage.Source = new BitmapImage(new Uri("pack://SQL_lite_database_search_wpf;component/Assets/Stars/appbar.star.png")); }
+            else { UIImage.Source = new BitmapImage(new Uri("/SQL_lite_database_search_wpf;component/Assets/Stars/appbar.star.png", UriKind.RelativeOrAbsolute)); }
         }
     }
 }
