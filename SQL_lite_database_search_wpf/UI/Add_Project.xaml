@@ -12,10 +12,10 @@
         Title="New project" Height="272" Width="909" >
     <Grid VerticalAlignment="Top">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
-        <UI:AddElement x:Name="UIAddElement" Grid.Row="0"/>
+        <UI:CalendarInformations x:Name="UICalendarInformation" Grid.Row="0"/>
 
         <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Grid.Row="1">
             <Button x:Name="btOk" Content="Ok" Margin="5" Click="btOk_Click"/>

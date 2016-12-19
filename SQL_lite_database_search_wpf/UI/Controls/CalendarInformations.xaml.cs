@@ -22,6 +22,7 @@ namespace SQL_lite_database_search_wpf.UI.Controls
     /// </summary>
     public partial class CalendarInformations : UserControl
     {
+
         public calendarObject CalendarObject
         {
             get
@@ -46,12 +47,36 @@ namespace SQL_lite_database_search_wpf.UI.Controls
 
 
                 // ====================== other properties =========================
-                cObj.tableName = getTableName();
-
+                if (isParentTableUsed) { cObj.tableName = parentTable; }
+                else
+                {
+                    cObj.tableName = getTableName();
+                }
                 return cObj;
 
             }
         }
+
+        // parent table:
+        // =============
+        public string ParentTable
+        {
+            get
+            {
+                return parentTable;
+            }
+            set
+            {
+                parentTable = value;
+                isParentTableUsed = true;
+                loadMenuItems();
+            }
+        }
+
+
+        bool isParentTableUsed = false;
+        string parentTable = "";
+
 
         public string getTableName()
         {
@@ -77,23 +102,27 @@ namespace SQL_lite_database_search_wpf.UI.Controls
 
 
 
-        // menu items
-        int NewProject { get { return (UIProject.Items.Count - 2); } }
-        int NewProjectEmpty { get { return NewProject + 1; } }
-
-
         public void loadMenuItems()
         {
-            UIProject.Items.Clear();
 
-            addSelectionInMenuItems("MainProjectTable", Core.AppCore.mainProjectTableName);
-            foreach (calendarObject pr in Core.AppCore.projects)
+            UIProject.Items.Clear();
+            if (isParentTableUsed)
             {
-                addSelectionInMenuItems(pr.name.value, pr.projectTableName.value);
+                addSelectionInMenuItems(parentTable, parentTable);
+            }
+            else
+            {
+                addSelectionInMenuItems("MainProjectTable", Core.AppCore.mainProjectTableName);
+                foreach (calendarObject pr in Core.AppCore.projects)
+                {
+                    addSelectionInMenuItems(pr.name.value, pr.projectTableName.value);
+                }
+
+                addSelectionInMenuItems("<New project ...>", null);
+                addSelectionInMenuItems("<New empty project ...>", null);
             }
 
-            addSelectionInMenuItems("<New project ...>", null);
-            addSelectionInMenuItems("<New empty project ...>", null);
+
         }
 
         void addSelectionInMenuItems(string name, string tableName)
@@ -106,13 +135,5 @@ namespace SQL_lite_database_search_wpf.UI.Controls
             UIProject.Items.Add(cItem);
         }
 
-        private void UIProject_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            ComboBox cb = (ComboBox)sender;
-
-            // new project selected
-            if (cb.SelectedIndex == NewProject) { MessageBox.Show("Not implemented", "New Project empty"); }
-            else if (cb.SelectedIndex == NewProjectEmpty) { MessageBox.Show("Not implemented", "New Project empty"); }
-        }
     }
 }

@@ -13,22 +13,12 @@ namespace SQL_lite_database_search_wpf.UI.EventView
         public ListPage()
         {
             InitializeComponent();
-            loadElements();
-            UIControls.RefreshISNeeded += loadElements;
-        }
+            UIControls.RefreshISNeeded += UIProjectView.loadElement;
 
-        void loadElements()
-        {
-            UIStackData.Children.Clear();
-            
-
-            foreach (calendarObject pr in Core.AppCore.projects)
-            {
-                UIStackData.Children.Add(new ProjectView(pr));
-            }
+            UIProjectView.tableSource = AppCore.mainProjectTableName;
+            UIProjectView.loadElement();
 
         }
-
 
     }
 }

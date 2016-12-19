@@ -9,6 +9,7 @@ namespace SQL_lite_database_search_wpf.UI
     /// </summary>
     public partial class Add_Project : ModernWindow
     {
+        public string parentTable { get { return UICalendarInformation.ParentTable; } set { UICalendarInformation.ParentTable = value; } }
 
         public Add_Project()
         {
@@ -17,7 +18,7 @@ namespace SQL_lite_database_search_wpf.UI
 
         private void btOk_Click(object sender, RoutedEventArgs e)
         {
-            calendarObject obj = UIAddElement.getCalendarObject();
+            calendarObject obj = UICalendarInformation.CalendarObject;
             AppCore.dCore.calendarObjectManager.addCalendarObject(obj);
             this.DialogResult = true;
         }

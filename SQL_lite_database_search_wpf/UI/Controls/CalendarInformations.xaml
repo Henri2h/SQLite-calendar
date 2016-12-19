@@ -33,7 +33,7 @@
 
         <StackPanel Orientation="Horizontal" Grid.Column="1" x:Name="UIStackProjects">
             <TextBlock Text="Projects : "/>
-            <ComboBox x:Name="UIProject" Text="Project : " SelectionChanged="UIProject_SelectionChanged"/>
+            <ComboBox x:Name="UIProject" Text="Project : "/>
         </StackPanel>
 
 

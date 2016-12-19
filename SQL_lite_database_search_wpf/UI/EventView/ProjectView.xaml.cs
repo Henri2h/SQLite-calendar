@@ -1,19 +1,8 @@
 ﻿using SQL_lite_database_search_wpf.Core;
 using SQL_lite_database_search_wpf.Core.DatabaseItems;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SQL_lite_database_search_wpf.UI.EventView
 {
@@ -22,24 +11,59 @@ namespace SQL_lite_database_search_wpf.UI.EventView
     /// </summary>
     public partial class ProjectView : UserControl
     {
-        public ProjectView(calendarObject pr)
+        public ProjectView()
         {
-
             InitializeComponent();
-            UITableName.Text = pr.name.value;
-            dataGrid.CanUserAddRows = true;
-            loadElement(pr);
+        }
+        public List<string> tableSourceHistory = new List<string>();
+        public string tableSource { get; set; }
 
-        }
-        private void loadElement(calendarObject project)
+        public void loadElement()
         {
-            List<UICalendarObjectView> cView = new List<UICalendarObjectView>();
-            foreach (calendarObject cObj in AppCore.dCore.calendarObjectManager.listCalendarObjects(project.projectTableName.value))
+
+            UIStackCalendarObjects.Children.Clear();
+
+
+
+            List<calendarObject> cObjs = AppCore.dCore.calendarObjectManager.listCalendarObjects(tableSource);
+            if (cObjs.ToArray().Length != 0)
             {
-                cView.Add(new UICalendarObjectView(cObj));
+                List<UICalendarObjectView> cView = new List<UICalendarObjectView>();
+                foreach (calendarObject cObj in cObjs)
+                {
+                    CalendarObjectView cObjView = new CalendarObjectView(cObj);
+                    cObjView.MouseDoubleClick += CObjView_MouseDoubleClick;
+                    UIStackCalendarObjects.Children.Add(cObjView);
+
+
+                    UICalendarObjectView calView = new UICalendarObjectView(cObj);
+                    cView.Add(calView);
+
+                }
+                dataGrid.ItemsSource = cView;
             }
-            dataGrid.ItemsSource = cView;
+            else { TextBlock tb = new TextBlock(); tb.Text = "No events"; UIStackCalendarObjects.Children.Add(tb); }
         }
+
+        private void CObjView_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            CalendarObjectView cView = (CalendarObjectView)sender;
+            if (cView.CalendarObject.isRepository.value == true && cView.CalendarObject.projectTableName.value != null)
+            {
+
+                setNewValue(cView.CalendarObject.projectTableName.value);
+            }
+            else MessageBox.Show("Not repository");
+        }
+
+
+        public void setNewValue(string tableName)
+        {
+            tableSourceHistory.Add(tableSource);
+            tableSource = tableName;
+            loadElement();
+        }
+
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             dataGrid.CanUserAddRows = true;

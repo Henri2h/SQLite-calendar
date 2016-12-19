@@ -11,8 +11,9 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <StackPanel x:Name="UIStackData" Margin="10" VerticalAlignment="Top" Grid.Row="0"/>
-        <UI:Controlls x:Name="UIControls" VerticalAlignment="Bottom" Grid.Row="1" />
+        <local:ProjectView x:Name="UIProjectView" Grid.Row="0"/>
+       
+        <UI:Controlls x:Name="UIControls"  Grid.Row="1" />
     </Grid>
 
 </UserControl>
