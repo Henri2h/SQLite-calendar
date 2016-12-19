@@ -11,12 +11,10 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <TextBlock x:Name="UITableName" Grid.Row="0"/>
         <StackPanel x:Name="UIStackCalendarObjects" Grid.Row="1"/>
-        <DataGrid x:Name="dataGrid" VerticalAlignment="Stretch" Cursor="Arrow" Grid.Row="2"/>
 
     </Grid>
 </UserControl>

@@ -14,7 +14,7 @@ namespace SQL_lite_database_search_wpf.UI.EventView
         public ProjectView()
         {
             InitializeComponent();
-            
+
         }
         public List<string> tableSourceHistory = new List<string>();
         public string tableSource { get; set; }
@@ -29,7 +29,7 @@ namespace SQL_lite_database_search_wpf.UI.EventView
             List<calendarObject> cObjs = AppCore.dCore.calendarObjectManager.listCalendarObjects(tableSource);
             if (cObjs.ToArray().Length != 0)
             {
-                List<UICalendarObjectView> cView = new List<UICalendarObjectView>();
+
                 foreach (calendarObject cObj in cObjs)
                 {
                     CalendarObjectView cObjView = new CalendarObjectView(cObj);
@@ -37,11 +37,9 @@ namespace SQL_lite_database_search_wpf.UI.EventView
                     UIStackCalendarObjects.Children.Add(cObjView);
 
 
-                    UICalendarObjectView calView = new UICalendarObjectView(cObj);
-                    cView.Add(calView);
+
 
                 }
-                dataGrid.ItemsSource = cView;
             }
             else { TextBlock tb = new TextBlock(); tb.Text = "No events"; UIStackCalendarObjects.Children.Add(tb); }
         }
