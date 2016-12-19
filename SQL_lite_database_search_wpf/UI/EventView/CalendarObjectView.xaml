@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="SQL_lite_database_search_wpf.UI.EventView.CalendarObjectView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:star="clr-namespace:SQL_lite_database_search_wpf.UI.Controls.StarSelection"
+             xmlns:local="clr-namespace:SQL_lite_database_search_wpf.UI.EventView"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <Border BorderBrush="#FF574040" Margin="5" BorderThickness="5">
+        <Grid >
+            <Grid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Click="MenuItem_Click" Header="Add Children"  x:Name="UITbAddChildren"></MenuItem>
+
+
+                </ContextMenu>
+
+            </Grid.ContextMenu>
+
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+
+
+
+
+
+            <!--Name-->
+            <StackPanel Grid.Column="0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Name : "/>
+                    <TextBlock x:Name="UITbName"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Description : "/>
+                    <TextBlock x:Name="UITbDexcription"/>
+                </StackPanel>
+
+
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Priorité : "/>
+                    <star:StarsSelecter x:Name="UIStarPrirority"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Completion : "/>
+                    <TextBlock x:Name="UISlideCompletion"/>
+                </StackPanel>
+            </StackPanel>
+
+        </Grid>
+    </Border>
+</UserControl>
