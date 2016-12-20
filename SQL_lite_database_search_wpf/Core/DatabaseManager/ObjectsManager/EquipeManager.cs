@@ -1,4 +1,5 @@
 ﻿using SQL_lite_database_search_wpf.Core.DatabaseItems;
+using SQL_lite_database_search_wpf.Core.DatabaseItems.objects;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -16,13 +17,24 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
 
         public void createEquipeTable()
         {
-            string sql_command = "CREATE TABLE " +
-                equipeTable +
-                " (" +
-                memberRowID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "name Text" +
-                ")";
+            EquipeMember eMember = new EquipeMember();
+
+            StringBuilder sbElements = new StringBuilder();
+            {
+                bool justCreated = true;
+
+                foreach (sqliteBase sElement in eMember.values)
+                {
+                    if (justCreated) { justCreated = false; }
+                    else { sbElements.Append(", "); }
+                    sbElements.Append(sElement.valueName + " " + sElement.dataType);
+
+                }
+            }
+
+            string sql_command = "CREATE TABLE " + equipeTable + " ( " + sbElements.ToString() + ")";
             SQLiteCommandsExecuter.executeNonQuery(sql_command);
+            
         }
 
 
