@@ -37,6 +37,15 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
             
         }
 
+        public void addMember(EquipeMember eMember) {
+            
+
+            Request.RequestBuilder rb = new Request.RequestBuilder(equipeTable);
+            rb.addElement(eMember.name.valueName, eMember.name.value);
+
+            SQLiteCommand cmd = Request.CommandBuilder.getCommand(rb);
+            cmd.ExecuteNonQuery();
+        }
 
         // equipe manager
         public List<EquipeMember> getEquipeMembers()
