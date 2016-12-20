@@ -83,7 +83,10 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
                 m_dbConnection.Close();
                 m_dbConnection.Dispose();
             }
-            catch { }
+            catch (Exception ex){
+                ex.Source = "SQL_lite_database_search_wpf.Core.DatabaseManager.DatabaseCore.destructor";
+                ErrorHandeler.ErrorMessage.logError(ex);
+            }
         }
     }
 }
