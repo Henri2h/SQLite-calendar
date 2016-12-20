@@ -6,50 +6,56 @@
              xmlns:star="clr-namespace:SQL_lite_database_search_wpf.UI.Controls.StarSelection"
              xmlns:local="clr-namespace:SQL_lite_database_search_wpf.UI.EventView"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="60" d:DesignWidth="500">
 
-    <Border BorderBrush="#FF574040" Margin="5" BorderThickness="5">
-        <Grid >
+    <Border x:Name="UIBorder" BorderBrush="#FF574040" Margin="5" BorderThickness="1">
+        <Grid Margin="5">
             
             <Grid.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Click="MenuItem_Click" Header="Add Children"  x:Name="UITbAddChildren"></MenuItem>
+                    <MenuItem Click="MenuItem_Click" Header="Add Children"  x:Name="UITbAddChildren"/>
+                    <MenuItem x:Name="UIMenuItemDeleteObject" Header="Delete" Click="UIMenuItemDeleteObject_Click"/>
                 </ContextMenu>
             </Grid.ContextMenu>
 
 
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
+            <Image Grid.Column="0" x:Name="UIImage" Source="/SQL_lite_database_search_wpf;component/Assets/appbar.page.png" />
 
             <!--Name-->
-            <StackPanel Grid.Column="0">
+            <StackPanel Grid.Column="1">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Name : "/>
+                    <TextBlock Text="Name :  "/>
                     <TextBlock x:Name="UITbName"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Description : "/>
+                    <TextBlock Text="Description :  "/>
                     <TextBlock x:Name="UITbDexcription"/>
                 </StackPanel>
 
 
             </StackPanel>
-            <StackPanel Grid.Column="1">
+            <StackPanel Grid.Column="2">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Priorité : "/>
                     <star:StarsSelecter x:Name="UIStarPrirority"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Completion : "/>
+                    <TextBlock Text="Avancement :  "/>
                     <TextBlock x:Name="UISlideCompletion"/>
                 </StackPanel>
             </StackPanel>
-
+            <StackPanel Grid.Column="3" Orientation="Horizontal">
+                <TextBlock Text="is Repository :  "/>
+                <TextBlock x:Name="UITbIsRepository"/>
+            </StackPanel>
         </Grid>
     </Border>
 </UserControl>

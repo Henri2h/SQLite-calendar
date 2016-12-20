@@ -41,6 +41,20 @@ namespace SQL_lite_database_search_wpf.UI.EventView
             UIStarPrirority.starPosition = CalendarObject.priorite.value;
             UISlideCompletion.Text = CalendarObject.completion.value.ToString() + "%";
 
+
+            if (CalendarObject.isRepository.value)
+            {
+                UIImage.Source = new BitmapImage(new Uri("/SQL_lite_database_search_wpf;component/Assets/appbar.folder.png", UriKind.Relative));
+                UIBorder.Background = new SolidColorBrush(Colors.LightGray);
+                UITbIsRepository.Text = "Yes";
+            }
+            else
+            {
+                UIImage.Source = new BitmapImage(new Uri("/SQL_lite_database_search_wpf;component/Assets/appbar.page.png", UriKind.Relative));
+                UIBorder.Background = new SolidColorBrush(Colors.White);
+                UITbIsRepository.Text = "No";
+            }
+
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -49,6 +63,11 @@ namespace SQL_lite_database_search_wpf.UI.EventView
             inputDialog.Style = (Style)App.Current.Resources["BlankWindow"];
             inputDialog.parentTable = CalendarObject.tableName;
             inputDialog.ShowDialog();
+        }
+
+        private void UIMenuItemDeleteObject_Click(object sender, RoutedEventArgs e)
+        {
+            Core.AppCore.dCore.calendarObjectManager.deleteCalendarObject(CalendarObject);
         }
     }
 }

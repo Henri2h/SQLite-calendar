@@ -45,6 +45,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
             if (isTheFileJustCreated == true)
             {
                 calendarObjectManager.createCalendarTable(AppCore.mainProjectTableName);
+                EquipeMemberManager.createEquipeTable();
             }
 
         }
@@ -70,7 +71,8 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
                 m_dbConnection.Close();
                 m_dbConnection.Dispose();
             }
-            catch (Exception ex){
+            catch (Exception ex)
+            {
                 ex.Source = "SQL_lite_database_search_wpf.Core.DatabaseManager.DatabaseCore.destructor";
                 ErrorHandeler.ErrorMessage.logError(ex);
             }
