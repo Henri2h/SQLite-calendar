@@ -38,39 +38,53 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
         /// Add the calendar object to the table and create it associated projecttablename if needed
         /// </summary>
         /// <param name="cObj"></param>
-        public void addCalendarObject(calendarObject cObj, bool createAssociatedTable = true)
+        public void addCalendarObject(calendarObject cObj, bool createAssociatedTable = false)
         {
-            if (cObj.tableName == null) { throw new ArgumentNullException(); }
-            if (cObj.isRepository.value && createAssociatedTable)
+            try
             {
-                cObj.projectTableName.value = Guid.NewGuid().ToString("n");
-                createCalendarTable(cObj.projectTableName.value);
+                if (cObj.tableName == null) { throw new ArgumentNullException(); }
+
+                if (cObj.isRepository.value)
+                {
+                    if ((cObj.isRepository.value && createAssociatedTable) || (cObj.projectTableName.value == null || cObj.projectTableName.value == ""))
+                    {
+                        cObj.projectTableName.value = Guid.NewGuid().ToString("n") + "Tasks";
+                    }
+                    // else just use the current table name
+                    createCalendarTable(cObj.projectTableName.value);
+
+                }
+
+                Request.RequestBuilder rb = new Request.RequestBuilder(cObj.tableName);
+                rb.addElement(cObj.name.valueName, cObj.name.value);
+
+
+
+                rb.addElement(cObj.priorite.valueName, cObj.name.value);
+
+                rb.addElement(cObj.completion.valueName, cObj.completion.value);
+
+                rb.addElement(cObj.description.valueName, cObj.description.value);
+                rb.addElement(cObj.equipe.valueName, cObj.equipe.value);
+
+                // time
+                rb.addElement(cObj.startTime.valueName, cObj.startTime.value);
+                rb.addElement(cObj.endTime.valueName, cObj.endTime.value);
+                rb.addElement(cObj.isDateUsed.valueName, cObj.isDateUsed.value);
+
+                rb.addElement(cObj.isRepository.valueName, cObj.isRepository.value);
+                rb.addElement(cObj.projectTableName.valueName, cObj.projectTableName.value);
+
+
+                SQLiteCommand cmd = Request.CommandBuilder.getCommand(rb);
+                cmd.ExecuteNonQuery();
             }
+            catch (Exception ex)
+            {
+                ex.Source = "SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager.CalendarObjectManager.addCalendarObject";
+                ErrorHandeler.ErrorMessage.logError(ex);
 
-            Request.RequestBuilder rb = new Request.RequestBuilder(cObj.tableName);
-            rb.addElement(cObj.name.valueName, cObj.name.value);
-
-
-
-            rb.addElement(cObj.priorite.valueName, cObj.name.value);
-
-            rb.addElement(cObj.completion.valueName, cObj.completion.value);
-
-            rb.addElement(cObj.description.valueName, cObj.description.value);
-            rb.addElement(cObj.equipe.valueName, cObj.equipe.value);
-
-            // time
-            rb.addElement(cObj.startTime.valueName, cObj.startTime.value);
-            rb.addElement(cObj.endTime.valueName, cObj.endTime.value);
-            rb.addElement(cObj.isDateUsed.valueName, cObj.isDateUsed.value);
-
-            rb.addElement(cObj.isRepository.valueName, cObj.isRepository.value);
-            rb.addElement(cObj.projectTableName.valueName, cObj.projectTableName.value);
-
-
-            SQLiteCommand cmd = Request.CommandBuilder.getCommand(rb);
-            cmd.ExecuteNonQuery();
-
+            }
 
         }
         public void deleteCalendarObject(int id, string tableName)
