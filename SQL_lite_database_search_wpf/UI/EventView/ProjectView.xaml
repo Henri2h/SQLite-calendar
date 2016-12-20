@@ -13,10 +13,10 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <Button Content="Go Back :"/>
-            <TextBlock x:Name="UITableName"/>
-        </StackPanel>        
-        
+            <Button x:Name="UIBtGoBack" Content="Go Back :" Click="UIBtGoBack_Click"/>
+            <TextBlock x:Name="UITableName" Margin="5,0,0,0"/>
+        </StackPanel>
+
         <StackPanel x:Name="UIStackCalendarObjects" Grid.Row="1"/>
 
     </Grid>

@@ -38,7 +38,8 @@ namespace SQL_lite_database_search_wpf.UI.EventView
             else { TextBlock tb = new TextBlock(); tb.Text = "No events"; UIStackCalendarObjects.Children.Add(tb); }
         }
 
-        public void addNewElement() {
+        public void addNewElement()
+        {
 
             Add_Project inputDialog = new Add_Project();
             inputDialog.Style = (Style)App.Current.Resources["BlankWindow"];
@@ -65,5 +66,16 @@ namespace SQL_lite_database_search_wpf.UI.EventView
             loadElement();
         }
 
+        private void UIBtGoBack_Click(object sender, RoutedEventArgs e)
+        {
+            if (tableSourceHistory.Count > 0)
+            {
+                tableSource = tableSourceHistory[tableSourceHistory.Count - 1];
+                tableSourceHistory.RemoveAt(tableSourceHistory.Count - 1);
+                loadElement();
+            }
+
+
+        }
     }
 }

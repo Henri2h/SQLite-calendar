@@ -60,7 +60,7 @@ namespace SQL_lite_database_search_wpf.ErrorHandeler
         public static void logError(Exception ex)
         {
 
-            string err = getErrorStringJson(ex);
+            string err = getErrorStringJson(ex) + Environment.NewLine;
             Console.WriteLine(err);
             System.Diagnostics.Debug.WriteLine(err);
 

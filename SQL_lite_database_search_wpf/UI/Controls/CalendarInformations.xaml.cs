@@ -29,9 +29,9 @@ namespace SQL_lite_database_search_wpf.UI.Controls
             {
                 // ===================== table elements ==========================
                 // create a new calendarObject element with it's name
-                calendarObject cObj = new calendarObject(UITbName.Text);
+                calendarObject cObj = new calendarObject();
 
-
+                cObj.name.value = UITbName.Text;
                 cObj.description.value = UITbDescription.Text;
 
 

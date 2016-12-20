@@ -15,6 +15,7 @@ namespace SQL_lite_database_search_wpf.UI.Team
         {
             InitializeComponent();
             equipeMember = eMemb;
+            loadElement();
         }
 
         void loadElement()
@@ -36,7 +37,7 @@ namespace SQL_lite_database_search_wpf.UI.Team
                 MessageBox.Show("Could not delete the user");
             }
 
-            
+
         }
     }
 }

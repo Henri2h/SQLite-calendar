@@ -21,7 +21,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
         /// </summary>
         /// <param name="reader"></param>
         /// <returns></returns>
-        public static calendarObject readerToCobj(SQLiteDataReader reader, string tbaleName)
+        public static calendarObject readerToCobj(SQLiteDataReader reader, string tableName)
         {
             if (reader != null)
             {
@@ -53,7 +53,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
                 }
                 else { obj.projectTableName.value = "error:isRepository=False for " + obj.name.value; }
 
-                obj.tableName = tbaleName;
+                obj.tableName = tableName;
 
 
                 return obj;
