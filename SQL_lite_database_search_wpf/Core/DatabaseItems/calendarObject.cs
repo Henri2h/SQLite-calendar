@@ -46,19 +46,12 @@ namespace SQL_lite_database_search_wpf
         public sqliteString projectTableName { get { return (sqliteString)values[11]; } set { values[11] = value; } }
 
 
-
-
-
-
-        // declarations
-        public calendarObject(string inputName)
+        public calendarObject() { createCalendarObject(); }
+        public calendarObject(string name)
         {
             createCalendarObject();
-            name.value = inputName;
-            projectTableName.value = name.value + "Tasks";
-            isDateUsed.value = false;
+            this.name.value = name;
         }
-        public calendarObject() { createCalendarObject(); }
 
         void createCalendarObject()
         {

@@ -45,19 +45,6 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
             if (isTheFileJustCreated == true)
             {
                 calendarObjectManager.createCalendarTable(AppCore.mainProjectTableName);
-
-                // default task table
-                calendarObject prj = new calendarObject("Defaults");
-                prj.tableName = AppCore.mainProjectTableName;
-
-                // define that he is a project
-                prj.isRepository.value = true;
-                prj.isDateUsed.value = false;
-
-
-
-                calendarObjectManager.addCalendarObject(prj);
-
             }
 
         }
