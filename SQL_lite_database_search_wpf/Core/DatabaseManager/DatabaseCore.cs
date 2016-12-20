@@ -54,10 +54,12 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
         public void delElement(string tableName, sqliteInt rowID)
         {
             string sql = "DELETE FROM " + tableName + " WHERE " + rowID.valueName + " = " + rowID.value;
-
             SQLiteCommandsExecuter.executeNonQuery(sql);
         }
-
+        public void delTable(string tableName) {
+            string sql = "DROP TABLE " + tableName; ;
+            SQLiteCommandsExecuter.executeNonQuery(sql);
+        }
 
         public void CloseDatabase()
         {
