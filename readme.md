@@ -17,4 +17,5 @@ List of all the members
 ## Library and sources :
 
 - All the icons commes from [Material Design](https://github.com/Templarian/MaterialDesign)
-- The UI use [MahApps.Metro](https://github.com/MahApps/MahApps.Metro) in order to have a nice, configurable UI
+- The UI use [Modern UI](https://github.com/firstfloorsoftware/mui) in order to have a nice, configurable UI
+- JSON serializer : Newtonsoft.JSON
