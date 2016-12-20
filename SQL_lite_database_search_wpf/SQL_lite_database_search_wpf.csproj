@@ -144,7 +144,7 @@
     <Compile Include="UI\Controls\CalendarInformations.xaml.cs">
       <DependentUpon>CalendarInformations.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Controlls.xaml.cs">
+    <Compile Include="UI\Controls\Controlls.xaml.cs">
       <DependentUpon>Controlls.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Controls\DateTime\DateTimePicker.xaml.cs">
@@ -192,6 +192,15 @@
     <Compile Include="UI\Settings\Database.xaml.cs">
       <DependentUpon>Database.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Team\AddUserWindow.xaml.cs">
+      <DependentUpon>AddUserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Team\PersonView.xaml.cs">
+      <DependentUpon>PersonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Team\TeamView.xaml.cs">
+      <DependentUpon>TeamView.xaml</DependentUpon>
+    </Compile>
     <Page Include="UI\Controls\AddElement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -204,7 +213,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\Controlls.xaml">
+    <Page Include="UI\Controls\Controlls.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -277,6 +286,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UI\Team\AddUserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Team\PersonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Team\TeamView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -332,7 +353,14 @@
   <ItemGroup>
     <Resource Include="Assets\Stars\appbar.star.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Assets\appbar.database.png" />
+    <Resource Include="Assets\appbar.disk.png" />
+    <Resource Include="Assets\appbar.group.png" />
+    <Resource Include="Assets\appbar.interface.list.png" />
+    <Resource Include="Assets\appbar.notification.above.multiple.png" />
+    <Resource Include="Assets\appbar.people.profile.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.104.0\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.104.0\build\net451\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -7,6 +7,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="30" d:DesignWidth="200">
     <Grid>
+
+        <Grid.ContextMenu>
+            <ContextMenu>
+                <MenuItem x:Name="UIBtDeleteUser" Header="Delete user"  Click="UIBtDeleteUser_Click" />
+            </ContextMenu>
+        </Grid.ContextMenu>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="30"/>
             <ColumnDefinition/>
@@ -17,7 +24,7 @@
             <TextBlock Text="Name : "/>
             <TextBlock x:Name="UITbName"/>
         </StackPanel>
-        
+
 
     </Grid>
 </UserControl>

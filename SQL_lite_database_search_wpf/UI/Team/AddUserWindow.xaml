@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SQL_lite_database_search_wpf.UI.Team"
        xmlns:mui="http://firstfloorsoftware.com/ModernUI"
         mc:Ignorable="d"
-        Title="AddUserWindow">
+        Title="AddUserWindow" Height="60" Width="229">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -18,10 +18,15 @@
             <TextBox x:Name="UITbUserName" MinWidth="80" Margin="5,0,0,0"/>
         </StackPanel>
         
-        <StackPanel Orientation="Horizontal" Grid.Row="1">
-            <Button x:Name="UIBtOK" Content="Add user" Click="UIBtOK_Click"/>
-            <Button Content="Cancel" x:Name="UIBtKo" Click="UIBtKo_Click"/>
-        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <Button x:Name="UIBtOK" Content="Add user" Click="UIBtOK_Click" Grid.Column="0"/>
+            <Button Content="Cancel" x:Name="UIBtKo" Click="UIBtKo_Click" Grid.Column="1"/>
+        </Grid>
 
     </Grid>
 </mui:ModernWindow>

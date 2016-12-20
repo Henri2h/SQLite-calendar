@@ -10,13 +10,11 @@
 
     <Border BorderBrush="#FF574040" Margin="5" BorderThickness="5">
         <Grid >
+            
             <Grid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Click="MenuItem_Click" Header="Add Children"  x:Name="UITbAddChildren"></MenuItem>
-
-
                 </ContextMenu>
-
             </Grid.ContextMenu>
 
 
@@ -25,10 +23,6 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-
-
-
-
 
 
             <!--Name-->
