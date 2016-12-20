@@ -118,8 +118,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
                     if (c.isRepository.value) { deleteCalendarTable(c.projectTableName.value); }
                 }
             }
-
-            string sql = "DROP TABLE " + tableName;
+            Core.AppCore.dCore.delTable(tableName);
         }
 
 

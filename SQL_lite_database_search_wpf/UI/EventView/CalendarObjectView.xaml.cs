@@ -68,6 +68,7 @@ namespace SQL_lite_database_search_wpf.UI.EventView
         private void UIMenuItemDeleteObject_Click(object sender, RoutedEventArgs e)
         {
             Core.AppCore.dCore.calendarObjectManager.deleteCalendarObject(CalendarObject);
+            this.Visibility = Visibility.Collapsed;
         }
     }
 }
