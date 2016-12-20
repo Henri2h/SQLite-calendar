@@ -1,5 +1,6 @@
 ﻿using FirstFloor.ModernUI.Windows.Controls;
 using SQL_lite_database_search_wpf.Core;
+using System;
 using System.Windows;
 
 namespace SQL_lite_database_search_wpf.UI
@@ -18,9 +19,17 @@ namespace SQL_lite_database_search_wpf.UI
 
         private void btOk_Click(object sender, RoutedEventArgs e)
         {
-            calendarObject obj = UICalendarInformation.CalendarObject;
-            AppCore.dCore.calendarObjectManager.addCalendarObject(obj);
-            this.DialogResult = true;
+            try
+            {
+                calendarObject obj = UICalendarInformation.CalendarObject;
+                AppCore.dCore.calendarObjectManager.addCalendarObject(obj);
+                this.DialogResult = true;
+            }
+            catch (Exception ex)
+            {
+                ex.Source = "SQL_lite_database_search_wpf.UI.Add_Project.btOk_Click";
+                ErrorHandeler.ErrorMessage.logError(ex);
+            }
         }
     }
 }

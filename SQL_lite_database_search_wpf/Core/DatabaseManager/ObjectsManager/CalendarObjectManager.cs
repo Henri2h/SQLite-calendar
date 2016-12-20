@@ -44,11 +44,14 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
             {
                 if (cObj.tableName == null) { throw new ArgumentNullException(); }
 
+                // associate project table name :
+                // ============
+
                 if (cObj.isRepository.value)
                 {
                     if ((cObj.isRepository.value && createAssociatedTable) || (cObj.projectTableName.value == null || cObj.projectTableName.value == ""))
                     {
-                        cObj.projectTableName.value = Guid.NewGuid().ToString("n") + "Tasks";
+                        cObj.projectTableName.value = "Element_" + Guid.NewGuid().ToString("n") + "_Tasks";
                     }
                     // else just use the current table name
                     createCalendarTable(cObj.projectTableName.value);
@@ -94,6 +97,31 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
 
             AppCore.dCore.delElement(tableName, sIntID);
         }
+        public void deleteCalendarObject(calendarObject cObj, bool deleteAssociatedTable = true)
+        {
+            if (deleteAssociatedTable)
+            {
+                if (cObj.isRepository.value) { deleteCalendarTable(cObj.projectTableName.value); }
+            }
+
+            deleteCalendarObject(cObj.elementID.value, cObj.tableName);
+        }
+
+        public void deleteCalendarTable(string tableName, bool deleteAssociatedTable = true)
+        {
+            if (deleteAssociatedTable)
+            {
+                List<calendarObject> cObjs = listCalendarObjects(tableName);
+
+                foreach (calendarObject c in cObjs)
+                {
+                    if (c.isRepository.value) { deleteCalendarTable(c.projectTableName.value); }
+                }
+            }
+
+            string sql = "DROP TABLE " + tableName;
+        }
+
 
         public calendarObject getCalendarObject(string objectID, string tableName)
         {
