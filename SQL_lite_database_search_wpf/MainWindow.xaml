@@ -35,5 +35,10 @@
                 <mui:Link Source="/UI/ProjectView/ProjectPage.xaml"/>
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
+        <mui:LinkGroup DisplayName="Equipe" >
+            <mui:LinkGroup.Links >
+                <mui:Link Source="/UI/Team/TeamView.xaml"/>
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
     </mui:ModernWindow.MenuLinkGroups>
 </mui:ModernWindow>
