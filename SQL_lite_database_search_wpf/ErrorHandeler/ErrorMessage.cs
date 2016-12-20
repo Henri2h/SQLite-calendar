@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace SQL_lite_database_search_wpf.ErrorHandeler
 {
-  public  class ErrorMessage
+    public class ErrorMessage
     {
-        
+
         /// <summary>
         /// retrurn the representation in a string of the function
         /// </summary>
@@ -51,12 +51,31 @@ namespace SQL_lite_database_search_wpf.ErrorHandeler
         /// <param name="ex"></param>
         public static void saveOut(Exception ex)
         {
-            
+
             string err = getErrorString(ex);
             string tempFile = Files.getTempFile(".err");
             File.AppendAllText(tempFile, err);
         }
 
-        
+        public static void logError(Exception ex)
+        {
+
+            string err = getErrorStringJson(ex);
+            Console.WriteLine(err);
+            System.Diagnostics.Debug.WriteLine(err);
+
+            try
+            {
+                File.AppendAllText(Environment.CurrentDirectory + "\\error.log", err);
+            }
+            catch
+            {
+                string tempFile = Files.getTempFile(".err");
+                File.AppendAllText(tempFile, err);
+            }
+
+        }
+        public static string getErrorStringJson(Exception ex) { return Newtonsoft.Json.JsonConvert.SerializeObject(ex); }
+
     }
 }
