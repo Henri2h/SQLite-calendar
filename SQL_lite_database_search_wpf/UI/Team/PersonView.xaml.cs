@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using SQL_lite_database_search_wpf.Core.DatabaseItems;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SQL_lite_database_search_wpf.UI.Team
 {
@@ -20,9 +8,11 @@ namespace SQL_lite_database_search_wpf.UI.Team
     /// </summary>
     public partial class PersonView : UserControl
     {
-        public PersonView()
+        public PersonView(EquipeMember eMemb)
         {
             InitializeComponent();
+            UITbName.Text = eMemb.name.value;
+
         }
     }
 }

@@ -10,9 +10,11 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <TextBlock Text="Equipe : " Grid.Row="0"/>
         <StackPanel x:Name="UIStackTeamElements" Grid.Row="1"/>
+        <Button Grid.Row="2" x:Name="UIBtAddUser" Content="Add User" Click="UIBtAddUser_Click"/>
     </Grid>
 </UserControl>

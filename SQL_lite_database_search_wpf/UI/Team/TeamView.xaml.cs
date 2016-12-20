@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQL_lite_database_search_wpf.Core.DatabaseItems;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,23 @@ namespace SQL_lite_database_search_wpf.UI.Team
         public TeamView()
         {
             InitializeComponent();
+        }
+        void loadTeam()
+        {
+            UIStackTeamElements.Children.Clear();
+            List<EquipeMember> equipeMembers = Core.AppCore.dCore.EquipeMemberManager.getEquipeMembers();
+
+            foreach (EquipeMember eMemb in equipeMembers)
+            {
+                PersonView pView = new PersonView(eMemb);
+                UIStackTeamElements.Children.Add(pView);
+
+            }
+        }
+
+        private void UIBtAddUser_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
