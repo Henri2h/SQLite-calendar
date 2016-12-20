@@ -13,7 +13,7 @@
         </Grid.ColumnDefinitions>
 
         <Image x:Name="ImagePicture" Source="/SQL_lite_database_search_wpf;component/Assets/appbar.people.profile.png" Grid.Column="0" Height="30" />
-        <StackPanel Grid.Column="1">
+        <StackPanel Grid.Column="1" Orientation="Horizontal">
             <TextBlock Text="Name : "/>
             <TextBlock x:Name="UITbName"/>
         </StackPanel>

@@ -8,12 +8,12 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
             <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Equipe : " Grid.Row="0"/>
+        <TextBlock Text="Equipe : " Grid.Row="0" />
         <StackPanel x:Name="UIStackTeamElements" Grid.Row="1"/>
         <Button Grid.Row="2" x:Name="UIBtAddUser" Content="Add User" Click="UIBtAddUser_Click"/>
     </Grid>
