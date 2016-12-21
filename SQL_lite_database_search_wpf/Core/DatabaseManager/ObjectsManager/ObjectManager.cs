@@ -39,8 +39,8 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
                 obj.isDateUsed.value = Convert.ToBoolean(int.Parse(reader[obj.isDateUsed.valueName].ToString()));
                 if (obj.isDateUsed.value)
                 {
-                    obj.startTime.value = DateTime.FromBinary(long.Parse(reader[obj.startTime.valueName].ToString()));
-                    obj.endTime.value = DateTime.FromBinary(long.Parse(reader[obj.endTime.valueName].ToString()));
+                    obj.startTime.value = DateTime.Parse(reader[obj.startTime.valueName].ToString());
+                    obj.endTime.value = DateTime.Parse(reader[obj.endTime.valueName].ToString());
                 }
 
 
