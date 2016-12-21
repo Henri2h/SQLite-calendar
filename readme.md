@@ -1,5 +1,7 @@
 # SQLite agenda
 
+[![Build status](https://ci.appveyor.com/api/projects/status/l6fwvnnlun3q5ytd?svg=true)](https://ci.appveyor.com/project/Henri2h/sqlite-calendar)
+
 This is a program to manage different project with their todo list
 ## Main Page:
     
