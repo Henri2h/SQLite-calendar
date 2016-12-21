@@ -3,7 +3,6 @@ using System.Windows;
 using FirstFloor.ModernUI.Windows.Controls;
 using System.Windows.Controls;
 using System.Collections.Generic;
-using System.Windows.Forms;
 
 namespace SQL_lite_database_search_wpf
 {
@@ -16,6 +15,9 @@ namespace SQL_lite_database_search_wpf
         {
             new Core.AppCore(this);
             InitializeComponent();
+
+            MessageBox.Show(Files.getTempFile(".err"));
+            MessageBox.Show(System.Environment.Version.ToString());
            
         }
 

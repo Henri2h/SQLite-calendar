@@ -12,7 +12,7 @@ namespace SQL_lite_database_search_wpf
         // temp files and dir
         public static string getTempFile(string extention)
         {
-            string file = Path.GetTempPath();
+            string file = getTempDir();
             string name = "current";
             int version = 0;
             while (File.Exists(file + name + version + extention))
@@ -24,9 +24,9 @@ namespace SQL_lite_database_search_wpf
 
         public static string getTempDir()
         {
-            return Path.GetTempPath();
+            return Path.GetTempPath() + "Henri" + "\\SQLiteAgenda\\";
         }
-
+   
 
     }
 }

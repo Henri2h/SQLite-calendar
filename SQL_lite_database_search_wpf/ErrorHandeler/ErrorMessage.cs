@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace SQL_lite_database_search_wpf.ErrorHandeler
 {
@@ -63,16 +64,18 @@ namespace SQL_lite_database_search_wpf.ErrorHandeler
             string err = getErrorStringJson(ex) + Environment.NewLine;
             Console.WriteLine(err);
             System.Diagnostics.Debug.WriteLine(err);
-
+            string saveFile = Environment.CurrentDirectory + "\\error.log";
             try
             {
-                File.AppendAllText(Environment.CurrentDirectory + "\\error.log", err);
+                File.AppendAllText(saveFile, err);
             }
             catch
             {
-                string tempFile = Files.getTempFile(".err");
-                File.AppendAllText(tempFile, err);
+                saveFile = Files.getTempFile(".err");
+                File.AppendAllText(saveFile, err);
             }
+
+            MessageBox.Show("Error recorded : " + ex.Message + Environment.NewLine + "in : " + saveFile);
 
         }
         public static string getErrorStringJson(Exception ex) { return Newtonsoft.Json.JsonConvert.SerializeObject(ex); }
