@@ -6,14 +6,20 @@ using System.Threading.Tasks;
 
 namespace SQL_lite_database_search_wpf.Core.DatabaseItems.objects
 {
+
+    // ============== boolean ===============
     public class sqliteBool : sqliteBase
     {
         public sqliteBool(string Name) : base(Name)
         {
             this.dataType = "INTEGER";
         }
-        public new bool value { get; set; }
+        public bool value { get { return (bool)base.baseValue; } set { base.baseValue = value; } }
+
+
     }
+
+    // ============== integer ===============
     public class sqliteInt : sqliteBase
     {
         public sqliteInt(string Name) : base(Name)
@@ -24,16 +30,25 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseItems.objects
 
 
 
-        public new int value { get; set; }
+        public int value { get {return (int)base.baseValue; } set { base.baseValue = value; } }
+
+
+
     }
+
+    // ============== string ===============
     public class sqliteString : sqliteBase
     {
         public sqliteString(string Name) : base(Name)
         {
             this.dataType = "TEXT";
         }
-        public new string value { get; set; }
+
+
+        public string value { get { return (string)base.baseValue; } set { base.baseValue = value; } }
     }
+
+    // ============== dateTime ===============
     public class sqliteDateTime : sqliteBase
     {
         public sqliteDateTime(string Name) : base(Name)
@@ -41,6 +56,8 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseItems.objects
 
             this.dataType = "TEXT";
         }
-        public new DateTime value { get; set; }
+        public DateTime value { get { return (DateTime)base.baseValue; } set { base.baseValue = value; } }
+
+
     }
 }
