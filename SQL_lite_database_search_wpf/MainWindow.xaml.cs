@@ -21,7 +21,7 @@ namespace SQL_lite_database_search_wpf
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            Core.AppCore.dCore.CloseDatabase();
+          
         }
         public void showMessageBox(string content, string name)
         {

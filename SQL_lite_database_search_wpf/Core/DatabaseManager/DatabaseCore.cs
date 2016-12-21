@@ -61,17 +61,13 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
             SQLiteCommandsExecuter.executeNonQuery(sql);
         }
 
-        public void CloseDatabase()
-        {
-            m_dbConnection.Close();
-        }
+      
         // just close the database anyway
         ~DatabaseCore()
         {
             try
             {
                 m_dbConnection.Close();
-                m_dbConnection.Dispose();
             }
             catch (Exception ex)
             {
