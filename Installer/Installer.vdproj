@@ -15,12 +15,6 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_143AD12AD5B1DC2FD23DA3CAC21E0BB4"
-        "OwnerKey" = "8:_733DBA6812704908B47E1A027A22ABC8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_1EBCA7AADEC729CA9FAEB34A0A809548"
         "OwnerKey" = "8:_733DBA6812704908B47E1A027A22ABC8"
         "MsmSig" = "8:_UNDEFINED"
@@ -69,6 +63,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_66E82C4A4799B6394281E543EF8B8B1E"
+        "OwnerKey" = "8:_733DBA6812704908B47E1A027A22ABC8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_733DBA6812704908B47E1A027A22ABC8"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -100,19 +100,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_40EE2E4E1C58A95CC4A02D83D3823A08"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_733DBA6812704908B47E1A027A22ABC8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_143AD12AD5B1DC2FD23DA3CAC21E0BB4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -142,6 +130,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_66E82C4A4799B6394281E543EF8B8B1E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_7CA1755F81CD2D837C99026A2041CB04"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -155,6 +149,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_1EBCA7AADEC729CA9FAEB34A0A809548"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_40EE2E4E1C58A95CC4A02D83D3823A08"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -175,6 +175,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -191,6 +207,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                }
+            }
         }
         "ReleaseALL"
         {
@@ -207,6 +239,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -236,37 +284,6 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_143AD12AD5B1DC2FD23DA3CAC21E0BB4"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:FirstFloor.ModernUI, Version=1.0.9.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_143AD12AD5B1DC2FD23DA3CAC21E0BB4"
-                    {
-                    "Name" = "8:FirstFloor.ModernUI.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:FirstFloor.ModernUI.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_763AB7AEB1214C74A10A0D2295A34879"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1EBCA7AADEC729CA9FAEB34A0A809548"
             {
             "AssemblyRegister" = "3:1"
@@ -374,6 +391,37 @@
                     }
                 }
             "SourcePath" = "8:Microsoft.Expression.Drawing.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_763AB7AEB1214C74A10A0D2295A34879"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_66E82C4A4799B6394281E543EF8B8B1E"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:FirstFloor.ModernUI, Version=1.0.9.0, Culture=neutral, PublicKeyToken=bc9b0c37bf06c6a9, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_66E82C4A4799B6394281E543EF8B8B1E"
+                    {
+                    "Name" = "8:FirstFloor.ModernUI.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:FirstFloor.ModernUI.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_763AB7AEB1214C74A10A0D2295A34879"
@@ -571,15 +619,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Doris' Agenda"
-        "ProductCode" = "8:{5D72B0B2-E987-4178-B683-967B06916FC8}"
-        "PackageCode" = "8:{55A1225B-C34B-4689-BFB7-F3654254B9C5}"
+        "ProductCode" = "8:{C59D7AF9-910C-4264-A77D-6B8FD811AF1E}"
+        "PackageCode" = "8:{7150718B-FAD8-4021-96E5-5B1BDD14E7DC}"
         "UpgradeCode" = "8:{6C275395-3F5B-40A5-9348-095C2B8E051B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.0.3"
         "Manufacturer" = "8:Henri corp"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
