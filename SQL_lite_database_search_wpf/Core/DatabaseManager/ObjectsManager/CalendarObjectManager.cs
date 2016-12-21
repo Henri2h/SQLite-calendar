@@ -59,30 +59,10 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
                 }
 
                 Request.RequestBuilder rb = new Request.RequestBuilder(cObj.tableName);
-
-                // name and escription
-                rb.addElement(cObj.name.valueName, cObj.name.value);
-                rb.addElement(cObj.description.valueName, cObj.description.value);
-
-
-                // priority and completion
-                rb.addElement(cObj.priorite.valueName, cObj.priorite.value);
-                rb.addElement(cObj.completion.valueName, cObj.completion.value);
-
-
-                // team
-                rb.addElement(cObj.equipe.valueName, cObj.equipe.value);
-
-                // time
-                rb.addElement(cObj.startTime.valueName, cObj.startTime.value);
-                rb.addElement(cObj.endTime.valueName, cObj.endTime.value);
-                rb.addElement(cObj.isDateUsed.valueName, cObj.isDateUsed.value);
-
-
-                // is project ?
-                rb.addElement(cObj.isRepository.valueName, cObj.isRepository.value);
-                rb.addElement(cObj.projectTableName.valueName, cObj.projectTableName.value);
-
+                foreach (sqliteBase sb in cObj.values)
+                {
+                    rb.addElement(sb.valueName, sb.baseValue);
+                }
 
                 SQLiteCommand cmd = Request.CommandBuilder.getCommand(rb);
                 cmd.ExecuteNonQuery();
@@ -144,12 +124,30 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
             List<calendarObject> cObjects = ObjectManager.readerToCobjs(reader, tableName);
             return cObjects;
         }
+        public List<calendarObject> listALLCalendarObjects(string tableName, List<calendarObject> cObjs = null)
+        {
+            if (cObjs == null) { cObjs = new List<calendarObject>(); }
+
+            string sql = "select * from " + tableName + " order by _rowid_ ASC";
+            SQLiteDataReader reader = SQLiteCommandsExecuter.executeDataReader(sql);
+            foreach (calendarObject cObj in ObjectManager.readerToCobjs(reader, tableName))
+            {
+                if (cObj.isDateUsed.value) { cObjs.Add(cObj); }
+                if (cObj.isRepository.value)
+                {
+                    cObjs = listALLCalendarObjects(cObj.projectTableName.value, cObjs);
+                }
+            }
+
+
+            return cObjs;
+        }
 
 
         public void updateCalendarObject(sqliteBase sb, int objectID, string tableName)
         {
 
-            string request = "update " + tableName + " set '" + sb.valueName + "'='" + sb.value + "' where '_rowid_'='" + objectID + "'";
+            string request = "update " + tableName + " set '" + sb.valueName + "'='" + sb.baseValue + "' where '_rowid_'='" + objectID + "'";
             SQLiteCommandsExecuter.executeNonQuery(request);
 
         }
