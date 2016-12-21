@@ -7,7 +7,7 @@
         mc:Ignorable="d" >
     <StackPanel>
         <DatePicker x:Name="UICalPick"/>
-        <StackPanel Orientation="Horizontal">
+        <StackPanel x:Name="UIStackHours" Orientation="Horizontal">
 
             <TextBlock Text="HH : "/>
             <local:NumberSelect x:Name="UIlsHours"/>

@@ -43,10 +43,20 @@ namespace SQL_lite_database_search_wpf.UI.Controls
                 // team
                 // TODO : change it's value to a JSON array of the ID of the element of the team
                 cObj.equipe.value = UITbEquipe.Text;
-                cObj.isRepository.value = UIIsMainProject.IsChecked.Value;
+
+                // 
+                // ======================   date and time  =========================
+                cObj.isDateUsed.value = UIDateTimemanager.isDateUsed;
+
+                if (cObj.isDateUsed.value)
+                {
+                    cObj.startTime.value = UIDateTimemanager.time_start;
+                    cObj.endTime.value = UIDateTimemanager.time_end;
+                }
 
 
                 // ====================== other properties =========================
+                cObj.isRepository.value = UIIsMainProject.IsChecked.Value;
                 if (isParentTableUsed) { cObj.tableName = parentTable; }
                 else
                 {

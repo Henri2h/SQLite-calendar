@@ -41,6 +41,14 @@ namespace SQL_lite_database_search_wpf.UI.EventView
             UIStarPrirority.starPosition = CalendarObject.priorite.value;
             UISlideCompletion.Text = CalendarObject.completion.value.ToString() + "%";
 
+            if (CalendarObject.isDateUsed.value)
+            {
+                UIStackDateTime.Visibility = Visibility.Visible;
+
+                UITbDateTimeStart.Text = CalendarObject.startTime.value.ToShortDateString();
+                UITbDateTimeEnd.Text = CalendarObject.endTime.value.ToShortDateString();
+            }
+            else { UIStackDateTime.Visibility = Visibility.Collapsed; }
 
             if (CalendarObject.isRepository.value)
             {
