@@ -24,5 +24,19 @@ namespace SQL_lite_database_search_wpf.Core
             // Return the week of our adjusted day
             return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(time, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
         }
+
+
+        public static bool isDateBetween(calendarObject element, DateTime day)
+        {
+            if (element.isDateUsed.value == true)
+            {
+                bool superior = (element.startTime.value.Date >= day.Date);
+                bool inferior = (element.endTime.value.Date <= day.Date);
+
+                if (superior && inferior) { return true; }
+            }
+
+            return false;
+        }
     }
 }
