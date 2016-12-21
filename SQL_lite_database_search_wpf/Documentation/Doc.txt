@@ -20,3 +20,5 @@ pour chaque projet : durée prévue (nombre d'heure : charge)
 + nombre d'heures par personne
 
 structurer le temps : numéro de semaine, jour 2
+
+The column priority contains text and not the priority

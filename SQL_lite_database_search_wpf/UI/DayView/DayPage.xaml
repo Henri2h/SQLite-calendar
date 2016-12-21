@@ -7,7 +7,17 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded">
     <Grid>
-        <StackPanel x:Name="DayList" Orientation="Horizontal">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Background="LightGray">
+            <TextBlock Text="Week number :  "/>
+            <TextBlock x:Name="UITbWeekNumber"/>
+        </StackPanel>
+
+        <StackPanel x:Name="DayList" Orientation="Horizontal" Grid.Row="1">
 
         </StackPanel>
     </Grid>

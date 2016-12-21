@@ -40,6 +40,8 @@ namespace SQL_lite_database_search_wpf.UI.DayView
         }
         public void setElements()
         {
+            UITbWeekNumber.Text = Core.Date.GetIso8601WeekOfYear(DateTime.Today).ToString();
+
             string dayW = DateTime.Today.DayOfWeek.ToString();
 
             int dayPos = 0;

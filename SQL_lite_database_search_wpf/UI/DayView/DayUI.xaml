@@ -7,10 +7,21 @@
       mc:Ignorable="d" MinHeight="50" MinWidth="30"> 
 
     <Border BorderThickness="5,0">
-        <StackPanel Orientation="Vertical">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
+        <StackPanel Orientation="Vertical" Grid.Row="0">
             <TextBlock x:Name="tbDay"/>
             <TextBlock x:Name="tbDate"/>
         </StackPanel>
+
+            <StackPanel x:Name="UIStackDayEvents" Grid.Row="1">
+                
+            </StackPanel>            
+        </Grid>
     </Border>
 
 </Grid>

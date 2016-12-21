@@ -133,6 +133,7 @@
     <Compile Include="Core\DatabaseManager\SQLiteCore\Request\RequestBuilder.cs" />
     <Compile Include="Core\DatabaseManager\SQLiteCore\Request\RequestElement.cs" />
     <Compile Include="Core\DatabaseManager\SQLiteCore\SQLiteCommandsExecuter.cs" />
+    <Compile Include="Core\Date.cs" />
     <Compile Include="ErrorHandeler\ErrorMessage.cs" />
     <Compile Include="Core\Files.cs" />
     <Compile Include="UI\Controls\AddElement.xaml.cs">
