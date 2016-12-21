@@ -63,6 +63,11 @@ namespace SQL_lite_database_search_wpf.UI.EventView
                 UITbIsRepository.Text = "No";
             }
 
+            // team
+
+            UITbTeam.Text = CalendarObject.equipe.value;
+
+
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)

@@ -8,67 +8,61 @@
              mc:Ignorable="d" >
 
     <Grid VerticalAlignment="Top">
+        <StackPanel Orientation="Horizontal">
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
 
-        <StackPanel Orientation="Vertical" Grid.Column="0" Margin="0,0,5,0">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Name : "/>
-                <TextBox x:Name="UITbName" MinWidth="50"/>
+            <StackPanel Orientation="Vertical" Margin="0,0,5,0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Name : "/>
+                    <TextBox x:Name="UITbName" MinWidth="50"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Description"/>
+                    <TextBox x:Name="UITbDescription" MinWidth="50"/>
+                </StackPanel>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Description"/>
-                <TextBox x:Name="UITbDescription" MinWidth="50"/>
+
+            <StackPanel Orientation="Horizontal" Grid.Column="1" x:Name="UIStackProjects">
+                <TextBlock Text="Projects : "/>
+                <ComboBox x:Name="UIProject" Text="Project : "/>
             </StackPanel>
+
+
+
+            <!--Completion and priority-->
+            <StackPanel Orientation="Vertical" Margin="5,0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Priorité :"/>
+                    <star:StarsSelecter x:Name="UIslPriorite"/>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Completion :"/>
+                    <Slider x:Name="UIslCompletion" Value="0" Width="100" Maximum="100" SmallChange="10"/>
+                </StackPanel>
+            </StackPanel>
+
+            <!--domain and equipe-->
+            <StackPanel Orientation="Vertical" Margin="5,0">
+
+                <!--domaine-->
+                <StackPanel Orientation="Horizontal" Height="30">
+                    <TextBlock Text="Domaine"/>
+                    <TextBox x:Name="UITbDomaine" AcceptsReturn="True" MinWidth="50"/>
+                </StackPanel>
+
+                <!--equipe-->
+                <StackPanel Orientation="Horizontal" Height="30">
+                    <TextBlock Text="Equipe :"/>
+                    <TextBox x:Name="UITbEquipe" MinWidth="50"/>
+                </StackPanel>
+            </StackPanel>
+
+            <RadioButton x:Name="UIIsMainProject" Content="isMainProject" Margin="5,0"/>
+            <local:DateTimeManager x:Name="UIDateTimemanager" Margin="5,0"/>
         </StackPanel>
-
-
-        <StackPanel Orientation="Horizontal" Grid.Column="1" x:Name="UIStackProjects">
-            <TextBlock Text="Projects : "/>
-            <ComboBox x:Name="UIProject" Text="Project : "/>
-        </StackPanel>
-
-
-
-        <!--Completion and priority-->
-        <StackPanel Orientation="Vertical" Grid.Column="2" Margin="5,0">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Priorité :"/>
-                <star:StarsSelecter x:Name="UIslPriorite"/>
-
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Completion :"/>
-                <Slider x:Name="UIslCompletion" Value="0" Width="100" Maximum="100" SmallChange="10"/>
-            </StackPanel>
-        </StackPanel>
-
-        <!--domain and equipe-->
-        <StackPanel Orientation="Vertical" Grid.Column="3" Margin="5,0,0,0">
-
-            <!--domaine-->
-            <StackPanel Orientation="Horizontal" Height="30">
-                <TextBlock Text="Domaine"/>
-                <TextBox x:Name="UITbDomaine" AcceptsReturn="True" MinWidth="50"/>
-            </StackPanel>
-
-            <!--equipe-->
-            <StackPanel Orientation="Horizontal" Height="30">
-                <TextBlock Text="Equipe :"/>
-                <TextBox x:Name="UITbEquipe" MinWidth="50"/>
-            </StackPanel>
-        </StackPanel>
-
-        <RadioButton x:Name="UIIsMainProject" Content="isMainProject" Grid.Column="4"/>
-        <local:DateTimeManager x:Name="UIDateTimemanager" Grid.Column="5"/>
     </Grid>
 </UserControl>

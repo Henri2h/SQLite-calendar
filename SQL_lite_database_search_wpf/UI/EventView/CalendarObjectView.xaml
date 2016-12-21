@@ -22,52 +22,68 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="30"/>
                 <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="150"/>
-                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
             <Image Grid.Column="0" x:Name="UIImage" Source="/SQL_lite_database_search_wpf;component/Assets/appbar.page.png" />
 
-            <!--Name-->
-            <StackPanel Grid.Column="1">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Name :  "/>
-                    <TextBlock x:Name="UITbName"/>
+
+            <!--elements-->
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+
+                <!--Name-->
+                <StackPanel Margin="0,5">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Name :  "/>
+                        <TextBlock x:Name="UITbName"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Description :  "/>
+                        <TextBlock x:Name="UITbDexcription"/>
+                    </StackPanel>
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Description :  "/>
-                    <TextBlock x:Name="UITbDexcription"/>
+                <!--Date Time-->
+                <StackPanel x:Name="UIStackDateTime" Margin="5,0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Start :  "/>
+                        <TextBlock x:Name="UITbDateTimeStart"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="End :  "/>
+                        <TextBlock x:Name="UITbDateTimeEnd"/>
+                    </StackPanel>
                 </StackPanel>
+
+                <!--Priority and completion-->
+                <StackPanel  Margin="5,0">
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock Text="Priorité : "/>
+                        <star:StarsSelecter x:Name="UIStarPrirority" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Avancement :  "/>
+                        <TextBlock x:Name="UISlideCompletion"/>
+                    </StackPanel>
+                </StackPanel>
+
+
+                <!--Is repository-->
+                <StackPanel  Orientation="Horizontal" Margin="5,0">
+                    <TextBlock Text="is Repository :  "/>
+                    <TextBlock x:Name="UITbIsRepository"/>
+                </StackPanel>
+
+                <!--Team-->
+                <StackPanel  Orientation="Horizontal" Margin="5,0">
+                    <TextBlock Text="Team :  "/>
+                    <TextBlock x:Name="UITbTeam"/>
+                </StackPanel>
+
+
             </StackPanel>
 
-            <StackPanel x:Name="UIStackDateTime" Grid.Column="2">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Start :  "/>
-                    <TextBlock x:Name="UITbDateTimeStart"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="End :  "/>
-                    <TextBlock x:Name="UITbDateTimeEnd"/>
-                </StackPanel>
-            </StackPanel>
-
-            <StackPanel Grid.Column="3">
-                <StackPanel Orientation="Horizontal" >
-                    <TextBlock Text="Priorité : "/>
-                    <star:StarsSelecter x:Name="UIStarPrirority" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Avancement :  "/>
-                    <TextBlock x:Name="UISlideCompletion"/>
-                </StackPanel>
-            </StackPanel>
-
-            <StackPanel Grid.Column="4" Orientation="Horizontal">
-                <TextBlock Text="is Repository :  "/>
-                <TextBlock x:Name="UITbIsRepository"/>
-            </StackPanel>
         </Grid>
     </Border>
 </UserControl>
