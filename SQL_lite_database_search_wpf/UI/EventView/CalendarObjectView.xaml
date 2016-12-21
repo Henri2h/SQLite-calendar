@@ -31,7 +31,7 @@
             <StackPanel Grid.Column="1" Orientation="Horizontal">
 
                 <!--Name-->
-                <StackPanel Margin="0,5">
+                <StackPanel Margin="5,0,10,0">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Name :  "/>
                         <TextBlock x:Name="UITbName"/>
@@ -59,7 +59,7 @@
                 <StackPanel  Margin="5,0">
                     <StackPanel Orientation="Horizontal" >
                         <TextBlock Text="Priorité : "/>
-                        <star:StarsSelecter x:Name="UIStarPrirority" />
+                        <star:StarsSelecter x:Name="UIStarPrirority" canChange="False" />
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal">
@@ -70,13 +70,13 @@
 
 
                 <!--Is repository-->
-                <StackPanel  Orientation="Horizontal" Margin="5,0">
+                <StackPanel  Orientation="Horizontal" Margin="5,0" Visibility="Collapsed">
                     <TextBlock Text="is Repository :  "/>
                     <TextBlock x:Name="UITbIsRepository"/>
                 </StackPanel>
 
                 <!--Team-->
-                <StackPanel  Orientation="Horizontal" Margin="5,0">
+                <StackPanel x:Name="UIStackTeam" Orientation="Horizontal" Margin="5,0" >
                     <TextBlock Text="Team :  "/>
                     <TextBlock x:Name="UITbTeam"/>
                 </StackPanel>

@@ -64,9 +64,12 @@ namespace SQL_lite_database_search_wpf.UI.EventView
             }
 
             // team
-
-            UITbTeam.Text = CalendarObject.equipe.value;
-
+            if(CalendarObject.equipe.value != "")
+            {
+                UIStackTeam.Visibility = Visibility.Visible;
+                UITbTeam.Text = CalendarObject.equipe.value;
+            }
+            else { UIStackTeam.Visibility = Visibility.Collapsed; }
 
         }
 
