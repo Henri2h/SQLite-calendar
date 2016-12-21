@@ -59,15 +59,18 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
                 }
 
                 Request.RequestBuilder rb = new Request.RequestBuilder(cObj.tableName);
+
+                // name and escription
                 rb.addElement(cObj.name.valueName, cObj.name.value);
+                rb.addElement(cObj.description.valueName, cObj.description.value);
 
 
-
-                rb.addElement(cObj.priorite.valueName, cObj.name.value);
-
+                // priority and completion
+                rb.addElement(cObj.priorite.valueName, cObj.priorite.value);
                 rb.addElement(cObj.completion.valueName, cObj.completion.value);
 
-                rb.addElement(cObj.description.valueName, cObj.description.value);
+
+                // team
                 rb.addElement(cObj.equipe.valueName, cObj.equipe.value);
 
                 // time
@@ -75,6 +78,8 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
                 rb.addElement(cObj.endTime.valueName, cObj.endTime.value);
                 rb.addElement(cObj.isDateUsed.valueName, cObj.isDateUsed.value);
 
+
+                // is project ?
                 rb.addElement(cObj.isRepository.valueName, cObj.isRepository.value);
                 rb.addElement(cObj.projectTableName.valueName, cObj.projectTableName.value);
 
