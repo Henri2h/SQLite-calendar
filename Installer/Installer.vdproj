@@ -16,31 +16,13 @@
         "Entry"
         {
         "MsmKey" = "8:_143AD12AD5B1DC2FD23DA3CAC21E0BB4"
-        "OwnerKey" = "8:_4888FC4BF2A04C6BB901C651564603B9"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_143AD12AD5B1DC2FD23DA3CAC21E0BB4"
         "OwnerKey" = "8:_733DBA6812704908B47E1A027A22ABC8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_1EBCA7AADEC729CA9FAEB34A0A809548"
-        "OwnerKey" = "8:_4888FC4BF2A04C6BB901C651564603B9"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_1EBCA7AADEC729CA9FAEB34A0A809548"
         "OwnerKey" = "8:_733DBA6812704908B47E1A027A22ABC8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2F2B0DAFD3DF959D83333256E9C3E7EC"
-        "OwnerKey" = "8:_4888FC4BF2A04C6BB901C651564603B9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -64,12 +46,6 @@
         "Entry"
         {
         "MsmKey" = "8:_3F93EA8B0BBA45A08C76ECB7AE5089EB"
-        "OwnerKey" = "8:_4888FC4BF2A04C6BB901C651564603B9"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_3F93EA8B0BBA45A08C76ECB7AE5089EB"
         "OwnerKey" = "8:_733DBA6812704908B47E1A027A22ABC8"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -88,19 +64,7 @@
         "Entry"
         {
         "MsmKey" = "8:_40EE2E4E1C58A95CC4A02D83D3823A08"
-        "OwnerKey" = "8:_4888FC4BF2A04C6BB901C651564603B9"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_40EE2E4E1C58A95CC4A02D83D3823A08"
         "OwnerKey" = "8:_733DBA6812704908B47E1A027A22ABC8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_4888FC4BF2A04C6BB901C651564603B9"
-        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -112,19 +76,7 @@
         "Entry"
         {
         "MsmKey" = "8:_7CA1755F81CD2D837C99026A2041CB04"
-        "OwnerKey" = "8:_4888FC4BF2A04C6BB901C651564603B9"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_7CA1755F81CD2D837C99026A2041CB04"
         "OwnerKey" = "8:_733DBA6812704908B47E1A027A22ABC8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_86CE10AFC171F06D32681C877DA4BB43"
-        "OwnerKey" = "8:_4888FC4BF2A04C6BB901C651564603B9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -136,19 +88,7 @@
         "Entry"
         {
         "MsmKey" = "8:_9789B3F3A4356B54381CDF8844743360"
-        "OwnerKey" = "8:_4888FC4BF2A04C6BB901C651564603B9"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_9789B3F3A4356B54381CDF8844743360"
         "OwnerKey" = "8:_733DBA6812704908B47E1A027A22ABC8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B9410E90E9435EF276DDA3E290204C10"
-        "OwnerKey" = "8:_4888FC4BF2A04C6BB901C651564603B9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -167,12 +107,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_733DBA6812704908B47E1A027A22ABC8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_4888FC4BF2A04C6BB901C651564603B9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -258,6 +192,22 @@
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
         }
+        "ReleaseALL"
+        {
+        "DisplayName" = "8:ReleaseALL"
+        "IsDebugOnly" = "11:FALSE"
+        "IsReleaseOnly" = "11:FALSE"
+        "OutputFilename" = "8:ReleaseALL\\Installer.msi"
+        "PackageFilesAs" = "3:2"
+        "PackageFileSize" = "3:-2147483648"
+        "CabType" = "3:1"
+        "Compression" = "3:2"
+        "SignOutput" = "11:FALSE"
+        "CertificateFile" = "8:"
+        "PrivateKeyFile" = "8:"
+        "TimeStampServer" = "8:"
+        "InstallerBootstrapper" = "3:2"
+        }
     }
     "Deployable"
     {
@@ -278,7 +228,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:.NETFramework,Version=v4.5"
+                "FrameworkVersion" = "8:.NETFramework,Version=v4.5.2"
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=395269"
                 }
@@ -580,22 +530,11 @@
             "Property" = "8:ProgramMenuFolder"
                 "Folders"
                 {
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_22E9A5D7AE704F60A41DB559489E2C2E"
-                    {
-                    "Name" = "8:SQLiteAgenda"
-                    "AlwaysCreate" = "11:FALSE"
-                    "Condition" = "8:"
-                    "Transitive" = "11:FALSE"
-                    "Property" = "8:_8DCC06947D3147B281B809D85CD2FD33"
-                        "Folders"
-                        {
-                        }
-                    }
                 }
             }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_763AB7AEB1214C74A10A0D2295A34879"
             {
-            "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
+            "DefaultLocation" = "8:[ProgramFiles64Folder][Manufacturer]\\[ProductName]"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -631,30 +570,30 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Installer"
+        "ProductName" = "8:Doris' Agenda"
         "ProductCode" = "8:{5D72B0B2-E987-4178-B683-967B06916FC8}"
-        "PackageCode" = "8:{ABC1C08F-0189-424A-A3AF-7F5AA3359664}"
+        "PackageCode" = "8:{55A1225B-C34B-4689-BFB7-F3654254B9C5}"
         "UpgradeCode" = "8:{6C275395-3F5B-40A5-9348-095C2B8E051B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
-        "InstallAllUsers" = "11:FALSE"
+        "InstallAllUsers" = "11:TRUE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:Default Company Name"
+        "Manufacturer" = "8:Henri corp"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:Installer"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:Default Company Name"
+        "ARPCONTACT" = "8:Henri"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
-        "ARPURLINFOABOUT" = "8:"
+        "ARPURLINFOABOUT" = "8:https://carfam.freeboxos.fr"
         "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
-        "TargetPlatform" = "3:0"
+        "TargetPlatform" = "3:1"
         "PreBuildEvent" = "8:"
         "PostBuildEvent" = "8:"
         "RunPostBuildEvent" = "3:0"
@@ -762,8 +701,8 @@
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
             "Target" = "8:_733DBA6812704908B47E1A027A22ABC8"
-            "Folder" = "8:_22E9A5D7AE704F60A41DB559489E2C2E"
-            "WorkingFolder" = "8:_22E9A5D7AE704F60A41DB559489E2C2E"
+            "Folder" = "8:_443D037F31374C218201F1ADF4F67307"
+            "WorkingFolder" = "8:"
             "Icon" = "8:"
             "Feature" = "8:"
             }
@@ -1166,40 +1105,12 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_4888FC4BF2A04C6BB901C651564603B9"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_733DBA6812704908B47E1A027A22ABC8"
             {
-            "SourcePath" = "8:..\\SQL_lite_database_search_wpf\\obj\\Release\\SQLite_Agenda.exe"
+            "SourcePath" = "8:..\\SQL_lite_database_search_wpf\\obj\\ReleaseALL\\SQL_lite_database_search_wpf.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_763AB7AEB1214C74A10A0D2295A34879"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            "ProjectOutputGroupRegister" = "3:1"
-            "OutputConfiguration" = "8:"
-            "OutputGroupCanonicalName" = "8:Built"
-            "OutputProjectGuid" = "8:{2215261E-D77D-42C8-8493-CA0B68266373}"
-            "ShowKeyOutput" = "11:TRUE"
-                "ExcludeFilters"
-                {
-                }
-            }
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_733DBA6812704908B47E1A027A22ABC8"
-            {
-            "SourcePath" = "8:..\\SQL_lite_database_search_wpf\\obj\\Release\\SQLite_Agenda.exe"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_22E9A5D7AE704F60A41DB559489E2C2E"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
