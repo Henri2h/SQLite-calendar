@@ -17,7 +17,7 @@
             <TextBlock x:Name="UITableName" Margin="5,0,0,0"/>
         </StackPanel>
 
-        <StackPanel x:Name="UIStackCalendarObjects" Grid.Row="1"/>
+        <ListView x:Name="UIStackCalendarObjects" Grid.Row="1"/>
 
     </Grid>
 </UserControl>

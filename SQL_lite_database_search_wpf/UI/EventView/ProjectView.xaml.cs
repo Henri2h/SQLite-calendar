@@ -22,7 +22,7 @@ namespace SQL_lite_database_search_wpf.UI.EventView
 
         public void loadElement()
         {
-            UIStackCalendarObjects.Children.Clear();
+            UIStackCalendarObjects.Items.Clear();
 
             List<calendarObject> cObjs = AppCore.dCore.calendarObjectManager.listCalendarObjects(tableSource);
             if (cObjs.ToArray().Length != 0)
@@ -32,10 +32,10 @@ namespace SQL_lite_database_search_wpf.UI.EventView
                 {
                     CalendarObjectView cObjView = new CalendarObjectView(cObj);
                     cObjView.MouseDoubleClick += CObjView_MouseDoubleClick;
-                    UIStackCalendarObjects.Children.Add(cObjView);
+                    UIStackCalendarObjects.Items.Add(cObjView);
                 }
             }
-            else { TextBlock tb = new TextBlock(); tb.Text = "No events"; UIStackCalendarObjects.Children.Add(tb); }
+            else { TextBlock tb = new TextBlock(); tb.Text = "No events"; UIStackCalendarObjects.Items.Add(tb); }
         }
 
         public void addNewElement()
