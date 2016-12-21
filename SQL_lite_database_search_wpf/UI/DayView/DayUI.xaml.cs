@@ -20,11 +20,37 @@ namespace SQL_lite_database_search_wpf.UI
     /// </summary>
     public partial class DayUI : Grid
     {
-        public DayUI(Day day)
+        public List<string> elements = new List<string>();
+
+        public Day day { get; set; }
+
+        public DayUI(Day dayInput)
         {
+            day = dayInput;
+
             InitializeComponent();
+
+
+            loadComponements();
+
+        }
+
+
+
+        public void loadComponements()
+        {
             tbDay.Text = day.name;
             tbDate.Text = day.Date.ToShortDateString();
+
+            UIStackDayEvents.Children.Clear();
+            foreach (string element in elements)
+            {
+
+                TextBlock tb = new TextBlock();
+                tb.Text = element;
+                UIStackDayEvents.Children.Add(tb);
+
+            }
         }
     }
 }

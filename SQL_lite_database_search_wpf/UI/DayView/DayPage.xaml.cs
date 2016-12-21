@@ -28,12 +28,24 @@ namespace SQL_lite_database_search_wpf.UI.DayView
             setElements();
             loadElements();
         }
+
         public void loadElements()
         {
-
+            List<calendarObject> cObjs = Core.AppCore.dCore.calendarObjectManager.listALLCalendarObjects(Core.AppCore.mainProjectTableName);
             foreach (Day d in days)
             {
                 DayUI day = new DayUI(d);
+
+                foreach (calendarObject c in cObjs)
+                {
+                    if (Core.Date.isDateBetween(c, day.day.Date))
+                    {
+                        day.elements.Add(c.name.value);
+
+                    }
+                }
+
+                day.loadComponements();
                 DayList.Children.Add(day);
             }
 
@@ -43,6 +55,11 @@ namespace SQL_lite_database_search_wpf.UI.DayView
             UITbWeekNumber.Text = Core.Date.GetIso8601WeekOfYear(DateTime.Today).ToString();
 
             string dayW = DateTime.Today.DayOfWeek.ToString();
+
+
+
+
+
 
             int dayPos = 0;
 
@@ -59,7 +76,6 @@ namespace SQL_lite_database_search_wpf.UI.DayView
             {
                 Day day = new Day();
                 day.name = daysName[i];
-
                 day.Date = DateTime.Today.AddDays(i - dayPos);
                 days.Add(day);
             }
