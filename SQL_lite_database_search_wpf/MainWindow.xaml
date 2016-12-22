@@ -11,7 +11,7 @@
                   ContentSource="/UI/EventView/ListPage.xaml"
                   IsTitleVisible="True"
                   
-        Title="MainWindow" Height="500" Width="860" Closing="Window_Closing">
+        Title="MainWindow" Height="500" Width="860" Closing="Window_Closing" Loaded="ModernWindow_Loaded" Closed="ModernWindow_Closed">
 
 
     <mui:ModernWindow.TitleLinks>
