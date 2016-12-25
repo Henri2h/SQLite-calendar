@@ -6,8 +6,6 @@
     xmlns:local="clr-namespace:SQL_lite_database_search_wpf.UI.Settings" 
     xmlns:mui="http://firstfloorsoftware.com/ModernUI" mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <mui:ModernButton>Hello</mui:ModernButton>
-        <mui:ModernProgressRing IsActive="True" />
-        <TextBlock Text="Charging the page ..." Margin="100,171,80,99"/>
+        <TextBlock Text="To populate"/>
     </Grid>
 </UserControl>
