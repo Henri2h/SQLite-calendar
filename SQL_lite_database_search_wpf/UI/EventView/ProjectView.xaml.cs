@@ -35,16 +35,17 @@ namespace SQL_lite_database_search_wpf.UI.EventView
                     UIStackCalendarObjects.Items.Add(cObjView);
                 }
             }
-            else { TextBlock tb = new TextBlock(); tb.Text = "No events"; UIStackCalendarObjects.Items.Add(tb); }
+            else
+            {
+                TextBlock tb = new TextBlock();
+                tb.Text = "No events";
+                UIStackCalendarObjects.Items.Add(tb);
+            }
         }
 
         public void addNewElement()
         {
-
-            Add_Project inputDialog = new Add_Project();
-            inputDialog.Style = (Style)App.Current.Resources["BlankWindow"];
-            inputDialog.parentTable = tableSource;
-            inputDialog.ShowDialog();
+            UI.UIObjectManager.addNewElement(tableSource);
             loadElement();
         }
 
@@ -55,7 +56,7 @@ namespace SQL_lite_database_search_wpf.UI.EventView
             {
                 setNewValue(cView.CalendarObject.projectTableName.value);
             }
-            else MessageBox.Show("Not repository");
+            else MessageBox.Show("Not a repository");
         }
 
 

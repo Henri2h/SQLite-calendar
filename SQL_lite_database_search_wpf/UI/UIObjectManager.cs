@@ -39,10 +39,9 @@ namespace SQL_lite_database_search_wpf.UI
             inputDialog.ShowDialog();
 
             cObj = inputDialog.CalendarObject;
-
             Core.AppCore.dCore.calendarObjectManager.updateCalendarObject((sqliteBase)cObj.color, cObj.elementID.value, cObj.tableName);
-
             calendarContentChanged?.Invoke();
+
             return cObj;
         }
 
