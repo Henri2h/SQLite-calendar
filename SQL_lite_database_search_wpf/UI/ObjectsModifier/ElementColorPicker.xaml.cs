@@ -1,16 +1,6 @@
-using System;
+using FirstFloor.ModernUI.Windows.Controls;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace SQL_lite_database_search_wpf.UI.ObjectsModifier
@@ -18,7 +8,7 @@ namespace SQL_lite_database_search_wpf.UI.ObjectsModifier
     /// <summary>
     /// Logique d'interaction pour ElementColorPicker.xaml
     /// </summary>
-    public partial class ElementColorPicker : Page
+    public partial class ElementColorPicker : ModernWindow
     {
         private List<Color> currentColors = new List<Color>(){
             Color.FromRgb(0xa4, 0xc4, 0x00),   // lime
@@ -64,7 +54,7 @@ namespace SQL_lite_database_search_wpf.UI.ObjectsModifier
                 rec.Height = 20;
                 rec.Width = 20;
 
-                UIListColors.Items.Add(rec);
+                UIListColors.Children.Add(rec);
             }
         }
 

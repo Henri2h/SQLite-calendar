@@ -18,10 +18,12 @@
         </Grid.RowDefinitions>
 
 
-        <ListBox x:Name="UIListColors" Grid.Row="0">
+        <StackPanel Grid.Row="0">
+            <TextBlock Text="Color : "/>
+            <WrapPanel x:Name="UIListColors">
            
-        </ListBox>
-
+        </WrapPanel>
+        </StackPanel>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal"           >
             <Button Content="OK"/>
