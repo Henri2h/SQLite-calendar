@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
         <local:ProjectView x:Name="UIProjectView" Grid.Row="0"/>
        
-        <UI:Controlls x:Name="UIControls"  Grid.Row="1" />
+        <UI:Controlls x:Name="UIControls"  Grid.Row="1"  VerticalAlignment="Bottom"/>
     </Grid>
 
 </UserControl>
