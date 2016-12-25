@@ -28,12 +28,8 @@ namespace SQL_lite_database_search_wpf.UI
         public DayUI(Day dayInput)
         {
             day = dayInput;
-
             InitializeComponent();
-
-
             loadComponements();
-
         }
 
 
@@ -52,7 +48,6 @@ namespace SQL_lite_database_search_wpf.UI
                 { scView.Visibility = Visibility.Hidden; }
 
                 UIStackDayEvents.Children.Add(scView);
-
             }
         }
     }

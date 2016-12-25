@@ -25,15 +25,14 @@ namespace SQL_lite_database_search_wpf.UI.DayView
 
         public DayPage()
         {
-            Console.WriteLine("loading day page");
             InitializeComponent();
 
 
+            UI.UIObjectManager.calendarContentChanged += loadElements;
 
             UIControls.RefreshISNeeded += loadElements;
             UIControls.AddNewElementAsked += addElement;
-
-            UI.UIObjectManager.calendarContentChanged += loadElements;
+            
 
             loadElements();
         }
@@ -57,11 +56,9 @@ namespace SQL_lite_database_search_wpf.UI.DayView
             {
                 DayUI day = new DayUI(d);
 
-
-
-
                 foreach (calendarObject c in cObjs)
                 {
+                    // if the date can be displayed somewhere
                     if (Date.isDateBetween(c, startTimeSelect.Date, endTimeSelect.Date))
                     {
                         day.elements.Add(c);
@@ -69,6 +66,12 @@ namespace SQL_lite_database_search_wpf.UI.DayView
                 }
 
                 day.loadComponements();
+
+                Thickness th = new Thickness();
+                th.Right = 5;
+                th.Left = 5;
+                day.Margin = th;
+
                 DayList.Children.Add(day);
             }
 
@@ -78,10 +81,6 @@ namespace SQL_lite_database_search_wpf.UI.DayView
             UITbWeekNumber.Text = Date.GetIso8601WeekOfYear(DateTime.Today).ToString();
 
             string dayW = DateTime.Today.DayOfWeek.ToString();
-
-
-
-
 
 
             int dayPos = 0;
