@@ -396,10 +396,10 @@
     <Resource Include="Assets\appbar.page.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Update\AppUpdateFeed.xml">
+    <Content Include="Update\AppUpdateFeed.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
-    </Resource>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\throbber.gif" />
