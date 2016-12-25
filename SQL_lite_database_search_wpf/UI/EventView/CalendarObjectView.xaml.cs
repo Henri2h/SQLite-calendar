@@ -32,7 +32,7 @@ namespace SQL_lite_database_search_wpf.UI.EventView
 
         public void loadCommponements()
         {
-            this.Background = new SolidColorBrush(CalendarObject.color);
+         //   this.Background = new SolidColorBrush(CalendarObject.color);
 
 
             UITbName.Text = CalendarObject.name.value;

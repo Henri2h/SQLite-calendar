@@ -2,9 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace SQL_lite_database_search_wpf.Core.DatabaseManager
 {
@@ -54,6 +52,22 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
                 else { obj.projectTableName.value = "error:isRepository=False for " + obj.name.value; }
 
                 obj.tableName = tableName;
+
+
+
+                Random r = new Random(DateTime.Now.Millisecond);
+
+
+                Color[] cs = new Color[]{
+                    Colors.Red,
+                    Colors.Blue,
+                    Colors.Green,
+                    Colors.Yellow,
+                    Colors.ForestGreen
+                };
+
+                obj.color = cs[r.Next(0, cs.Length)];
+
 
 
                 return obj;
