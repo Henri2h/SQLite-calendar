@@ -13,14 +13,8 @@ namespace SQL_lite_database_search_wpf.UI
         public UIEvent RefreshISNeeded;
         public UIEvent AddNewElementAsked;
 
-        public Controlls()
-        {
-            InitializeComponent();
-        }
-        private void btCreate_Click(object sender, RoutedEventArgs e)
-        {
-            //  loadElement();
-        }
+        public Controlls() { InitializeComponent(); }
+
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
             AddNewElementAsked?.Invoke();
