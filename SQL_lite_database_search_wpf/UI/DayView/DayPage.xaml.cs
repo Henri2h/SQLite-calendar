@@ -33,6 +33,8 @@ namespace SQL_lite_database_search_wpf.UI.DayView
             UIControls.RefreshISNeeded += loadElements;
             UIControls.AddNewElementAsked += addElement;
 
+            UI.UIObjectManager.calendarContentChanged += loadElements;
+
             loadElements();
         }
 

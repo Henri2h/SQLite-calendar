@@ -32,7 +32,7 @@ namespace SQL_lite_database_search_wpf.UI.EventView
 
         public void loadCommponements()
         {
-         //   this.Background = new SolidColorBrush(CalendarObject.color);
+            //   this.Background = new SolidColorBrush(CalendarObject.color);
 
 
             UITbName.Text = CalendarObject.name.value;
@@ -64,7 +64,7 @@ namespace SQL_lite_database_search_wpf.UI.EventView
             }
 
             // team
-            if(CalendarObject.equipe.value != "")
+            if (CalendarObject.equipe.value != "")
             {
                 UIStackTeam.Visibility = Visibility.Visible;
                 UITbTeam.Text = CalendarObject.equipe.value;
@@ -85,6 +85,12 @@ namespace SQL_lite_database_search_wpf.UI.EventView
         {
             Core.AppCore.dCore.calendarObjectManager.deleteCalendarObject(CalendarObject);
             this.Visibility = Visibility.Collapsed;
+        }
+
+        private void UIMenuChangeItem_Click(object sender, RoutedEventArgs e)
+        {
+            CalendarObject = UI.UIObjectManager.changeCalendarObject(CalendarObject);
+            loadCommponements();
         }
     }
 }

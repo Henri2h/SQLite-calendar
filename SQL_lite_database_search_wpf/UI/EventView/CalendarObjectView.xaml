@@ -14,6 +14,7 @@
             <Grid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Click="MenuItem_Click" Header="Add Children"  x:Name="UITbAddChildren"/>
+                    <MenuItem x:Name="UIMenuChangeItem" Header="Change Element" Click="UIMenuChangeItem_Click"/>
                     <MenuItem x:Name="UIMenuItemDeleteObject" Header="Delete" Click="UIMenuItemDeleteObject_Click"/>
                 </ContextMenu>
             </Grid.ContextMenu>

@@ -20,9 +20,14 @@ namespace SQL_lite_database_search_wpf.UI.DayView
     /// </summary>
     public partial class SmallCalendarView : UserControl
     {
+        calendarObject CalendarObject { get; set; }
+
         public SmallCalendarView(calendarObject cObj)
         {
             InitializeComponent();
+            CalendarObject = cObj;
+
+
             this.Background = new SolidColorBrush(cObj.color);
             this.UITbName.Text = cObj.name.value;
 
@@ -39,7 +44,7 @@ namespace SQL_lite_database_search_wpf.UI.DayView
 
         private void UIMenuChangeItem_Click(object sender, RoutedEventArgs e)
         {
-
+            UI.UIObjectManager.changeCalendarObject(CalendarObject);
         }
     }
 }
