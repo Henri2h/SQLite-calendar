@@ -31,8 +31,8 @@ namespace SQL_lite_database_search_wpf
             new Core.AppCore(this);
             InitializeComponent();
 
-            MessageBox.Show(Files.getTempFile(".err"));
-            MessageBox.Show(System.Environment.Version.ToString());
+         //   MessageBox.Show(Files.getTempFile(".err"));
+           // MessageBox.Show(System.Environment.Version.ToString());
            
         }
 
@@ -54,7 +54,7 @@ namespace SQL_lite_database_search_wpf
         {
             // Normally this would be a web based source.
             // But for the demo app, we prepare an in-memory source.
-            var source = new NAppUpdate.Framework.Sources.MemorySource(File.ReadAllText("AppUpdateFeed.xml"));
+            var source = new NAppUpdate.Framework.Sources.MemorySource(File.ReadAllText(Environment.CurrentDirectory + "\\AppUpdateFeed.xml"));
             source.AddTempFile(new Uri("http://carfam.freeboxos.fr/SQLiteAgenda/NewVersion.txt"), "NewVersion.txt");
 
             return source;
@@ -62,9 +62,13 @@ namespace SQL_lite_database_search_wpf
 
         private void ModernWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            var updManager = UpdateManager.Instance;
-            updManager.UpdateSource = PrepareUpdateSource();
-            updManager.ReinstateIfRestarted();
+            try
+            {
+                var updManager = UpdateManager.Instance;
+                updManager.UpdateSource = PrepareUpdateSource();
+                updManager.ReinstateIfRestarted();
+            }
+            catch (Exception ex) { ErrorHandeler.ErrorMessage.logError(ex); }
         }
 
 
