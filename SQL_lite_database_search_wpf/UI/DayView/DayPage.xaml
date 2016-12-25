@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SQL_lite_database_search_wpf.UI.DayView"
+             xmlns:UI="clr-namespace:SQL_lite_database_search_wpf.UI"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded">
     <Grid>
@@ -11,7 +12,7 @@
             <RowDefinition Height="30"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        
+
         <StackPanel Orientation="Horizontal" Grid.Row="0" Background="LightGray">
             <TextBlock Text="Week number :  "/>
             <TextBlock x:Name="UITbWeekNumber"/>
@@ -20,5 +21,6 @@
         <StackPanel x:Name="DayList" Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Top">
 
         </StackPanel>
+        <UI:Controlls x:Name="UIControls" Grid.Row="1" VerticalAlignment="Bottom"/>
     </Grid>
 </UserControl>

@@ -27,12 +27,26 @@ namespace SQL_lite_database_search_wpf.UI.DayView
         {
             Console.WriteLine("loading day page");
             InitializeComponent();
-            setElements();
+
+
+
+            UIControls.RefreshISNeeded += loadElements;
+            UIControls.AddNewElementAsked += addElement;
+
+            loadElements();
+        }
+
+        public void addElement()
+        {
+            Core.AppCore.addNewElement();
             loadElements();
         }
 
         public void loadElements()
         {
+            setElements();
+
+
             DateTime startTimeSelect = days[0].Date.Date;
             DateTime endTimeSelect = days[days.Count - 1].Date.Date;
 
