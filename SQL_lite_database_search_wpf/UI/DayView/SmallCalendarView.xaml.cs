@@ -31,5 +31,15 @@ namespace SQL_lite_database_search_wpf.UI.DayView
                 this.ToolTip = cObj.description.value;
             }
         }
+
+        private void UIMenuChangeColor_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UIMenuChangeItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
