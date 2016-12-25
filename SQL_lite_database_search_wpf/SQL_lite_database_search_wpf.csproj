@@ -182,6 +182,7 @@
     <Compile Include="UI\Controls\StarSelection\StarsSelecter.xaml.cs">
       <DependentUpon>StarsSelecter.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\UIObjectManager.cs" />
     <Compile Include="UI\DayView\Day.cs" />
     <Compile Include="UI\DayView\DayUI.xaml.cs">
       <DependentUpon>DayUI.xaml</DependentUpon>
