@@ -1,12 +1,5 @@
 ﻿using SQL_lite_database_search_wpf.Core.DatabaseManager;
-using SQL_lite_database_search_wpf.UI;
-using SQL_lite_database_search_wpf.UI.ProjectView;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace SQL_lite_database_search_wpf.Core
 {
@@ -41,21 +34,7 @@ namespace SQL_lite_database_search_wpf.Core
 
 
 
-        public static void addNewElement(string tableSource)
-        {
-
-            Add_Project inputDialog = new Add_Project();
-            inputDialog.Style = (Style)App.Current.Resources["BlankWindow"];
-            inputDialog.parentTable = tableSource;
-            inputDialog.ShowDialog();
-        }
-        public static void addNewElement()
-        {
-
-            Add_Project inputDialog = new Add_Project();
-            inputDialog.Style = (Style)App.Current.Resources["BlankWindow"];
-            inputDialog.ShowDialog();
-        }
+      
 
 
 

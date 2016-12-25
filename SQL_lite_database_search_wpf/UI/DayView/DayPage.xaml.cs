@@ -38,7 +38,7 @@ namespace SQL_lite_database_search_wpf.UI.DayView
 
         public void addElement()
         {
-            Core.AppCore.addNewElement();
+            UI.UIObjectManager.addNewElement();
             loadElements();
         }
 
