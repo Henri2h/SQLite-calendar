@@ -33,12 +33,13 @@ namespace SQL_lite_database_search_wpf.UI.ObjectsModifier
             Color.FromRgb(0x87, 0x79, 0x4e),   // taupe
         };
 
-        calendarObject CalendarObject { get; set; }
+        public calendarObject CalendarObject { get; set; }
+
         public ElementColorPicker(calendarObject cObj)
         {
             CalendarObject = cObj;
 
-            currentColors.Add(cObj.color);
+            currentColors.Add(cObj.color.value);
 
             InitializeComponent();
             loadColors();
@@ -47,18 +48,20 @@ namespace SQL_lite_database_search_wpf.UI.ObjectsModifier
 
         public void loadColors()
         {
-            foreach (Color c in currentColors)
-            {
-                System.Windows.Shapes.Rectangle rec = new Rectangle();
-                rec.Fill = new SolidColorBrush(c);
-                rec.Height = 20;
-                rec.Width = 20;
 
-                UIListColors.Children.Add(rec);
-            }
+            UIListColors.ItemsSource = currentColors;
+        }
+        //ok
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            CalendarObject.color.value = (Color)UIListColors.SelectedItem;
+            this.DialogResult = true;
         }
 
-
-
+        //KO
+        private void Button_Click_1(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.DialogResult = false;
+        }
     }
 }

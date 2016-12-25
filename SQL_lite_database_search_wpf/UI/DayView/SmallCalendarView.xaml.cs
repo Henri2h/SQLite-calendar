@@ -28,7 +28,7 @@ namespace SQL_lite_database_search_wpf.UI.DayView
             CalendarObject = cObj;
 
 
-            this.Background = new SolidColorBrush(cObj.color);
+            this.Background = new SolidColorBrush(cObj.color.value);
             this.UITbName.Text = cObj.name.value;
 
             if (cObj.description.value != "" && cObj.description.value != null)

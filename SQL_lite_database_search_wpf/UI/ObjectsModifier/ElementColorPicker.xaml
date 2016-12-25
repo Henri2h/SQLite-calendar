@@ -6,12 +6,12 @@
       xmlns:local="clr-namespace:SQL_lite_database_search_wpf.UI.ObjectsModifier"
       
         xmlns:mui="http://firstfloorsoftware.com/ModernUI"
-      mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
-      Title="ElementColorPicker">
+      mc:Ignorable="d"                   
+      Title="Color picker" 
+             Height="162"     Width="300" >
 
     <Grid>
-        
+
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="30"/>
@@ -20,14 +20,27 @@
 
         <StackPanel Grid.Row="0">
             <TextBlock Text="Color : "/>
-            <WrapPanel x:Name="UIListColors">
-           
-        </WrapPanel>
+            <ListBox x:Name="UIListColors">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel MaxWidth="300" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Rectangle Width="40" Height="40" Margin="2" >
+                            <Rectangle.Fill>
+                                <SolidColorBrush x:Name="Brush" Color="{Binding}" />
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal"           >
-            <Button Content="OK"/>
-            <Button Content="Cancel"/>
+            <Button Content="OK" Click="Button_Click"/>
+            <Button Content="Cancel" Click="Button_Click_1"/>
         </StackPanel>
     </Grid>
 </mui:ModernWindow>
