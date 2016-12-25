@@ -39,7 +39,7 @@ namespace SQL_lite_database_search_wpf.UI.DayView
 
         private void UIMenuChangeColor_Click(object sender, RoutedEventArgs e)
         {
-
+            UI.UIObjectManager.changeCalendarObjectColor(CalendarObject);
         }
 
         private void UIMenuChangeItem_Click(object sender, RoutedEventArgs e)

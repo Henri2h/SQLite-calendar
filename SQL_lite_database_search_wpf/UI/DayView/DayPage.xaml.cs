@@ -2,17 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SQL_lite_database_search_wpf.UI.DayView
 {
@@ -45,6 +36,7 @@ namespace SQL_lite_database_search_wpf.UI.DayView
 
         public void loadElements()
         {
+            DayList.Children.Clear();
             setElements();
 
 
@@ -66,12 +58,6 @@ namespace SQL_lite_database_search_wpf.UI.DayView
                 }
 
                 day.loadComponements();
-
-                Thickness th = new Thickness();
-                th.Right = 5;
-                th.Left = 5;
-                day.Margin = th;
-
                 DayList.Children.Add(day);
             }
 
@@ -94,6 +80,8 @@ namespace SQL_lite_database_search_wpf.UI.DayView
                 }
             }
 
+
+            days = new List<Day>();
             for (int i = 0; i < daysName.Length; i++)
             {
                 Day day = new Day();
