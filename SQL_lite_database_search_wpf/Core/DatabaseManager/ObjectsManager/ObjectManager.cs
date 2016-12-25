@@ -42,6 +42,8 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
                 }
 
 
+                // color
+                obj.color.baseValue = reader[obj.color.valueName];
 
                 obj.isRepository.value = Convert.ToBoolean(int.Parse(reader[obj.isRepository.valueName].ToString()));
 
@@ -54,19 +56,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
                 obj.tableName = tableName;
 
 
-
-                Random r = new Random(DateTime.Now.Millisecond);
-
-
-                Color[] cs = new Color[]{
-                    Colors.Red,
-                    Colors.Blue,
-                    Colors.Green,
-                    Colors.Yellow,
-                    Colors.ForestGreen
-                };
-
-                obj.color = cs[r.Next(0, cs.Length)];
+               
 
 
 

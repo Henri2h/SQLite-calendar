@@ -45,6 +45,9 @@ namespace SQL_lite_database_search_wpf
         public sqliteBool isRepository { get { return (sqliteBool)values[10]; } set { values[10] = value; } }
         public sqliteString projectTableName { get { return (sqliteString)values[11]; } set { values[11] = value; } }
 
+        // color
+        public sqliteColor color { get { return (sqliteColor)values[12]; } set { values[12] = value; } }
+
 
         public calendarObject() { createCalendarObject(); }
         public calendarObject(string name)
@@ -73,6 +76,34 @@ namespace SQL_lite_database_search_wpf
 
             values[10] = new sqliteBool("isRepository");
             values[11] = new sqliteString("tableName");
+
+            values[12] = new sqliteColor("color");
+
+
+            // DateTime.Now.Millisecond throw Index Out of Bond exception (int to int ???), strange ...
+          //  int seed = DateTime.Now.Second; same for second, seem to comme from the DateTime class
+            Random r = new Random();
+
+
+
+            Color[] cs = new Color[]{
+                    Colors.Red,
+                    Colors.Blue,
+                    Colors.Green,
+                    Colors.Yellow,
+                    Colors.ForestGreen,
+                    Colors.Orange,
+                    Colors.Orchid,
+                    Colors.Plum,
+                    Colors.Pink,
+                    Colors.PowderBlue,
+                    Colors.Silver,
+                    Colors.Tan,
+                    Colors.Tomato,
+                    Colors.YellowGreen
+                };
+
+            color.value = cs[r.Next(0, cs.Length)];
         }
 
 
@@ -104,7 +135,6 @@ namespace SQL_lite_database_search_wpf
 
 
         // others
-        public System.Windows.Media.Color color = new Color();
 
 
     }

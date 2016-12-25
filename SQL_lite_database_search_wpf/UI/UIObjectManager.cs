@@ -1,4 +1,5 @@
-﻿using SQL_lite_database_search_wpf.UI.ObjectsModifier;
+﻿using SQL_lite_database_search_wpf.Core.DatabaseItems.objects;
+using SQL_lite_database_search_wpf.UI.ObjectsModifier;
 using System.Windows;
 
 namespace SQL_lite_database_search_wpf.UI
@@ -37,7 +38,9 @@ namespace SQL_lite_database_search_wpf.UI
             inputDialog.Style = (Style)App.Current.Resources["BlankWindow"];
             inputDialog.ShowDialog();
 
+            cObj = inputDialog.CalendarObject;
 
+            Core.AppCore.dCore.calendarObjectManager.updateCalendarObject((sqliteBase)cObj.color, cObj.elementID.value, cObj.tableName);
 
             calendarContentChanged?.Invoke();
             return cObj;
