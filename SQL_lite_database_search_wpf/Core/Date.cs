@@ -30,12 +30,37 @@ namespace SQL_lite_database_search_wpf.Core
         {
             if (element.isDateUsed.value == true)
             {
-                bool superior = (element.startTime.value.Date >= day.Date);
-                bool inferior = (element.endTime.value.Date <= day.Date);
+                double startDate = element.startTime.value.Date.ToOADate();
+                double endDate = element.endTime.value.Date.ToOADate();
+
+                double testDate = day.Date.Date.ToOADate();
+
+                bool superior = (startDate <= testDate);
+                bool inferior = (testDate <= endDate);
 
                 if (superior && inferior) { return true; }
             }
+            return false;
+        }
+        public static bool isDateBetween(calendarObject element, DateTime startDate, DateTime endDate)
+        {
+            if (element.isDateUsed.value == true)
+            {
 
+
+                bool superior = isOneOfSlectedDateBetween(element.startTime.value, startDate, endDate);
+                bool inferior = isOneOfSlectedDateBetween(element.endTime.value, startDate, endDate);
+
+                if (superior || inferior) { return true; }
+            }
+            return false;
+        }
+
+
+        public static bool isOneOfSlectedDateBetween(DateTime selectedDate, DateTime startDate, DateTime endDate)
+        {
+
+            if (startDate <= selectedDate || selectedDate <= endDate) { return true; }
             return false;
         }
     }
