@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using SQL_lite_database_search_wpf.UI.ObjectsModifier;
+using System.Windows;
 
 namespace SQL_lite_database_search_wpf.UI
 {
@@ -31,6 +32,13 @@ namespace SQL_lite_database_search_wpf.UI
 
         public static calendarObject changeCalendarObjectColor(calendarObject cObj)
         {
+
+            ElementColorPicker inputDialog = new ElementColorPicker(cObj);
+            inputDialog.Style = (Style)App.Current.Resources["BlankWindow"];
+            inputDialog.ShowDialog();
+
+
+
             calendarContentChanged?.Invoke();
             return cObj;
         }

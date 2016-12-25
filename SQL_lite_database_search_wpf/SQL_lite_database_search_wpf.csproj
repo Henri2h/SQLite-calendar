@@ -161,7 +161,7 @@
     <Compile Include="UI\Controls\AddElement.xaml.cs">
       <DependentUpon>AddElement.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Add_Project.xaml.cs">
+    <Compile Include="UI\ObjectsModifier\Add_Project.xaml.cs">
       <DependentUpon>Add_Project.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Controls\CalendarInformations.xaml.cs">
@@ -181,6 +181,9 @@
     </Compile>
     <Compile Include="UI\Controls\StarSelection\StarsSelecter.xaml.cs">
       <DependentUpon>StarsSelecter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ObjectsModifier\ElementColorPicker.xaml.cs">
+      <DependentUpon>ElementColorPicker.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\UIObjectManager.cs" />
     <Compile Include="UI\DayView\Day.cs" />
@@ -228,16 +231,16 @@
     <Compile Include="UI\Team\TeamView.xaml.cs">
       <DependentUpon>TeamView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UpdateTaskHelper.cs" />
-    <Compile Include="UpdateTaskInfo.cs" />
-    <Compile Include="UpdateWindow.xaml.cs">
+    <Compile Include="Update\UpdateTaskHelper.cs" />
+    <Compile Include="Update\UpdateTaskInfo.cs" />
+    <Compile Include="Update\UpdateWindow.xaml.cs">
       <DependentUpon>UpdateWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="UI\Controls\AddElement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\Add_Project.xaml">
+    <Page Include="UI\ObjectsModifier\Add_Project.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -306,6 +309,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UI\ObjectsModifier\ElementColorPicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\ProjectView\ProjectPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -334,7 +341,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UpdateWindow.xaml">
+    <Page Include="Update\UpdateWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -389,7 +396,7 @@
     <Resource Include="Assets\appbar.page.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="AppUpdateFeed.xml">
+    <Resource Include="Update\AppUpdateFeed.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Resource>
