@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQL_lite_database_search_wpf.UI.DayView;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ namespace SQL_lite_database_search_wpf.UI
     /// </summary>
     public partial class DayUI : Grid
     {
-        public List<string> elements = new List<string>();
+        public List<calendarObject> elements = new List<calendarObject>();
 
         public Day day { get; set; }
 
@@ -43,12 +44,14 @@ namespace SQL_lite_database_search_wpf.UI
             tbDate.Text = day.Date.ToShortDateString();
 
             UIStackDayEvents.Children.Clear();
-            foreach (string element in elements)
+            foreach (calendarObject element in elements)
             {
+                SmallCalendarView scView = new SmallCalendarView(element);
+              
+                if (Core.Date.isDateBetween(element, day.Date.Date) == false)
+                { scView.Visibility = Visibility.Hidden; }
 
-                TextBlock tb = new TextBlock();
-                tb.Text = element;
-                UIStackDayEvents.Children.Add(tb);
+                UIStackDayEvents.Children.Add(scView);
 
             }
         }

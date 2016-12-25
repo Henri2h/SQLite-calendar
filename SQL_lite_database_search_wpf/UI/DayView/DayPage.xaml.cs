@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQL_lite_database_search_wpf.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,7 @@ namespace SQL_lite_database_search_wpf.UI.DayView
 
         public DayPage()
         {
+            Console.WriteLine("loading day page");
             InitializeComponent();
             setElements();
             loadElements();
@@ -31,17 +33,22 @@ namespace SQL_lite_database_search_wpf.UI.DayView
 
         public void loadElements()
         {
-            List<calendarObject> cObjs = Core.AppCore.dCore.calendarObjectManager.listALLCalendarObjects(Core.AppCore.mainProjectTableName);
+            DateTime startTimeSelect = days[0].Date.Date;
+            DateTime endTimeSelect = days[days.Count - 1].Date.Date;
+
+            List<calendarObject> cObjs = AppCore.dCore.calendarObjectManager.listALLCalendarObjects(Core.AppCore.mainProjectTableName);
             foreach (Day d in days)
             {
                 DayUI day = new DayUI(d);
 
+
+
+
                 foreach (calendarObject c in cObjs)
                 {
-                    if (Core.Date.isDateBetween(c, day.day.Date))
+                    if (Date.isDateBetween(c, startTimeSelect.Date, endTimeSelect.Date))
                     {
-                        day.elements.Add(c.name.value);
-
+                        day.elements.Add(c);
                     }
                 }
 
@@ -52,7 +59,7 @@ namespace SQL_lite_database_search_wpf.UI.DayView
         }
         public void setElements()
         {
-            UITbWeekNumber.Text = Core.Date.GetIso8601WeekOfYear(DateTime.Today).ToString();
+            UITbWeekNumber.Text = Date.GetIso8601WeekOfYear(DateTime.Today).ToString();
 
             string dayW = DateTime.Today.DayOfWeek.ToString();
 

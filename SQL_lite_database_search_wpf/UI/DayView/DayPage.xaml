@@ -17,7 +17,7 @@
             <TextBlock x:Name="UITbWeekNumber"/>
         </StackPanel>
 
-        <StackPanel x:Name="DayList" Orientation="Horizontal" Grid.Row="1">
+        <StackPanel x:Name="DayList" Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Top">
 
         </StackPanel>
     </Grid>
