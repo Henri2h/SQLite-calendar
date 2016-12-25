@@ -10,12 +10,12 @@
 
         <Grid.ContextMenu>
             <ContextMenu>
-                <MenuItem x:Name="UIMenuChangeColor" Header="Change color"  />
-                <MenuItem x:Name="UIMenuChangeItem" Header="Change item"/>
+                <MenuItem x:Name="UIMenuChangeColor" Header="Change color" Click="UIMenuChangeColor_Click" />
+                <MenuItem x:Name="UIMenuChangeItem" Header="Change item" Click="UIMenuChangeItem_Click"/>
             </ContextMenu>
         </Grid.ContextMenu>
        
 
-        <TextBlock x:Name="UITbName" ToolTip="This is a test"/>
+        <TextBlock x:Name="UITbName"/>
     </Grid>
 </UserControl>

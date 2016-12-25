@@ -26,6 +26,10 @@ namespace SQL_lite_database_search_wpf.UI.DayView
             this.Background = new SolidColorBrush(cObj.color);
             this.UITbName.Text = cObj.name.value;
 
+            if (cObj.description.value != "" && cObj.description.value != null)
+            {
+                this.ToolTip = cObj.description.value;
+            }
         }
     }
 }
