@@ -30,8 +30,6 @@ namespace SQL_lite_database_search_wpf.UI.EventView
 
                 foreach (calendarObject cObj in cObjs)
                 {
-
-                    UI.UIObjectManager.changeCalendarObjectColor(cObj);
                     CalendarObjectView cObjView = new CalendarObjectView(cObj);
                     cObjView.MouseDoubleClick += CObjView_MouseDoubleClick;
                     UIStackCalendarObjects.Items.Add(cObjView);

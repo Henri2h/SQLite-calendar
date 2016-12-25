@@ -54,7 +54,7 @@ namespace SQL_lite_database_search_wpf
         {
             // Normally this would be a web based source.
             // But for the demo app, we prepare an in-memory source.
-            var source = new NAppUpdate.Framework.Sources.MemorySource(File.ReadAllText(Environment.CurrentDirectory + "\\AppUpdateFeed.xml"));
+            var source = new NAppUpdate.Framework.Sources.MemorySource(File.ReadAllText(Environment.CurrentDirectory + "\\Update\\AppUpdateFeed.xml"));
             source.AddTempFile(new Uri("http://carfam.freeboxos.fr/SQLiteAgenda/NewVersion.txt"), "NewVersion.txt");
 
             return source;
