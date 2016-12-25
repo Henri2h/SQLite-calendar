@@ -22,6 +22,7 @@ namespace SQL_lite_database_search_wpf.ErrorHandeler
             StringBuilder output = new StringBuilder();
 
             output.AppendLine("New error : ");
+            output.AppendLine("===========");
             output.AppendLine("Message : " + ex.Message);
             output.AppendLine("Inner exception : " + ex.InnerException);
             output.AppendLine("Source : " + ex.Source);
@@ -61,7 +62,7 @@ namespace SQL_lite_database_search_wpf.ErrorHandeler
         public static void logError(Exception ex)
         {
 
-            string err = getErrorStringJson(ex) + Environment.NewLine;
+            string err = getErrorString(ex) + Environment.NewLine + Environment.NewLine;
             Console.WriteLine(err);
             System.Diagnostics.Debug.WriteLine(err);
             string saveFile = Environment.CurrentDirectory + "\\error.log";

@@ -68,7 +68,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
             try
             {
                 m_dbConnection.Close();
-                throw new NotImplementedException("Hey this is an error");
+                throw new NotImplementedException();
             }
             catch (Exception ex)
             {
