@@ -18,7 +18,7 @@ namespace SQL_lite_database_search_wpf
     {
 
         // ==============  data values ==============
-        public sqliteBase[] values = new sqliteBase[12];
+        public sqliteBase[] values = new sqliteBase[13];
 
 
         // data access:
@@ -82,7 +82,7 @@ namespace SQL_lite_database_search_wpf
 
 
 
-            color.value = Colors.Green;
+            setRandValueForColor();
            
         }
 
@@ -105,16 +105,7 @@ namespace SQL_lite_database_search_wpf
                     Colors.YellowGreen
                 };
 
-
-
-            DateTime dt = DateTime.Now;
-
-            // DateTime.Now.Millisecond throw Index Out of Bond exception (int to int ???), strange ...
-            //  int seed = DateTime.Now.Second; same for second, seem to comme from the DateTime class
-            // edit 3 : new random() throw this error alone ...
-
-            Random r = new Random(dt.Second);
-
+            Random r = new Random(DateTime.Now.Millisecond);
             color.value = cs[r.Next(0, cs.Length)];
         }
         

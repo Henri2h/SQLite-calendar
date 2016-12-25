@@ -62,6 +62,6 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseItems.objects
     public class sqliteColor : sqliteBase
     {
         public sqliteColor(string Name) : base(Name) { this.dataType = "TEXT"; }
-        public Color value { get { return (Color)base.baseValue; } set { base.baseValue = value; } }
+        public Color value { get { return (Color)ColorConverter.ConvertFromString(base.baseValue.ToString()); } set { base.baseValue = value; } }
     }
 }
