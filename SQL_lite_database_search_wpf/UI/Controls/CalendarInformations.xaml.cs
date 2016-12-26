@@ -130,9 +130,18 @@ namespace SQL_lite_database_search_wpf.UI.Controls
 
         public string getTableName()
         {
-            ComboBoxItem cItem = (ComboBoxItem)UIProject.SelectedItem;
-            object item = cItem.Resources["tableName"];
-            return item.ToString();
+            try
+            {
+                ComboBoxItem cItem = (ComboBoxItem)UIProject.SelectedItem;
+                object item = cItem.Resources["tableName"];
+                return item.ToString();
+            }
+            catch
+            {
+                //               MessageBox.Show("Please, select a project repository for this item");
+                Console.WriteLine("Using default project name");
+                return Core.AppCore.mainProjectTableName;
+            }
 
         }
 
