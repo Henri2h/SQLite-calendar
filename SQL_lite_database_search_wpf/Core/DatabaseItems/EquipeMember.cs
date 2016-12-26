@@ -15,7 +15,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseItems
         public sqliteBase[] values = new sqliteBase[]
           {
             new sqliteString("name"),
-            new sqliteInt("numberID",  "INTEGER PRIMARY KEY AUTOINCREMENT"),
+            new sqliteInt("memberID",  "INTEGER PRIMARY KEY AUTOINCREMENT"),
           };
 
     }
