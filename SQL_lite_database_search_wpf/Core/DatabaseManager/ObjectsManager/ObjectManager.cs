@@ -23,9 +23,11 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
         {
             if (reader != null)
             {
-                calendarObject obj = new calendarObject();
-                obj.name.value = reader[obj.name.valueName].ToString();
+                bool hasRows = reader.HasRows;
 
+                calendarObject obj = new calendarObject();
+
+                obj.name.value = reader[obj.name.valueName].ToString();
                 obj.elementID.value = Convert.ToInt32(reader[obj.elementID.valueName].ToString());
 
                 obj.domaine.value = (reader[obj.domaine.valueName].ToString());
@@ -56,7 +58,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
                 obj.tableName = tableName;
 
 
-               
+
 
 
 

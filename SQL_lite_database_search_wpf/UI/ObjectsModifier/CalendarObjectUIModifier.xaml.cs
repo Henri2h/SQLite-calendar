@@ -16,6 +16,7 @@ namespace SQL_lite_database_search_wpf.UI
         {
             InitializeComponent();
         }
+        public calendarObject CalendarObject { get { return UICalendarInformation.CalendarObject; } }
 
         public Add_Project(calendarObject cObj)
         {
@@ -25,17 +26,7 @@ namespace SQL_lite_database_search_wpf.UI
 
         private void btOk_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                calendarObject obj = UICalendarInformation.CalendarObject;
-                AppCore.dCore.calendarObjectManager.addCalendarObject(obj);
-                this.DialogResult = true;
-            }
-            catch (Exception ex)
-            {
-                ex.Source = "SQL_lite_database_search_wpf.UI.Add_Project.btOk_Click";
-                ErrorHandeler.ErrorMessage.logError(ex);
-            }
+            this.DialogResult = true;
         }
 
         private void btCancel_Click(object sender, RoutedEventArgs e)
