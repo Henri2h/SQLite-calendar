@@ -47,7 +47,9 @@ namespace SQL_lite_database_search_wpf.UI.DayView
             List<calendarObject> cObjs = AppCore.dCore.calendarObjectManager.listAllCalendarObjectsBySelection(Core.AppCore.mainProjectTableName, CalendarObjectManager.selectionType.isDateUsed);
             foreach (Day d in days)
             {
-                DayUI day = new DayUI(d);
+                bool isTheSameDay = false;
+                if(d.Date == DateTime.Today.Date) { isTheSameDay = true; }
+                DayUI day = new DayUI(d, isTheSameDay);
 
                 foreach (calendarObject c in cObjs)
                 {

@@ -13,7 +13,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Background="LightGray">
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Background="DarkGray">
             <TextBlock Text="Week number :  "/>
             <TextBlock x:Name="UITbWeekNumber"/>
         </StackPanel>
