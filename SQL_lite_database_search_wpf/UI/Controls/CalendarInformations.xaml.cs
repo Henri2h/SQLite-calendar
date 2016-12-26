@@ -172,9 +172,9 @@ namespace SQL_lite_database_search_wpf.UI.Controls
             else
             {
                 addSelectionInMenuItems("MainProjectTable", Core.AppCore.mainProjectTableName);
-                foreach (calendarObject pr in Core.AppCore.projects)
+                foreach (calendarObject pr in Core.AppCore.dCore.calendarObjectManager.listAllCalendarObjectsBySelection(Core.AppCore.mainProjectTableName, Core.DatabaseManager.ObjectsManager.CalendarObjectManager.selectionType.isRepository))
                 {
-                    addSelectionInMenuItems(pr.name.value, pr.projectTableName.value);
+                    if (pr.isRepository.value) { addSelectionInMenuItems(pr.name.value, pr.projectTableName.value); }
                 }
 
                 addSelectionInMenuItems("<New project ...>", null);

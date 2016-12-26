@@ -151,7 +151,6 @@
     <Compile Include="Core\DatabaseManager\SQLiteCore\Request\CommandBuilder.cs" />
     <Compile Include="Core\DatabaseManager\DatabaseCore.cs" />
     <Compile Include="Core\DatabaseManager\ObjectsManager\ObjectManager.cs" />
-    <Compile Include="Core\DatabaseManager\SQLiteCore\Request\Request.cs" />
     <Compile Include="Core\DatabaseManager\SQLiteCore\Request\RequestBuilder.cs" />
     <Compile Include="Core\DatabaseManager\SQLiteCore\Request\RequestElement.cs" />
     <Compile Include="Core\DatabaseManager\SQLiteCore\SQLiteCommandsExecuter.cs" />

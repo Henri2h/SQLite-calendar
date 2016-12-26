@@ -15,14 +15,17 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.Request
         {
             string names = "";
             string parameterNames = "";
-
             bool justCreated = true;
 
+            // load names
             foreach (string name in rb.getStringElementNames())
             {
                 if (justCreated) { names = name; justCreated = false; }
                 else names += ", " + name;
             }
+
+
+            // load parameter names
             justCreated = true;
             foreach (string parameterName in rb.getStringElementParameterNames())
             {
@@ -30,11 +33,11 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.Request
                 else parameterNames += ", " + parameterName;
             }
 
+            // sqlite command
             string sql_addTable = "insert into " + rb.tableName + " (" + names + ") values (" + parameterNames + ")";
 
+            // command and parameters
             SQLiteCommand Command = new SQLiteCommand(sql_addTable, m_dbConnection);
-
-
             foreach (RequestElement parameter in rb.getElements())
             {
                 Command.Parameters.Add(parameter.parameterName);
