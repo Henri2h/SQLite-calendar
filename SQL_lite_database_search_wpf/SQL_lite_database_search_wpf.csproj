@@ -208,10 +208,6 @@
     <Compile Include="UI\EventView\ProjectView.xaml.cs">
       <DependentUpon>ProjectView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\ProjectView\Project.cs" />
-    <Compile Include="UI\ProjectView\ProjectPage.xaml.cs">
-      <DependentUpon>ProjectPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UI\Settings\Apparence.xaml.cs">
       <DependentUpon>Apparence.xaml</DependentUpon>
     </Compile>
@@ -310,10 +306,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\ObjectsModifier\ElementColorPicker.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\ProjectView\ProjectPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
