@@ -245,3 +245,5 @@ ModelManifest.xml
 .fake/
 *.msi
 *.msi
+*.msi
+Installer/ReleaseALL/Installer.msi
