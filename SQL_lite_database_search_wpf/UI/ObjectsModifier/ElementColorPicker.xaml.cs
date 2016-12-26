@@ -31,6 +31,21 @@ namespace SQL_lite_database_search_wpf.UI.ObjectsModifier
             Color.FromRgb(0x64, 0x76, 0x87),   // steel
             Color.FromRgb(0x76, 0x60, 0x8a),   // mauve
             Color.FromRgb(0x87, 0x79, 0x4e),   // taupe
+
+              Colors.Red,
+                    Colors.Blue,
+                    Colors.Green,
+                    Colors.Yellow,
+                    Colors.ForestGreen,
+                    Colors.Orange,
+                    Colors.Orchid,
+                    Colors.Plum,
+                    Colors.Pink,
+                    Colors.PowderBlue,
+                    Colors.Silver,
+                    Colors.Tan,
+                    Colors.Tomato,
+                    Colors.YellowGreen
         };
 
         public calendarObject CalendarObject { get; set; }
