@@ -25,11 +25,12 @@ namespace SQL_lite_database_search_wpf.UI
 
         public Day day { get; set; }
 
-        public DayUI(Day dayInput)
+        public DayUI(Day dayInput, bool isTheSameDay = false)
         {
             day = dayInput;
             InitializeComponent();
             loadComponements();
+            if (isTheSameDay) { this.Background = new SolidColorBrush(Colors.LightGray); }
         }
 
 
@@ -43,7 +44,7 @@ namespace SQL_lite_database_search_wpf.UI
             foreach (calendarObject element in elements)
             {
                 SmallCalendarView scView = new SmallCalendarView(element);
-              
+
                 if (Core.Date.isDateBetween(element, day.Date.Date) == false)
                 { scView.Visibility = Visibility.Hidden; }
 

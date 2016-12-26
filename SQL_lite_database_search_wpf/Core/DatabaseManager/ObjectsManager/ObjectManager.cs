@@ -19,8 +19,10 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
         /// </summary>
         /// <param name="reader"></param>
         /// <returns></returns>
-        public static calendarObject readerToCobj(SQLiteDataReader reader, string tableName)
+        public static calendarObject readerToCobj(SQLiteDataReader reader, string tableName, bool useReaderRead = true)
         {
+            if (useReaderRead) { reader.Read(); }
+
             if (reader != null)
             {
                 bool hasRows = reader.HasRows;
@@ -45,7 +47,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
             {
                 if (reader != null)
                 {
-                    cObjs.Add(readerToCobj(reader, tableName));
+                    cObjs.Add(readerToCobj(reader, tableName, false));
                 }
             }
             return cObjs;

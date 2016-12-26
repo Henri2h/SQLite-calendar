@@ -53,7 +53,6 @@ namespace SQL_lite_database_search_wpf.ErrorHandeler
         /// <param name="ex"></param>
         public static void saveOut(Exception ex)
         {
-
             string err = getErrorString(ex);
             string tempFile = Files.getTempFile(".err");
             File.AppendAllText(tempFile, err);
@@ -61,11 +60,11 @@ namespace SQL_lite_database_search_wpf.ErrorHandeler
 
         public static void logError(Exception ex)
         {
-
             string err = getErrorString(ex) + Environment.NewLine + Environment.NewLine;
             Console.WriteLine(err);
             System.Diagnostics.Debug.WriteLine(err);
             string saveFile = Environment.CurrentDirectory + "\\error.log";
+
             try
             {
                 File.AppendAllText(saveFile, err);
@@ -76,7 +75,7 @@ namespace SQL_lite_database_search_wpf.ErrorHandeler
                 File.AppendAllText(saveFile, err);
             }
 
-            MessageBox.Show("Error recorded : " + ex.Message + Environment.NewLine + "in : " + saveFile);
+      //      MessageBox.Show("Error recorded : " + ex.Message + Environment.NewLine + "in : " + saveFile);
 
         }
         public static string getErrorStringJson(Exception ex) { return Newtonsoft.Json.JsonConvert.SerializeObject(ex); }
