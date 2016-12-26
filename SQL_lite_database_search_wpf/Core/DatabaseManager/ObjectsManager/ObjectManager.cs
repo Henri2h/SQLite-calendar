@@ -27,40 +27,12 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
 
                 calendarObject obj = new calendarObject();
 
-                obj.name.value = reader[obj.name.valueName].ToString();
-                obj.elementID.value = Convert.ToInt32(reader[obj.elementID.valueName].ToString());
-
-                obj.domaine.value = (reader[obj.domaine.valueName].ToString());
-                obj.priorite.value = int.Parse(reader[obj.priorite.valueName].ToString());
-                obj.description.value = reader[obj.description.valueName].ToString();
-                obj.completion.value = int.Parse(reader[obj.completion.valueName].ToString());
-                obj.equipe.value = reader[obj.equipe.valueName].ToString();
-
-                obj.isDateUsed.value = Convert.ToBoolean(int.Parse(reader[obj.isDateUsed.valueName].ToString()));
-                if (obj.isDateUsed.value)
+                for (int i = 0; i < obj.values.Length; i++)
                 {
-                    obj.startTime.value = DateTime.Parse(reader[obj.startTime.valueName].ToString());
-                    obj.endTime.value = DateTime.Parse(reader[obj.endTime.valueName].ToString());
+                    obj.values[i].baseValue = reader[obj.values[i].valueName];
                 }
-
-
-                // color
-                obj.color.baseValue = reader[obj.color.valueName];
-
-                obj.isRepository.value = Convert.ToBoolean(int.Parse(reader[obj.isRepository.valueName].ToString()));
-
-                if (obj.isRepository.value)
-                {
-                    obj.projectTableName.value = reader[obj.projectTableName.valueName].ToString();
-                }
-                else { obj.projectTableName.value = "error:isRepository=False for " + obj.name.value; }
 
                 obj.tableName = tableName;
-
-
-
-
-
 
                 return obj;
             }

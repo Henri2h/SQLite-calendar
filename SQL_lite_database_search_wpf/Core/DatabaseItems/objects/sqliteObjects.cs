@@ -15,7 +15,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseItems.objects
         {
             this.dataType = "INTEGER";
         }
-        public bool value { get { return (bool)base.baseValue; } set { base.baseValue = value; } }
+        public bool value { get { return Convert.ToBoolean(base.baseValue); } set { base.baseValue = value; } }
 
 
     }
@@ -28,7 +28,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseItems.objects
             this.dataType = "INTEGER";
         }
         public sqliteInt(string Name, string dataType) : base(Name, dataType) { }
-        public int value { get { return (int)base.baseValue; } set { base.baseValue = value; } }
+        public int value { get { return int.Parse(base.baseValue.ToString()); } set { base.baseValue = value; } }
     }
 
     // ============== string ===============
@@ -40,7 +40,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseItems.objects
         }
 
 
-        public string value { get { return (string)base.baseValue; } set { base.baseValue = value; } }
+        public string value { get { return  Convert.ToString(base.baseValue); } set { base.baseValue = value; } }
     }
 
     // ============== dateTime ===============
@@ -51,7 +51,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseItems.objects
 
             this.dataType = "TEXT";
         }
-        public DateTime value { get { return (DateTime)base.baseValue; } set { base.baseValue = value; } }
+        public DateTime value { get { return DateTime.Parse(base.baseValue.ToString()); } set { base.baseValue = value; } }
 
 
     }
