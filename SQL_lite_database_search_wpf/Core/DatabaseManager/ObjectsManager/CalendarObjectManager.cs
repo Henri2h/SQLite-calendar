@@ -124,6 +124,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
             List<calendarObject> cObjects = ObjectManager.readerToCobjs(reader, tableName);
             return cObjects;
         }
+
         public List<calendarObject> listALLCalendarObjects(string tableName, List<calendarObject> cObjs = null)
         {
             if (cObjs == null) { cObjs = new List<calendarObject>(); }
@@ -132,7 +133,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
             SQLiteDataReader reader = SQLiteCommandsExecuter.executeDataReader(sql);
             foreach (calendarObject cObj in ObjectManager.readerToCobjs(reader, tableName))
             {
-                if (cObj.isDateUsed.value) { cObjs.Add(cObj); }
+                cObjs.Add(cObj);
                 if (cObj.isRepository.value)
                 {
                     cObjs = listALLCalendarObjects(cObj.projectTableName.value, cObjs);
@@ -143,11 +144,46 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
             return cObjs;
         }
 
+        public enum selectionType
+        {
+            isDateUsed,
+            isRepository
+        }
+        public List<calendarObject> listAllCalendarObjectsBySelection(string tableName, selectionType selType, List<calendarObject> cObjs = null)
+        {
+            if (cObjs == null) { cObjs = new List<calendarObject>(); }
+
+            string sql = "select * from " + tableName + " order by " + elementID + " ASC";
+            SQLiteDataReader reader = SQLiteCommandsExecuter.executeDataReader(sql);
+
+            foreach (calendarObject cObj in ObjectManager.readerToCobjs(reader, tableName))
+            {
+                if (cObj.isDateUsed.value && selType == selectionType.isDateUsed) { cObjs.Add(cObj); }
+                if (cObj.isRepository.value && selType == selectionType.isRepository) { cObjs.Add(cObj); }
+
+                if (cObj.isRepository.value && selType == selectionType.isDateUsed)
+                {
+                    cObjs = listAllCalendarObjectsBySelection(cObj.projectTableName.value, selType, cObjs);
+                }
+                else if (cObj.isRepository.value && selType == selectionType.isRepository)
+                {
+                    cObjs = listAllCalendarObjectsBySelection(cObj.projectTableName.value, selType, cObjs);
+                }
+            }
+
+            return cObjs;
+        }
+
 
         public void updateCalendarObject(sqliteBase sb, int objectID, string tableName)
         {
-            string request = "update " + tableName + " set '" + sb.valueName + "'='" + sb.baseValue + "' where '" + elementID + "'='" + objectID + "'";
-            SQLiteCommandsExecuter.executeNonQuery(request);
+            string request = "UPDATE " + tableName + " SET " + sb.valueName + " = " + "@param" + " WHERE " + elementID + " = " + objectID;
+
+            SQLiteCommand Command = new SQLiteCommand(request, Core.AppCore.dCore.m_dbConnection);
+            Command.Parameters.AddWithValue("@param", sb.baseValue);
+
+            int updated = Command.ExecuteNonQuery();
+            Console.WriteLine(updated + "row upadted");
         }
 
 
@@ -163,10 +199,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
                     updateCalendarObject(cObj.values[i], cObj.elementID.value, cObj.tableName);
                 }
             }
-            foreach (sqliteBase sb in cObj.values)
-            {
 
-            }
         }
     }
 }

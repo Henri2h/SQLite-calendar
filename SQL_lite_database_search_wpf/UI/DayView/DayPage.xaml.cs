@@ -1,4 +1,5 @@
 ﻿using SQL_lite_database_search_wpf.Core;
+using SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,7 +44,7 @@ namespace SQL_lite_database_search_wpf.UI.DayView
             DateTime startTimeSelect = days[0].Date.Date;
             DateTime endTimeSelect = days[days.Count - 1].Date.Date;
 
-            List<calendarObject> cObjs = AppCore.dCore.calendarObjectManager.listALLCalendarObjects(Core.AppCore.mainProjectTableName);
+            List<calendarObject> cObjs = AppCore.dCore.calendarObjectManager.listAllCalendarObjectsBySelection(Core.AppCore.mainProjectTableName, CalendarObjectManager.selectionType.isDateUsed);
             foreach (Day d in days)
             {
                 DayUI day = new DayUI(d);
