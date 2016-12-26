@@ -42,6 +42,12 @@ namespace SQL_lite_database_search_wpf.UI.Controls
                 }
                 catch { return new DateTime(); }
             }
+
+
+            set
+            {
+                UICalPick.SelectedDate = value;
+            }
         }
     }
 }

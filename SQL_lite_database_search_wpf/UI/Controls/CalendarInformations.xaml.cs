@@ -65,6 +65,37 @@ namespace SQL_lite_database_search_wpf.UI.Controls
                 return cObj;
 
             }
+
+
+            set
+            {
+                parentTable = value.tableName;
+
+                UITbName.Text = value.name.value;
+                UITbDescription.Text = value.description.value;
+
+                UITbDomaine.Text = value.domaine.value;
+                UITbEquipe.Text = value.equipe.value;
+
+                UIslPriorite.starPosition = value.priorite.value;
+                UIslCompletion.Value = (double)value.completion.value;
+
+
+                if (value.isDateUsed.value)
+                {
+                    UIDateTimemanager.isDateUsed = true;
+                    UIDateTimemanager.time_start = value.startTime.value;
+                    UIDateTimemanager.time_end = value.endTime.value;
+                }
+                else { UIDateTimemanager.isDateUsed = false; }
+
+                if (value.isRepository.value)
+                {
+                    UIIsMainProject.IsChecked = true;
+                }
+                else { UIIsMainProject.IsChecked = false; }
+
+            }
         }
 
         // parent table:

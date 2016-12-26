@@ -161,8 +161,8 @@
     <Compile Include="UI\Controls\AddElement.xaml.cs">
       <DependentUpon>AddElement.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\ObjectsModifier\Add_Project.xaml.cs">
-      <DependentUpon>Add_Project.xaml</DependentUpon>
+    <Compile Include="UI\ObjectsModifier\CalendarObjectUIModifier.xaml.cs">
+      <DependentUpon>CalendarObjectUIModifier.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Controls\CalendarInformations.xaml.cs">
       <DependentUpon>CalendarInformations.xaml</DependentUpon>
@@ -240,7 +240,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\ObjectsModifier\Add_Project.xaml">
+    <Page Include="UI\ObjectsModifier\CalendarObjectUIModifier.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

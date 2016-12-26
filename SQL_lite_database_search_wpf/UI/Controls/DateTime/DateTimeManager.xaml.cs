@@ -11,8 +11,8 @@ namespace SQL_lite_database_search_wpf.UI.Controls
     public partial class DateTimeManager : UserControl
     {
         public bool isDateUsed { get; set; }
-        public DateTime time_start { get { return dpTime_start.Value; } }
-        public DateTime time_end { get { return dpTime_end.Value; } }
+        public DateTime time_start { get { return dpTime_start.Value; } set { dpTime_start.Value = value; } }
+        public DateTime time_end { get { return dpTime_end.Value; } set { dpTime_end.Value = value; } }
 
         public bool isHoursUsed { get { return IsHourUsed; } set { IsHourUsed = value; updateUI(); } }
         bool IsHourUsed = false;
