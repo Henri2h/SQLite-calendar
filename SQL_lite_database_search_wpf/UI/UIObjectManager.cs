@@ -1,5 +1,6 @@
 ﻿using SQL_lite_database_search_wpf.Core.DatabaseItems.objects;
 using SQL_lite_database_search_wpf.UI.ObjectsModifier;
+using System;
 using System.Windows;
 
 namespace SQL_lite_database_search_wpf.UI
@@ -20,7 +21,16 @@ namespace SQL_lite_database_search_wpf.UI
 
             if (inputDialog.ShowDialog().Value)
             {
-
+                try
+                {
+                    calendarObject obj = inputDialog.CalendarObject;
+                    Core.AppCore.dCore.calendarObjectManager.addCalendarObject(obj);
+                }
+                catch (Exception ex)
+                {
+                    ex.Source = "SQL_lite_database_search_wpf.UI.UIObjectManager.addNewElement(string)";
+                    ErrorHandeler.ErrorMessage.logError(ex);
+                }
                 calendarContentChanged?.Invoke();
             }
         }
@@ -30,17 +40,15 @@ namespace SQL_lite_database_search_wpf.UI
 
         public static calendarObject changeCalendarObjectColor(calendarObject cObj)
         {
-
             ElementColorPicker inputDialog = new ElementColorPicker(cObj);
             inputDialog.Style = (Style)App.Current.Resources["BlankWindow"];
+
             if (inputDialog.ShowDialog().Value)
             {
                 cObj = inputDialog.CalendarObject;
-                Core.AppCore.dCore.calendarObjectManager.updateCalendarObject((sqliteBase)cObj.color, cObj.elementID.value, cObj.tableName);
+                Core.AppCore.dCore.calendarObjectManager.updateCalendarObject(cObj.color, cObj.elementID.value, cObj.tableName);
                 calendarContentChanged?.Invoke();
             }
-
-
 
             return cObj;
         }
