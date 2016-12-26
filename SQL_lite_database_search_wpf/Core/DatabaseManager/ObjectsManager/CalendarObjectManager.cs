@@ -146,10 +146,8 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
 
         public void updateCalendarObject(sqliteBase sb, int objectID, string tableName)
         {
-
             string request = "update " + tableName + " set '" + sb.valueName + "'='" + sb.baseValue + "' where '" + elementID + "'='" + objectID + "'";
             SQLiteCommandsExecuter.executeNonQuery(request);
-
         }
 
 
