@@ -48,6 +48,8 @@ namespace SQL_lite_database_search_wpf.UI
                 if (Core.Date.isDateBetween(element, day.Date.Date) == false)
                 { scView.Visibility = Visibility.Hidden; }
 
+                scView.Height = 30;
+
                 UIStackDayEvents.Children.Add(scView);
             }
         }

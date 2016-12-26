@@ -16,6 +16,6 @@
         </Grid.ContextMenu>
        
 
-        <TextBlock x:Name="UITbName" Margin="5,0"/>
+        <TextBlock x:Name="UITbName" Margin="5,0" VerticalAlignment="Center"/>
     </Grid>
 </UserControl>
