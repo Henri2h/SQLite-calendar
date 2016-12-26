@@ -31,5 +31,10 @@ namespace SQL_lite_database_search_wpf.UI
                 ErrorHandeler.ErrorMessage.logError(ex);
             }
         }
+
+        private void btCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = false;
+        }
     }
 }
