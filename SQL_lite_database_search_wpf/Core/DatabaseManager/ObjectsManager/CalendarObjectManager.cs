@@ -109,7 +109,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
 
         public calendarObject getCalendarObject(int objectID, string tableName)
         {
-            string sql = "select * from " + tableName + " where (" + elementID + " = " + objectID + ")  order by _rowid_ ASC";
+            string sql = "select * from " + tableName + " where (" + elementID + "=" + objectID + ")  order by _rowid_ ASC LIMIT 1";
             SQLiteDataReader reader = SQLiteCommandsExecuter.executeDataReader(sql);
             calendarObject cObjects = ObjectManager.readerToCobj(reader, tableName);
             return cObjects;
