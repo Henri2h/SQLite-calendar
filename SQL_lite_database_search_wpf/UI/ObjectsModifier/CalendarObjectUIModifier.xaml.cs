@@ -17,6 +17,12 @@ namespace SQL_lite_database_search_wpf.UI
             InitializeComponent();
         }
 
+        public Add_Project(calendarObject cObj)
+        {
+            InitializeComponent();
+            UICalendarInformation.CalendarObject = cObj;
+        }
+
         private void btOk_Click(object sender, RoutedEventArgs e)
         {
             try
