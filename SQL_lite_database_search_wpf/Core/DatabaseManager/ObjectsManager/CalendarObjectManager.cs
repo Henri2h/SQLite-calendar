@@ -107,7 +107,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
         }
 
 
-        public calendarObject getCalendarObject(string objectID, string tableName)
+        public calendarObject getCalendarObject(int objectID, string tableName)
         {
             string sql = "select * from " + tableName + " where (" + elementID + " = " + objectID + ")  order by _rowid_ ASC";
             SQLiteDataReader reader = SQLiteCommandsExecuter.executeDataReader(sql);
@@ -128,7 +128,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
         {
             if (cObjs == null) { cObjs = new List<calendarObject>(); }
 
-            string sql = "select * from " + tableName + " order by _rowid_ ASC";
+            string sql = "select * from " + tableName + " order by " + elementID + " ASC";
             SQLiteDataReader reader = SQLiteCommandsExecuter.executeDataReader(sql);
             foreach (calendarObject cObj in ObjectManager.readerToCobjs(reader, tableName))
             {
@@ -147,9 +147,28 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
         public void updateCalendarObject(sqliteBase sb, int objectID, string tableName)
         {
 
-            string request = "update " + tableName + " set '" + sb.valueName + "'='" + sb.baseValue + "' where '_rowid_'='" + objectID + "'";
+            string request = "update " + tableName + " set '" + sb.valueName + "'='" + sb.baseValue + "' where '" + elementID + "'='" + objectID + "'";
             SQLiteCommandsExecuter.executeNonQuery(request);
 
+        }
+
+
+        // update or save, the same thing
+        public void updateCalendarObject(calendarObject cObj)
+        {
+
+            calendarObject old = getCalendarObject(cObj.elementID.value, cObj.tableName);
+            for (int i = 0; i < cObj.values.Length; i++)
+            {
+                if (cObj.values[i].Equals(old.values[i]) == false)
+                {
+                    updateCalendarObject(cObj.values[i], cObj.elementID, cObj.tableName);
+                }
+            }
+            foreach (sqliteBase sb in cObj.values)
+            {
+
+            }
         }
     }
 }
