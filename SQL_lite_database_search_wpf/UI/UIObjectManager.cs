@@ -15,20 +15,17 @@ namespace SQL_lite_database_search_wpf.UI
 
             Add_Project inputDialog = new Add_Project();
             inputDialog.Style = (Style)App.Current.Resources["BlankWindow"];
-            inputDialog.parentTable = tableSource;
-            inputDialog.ShowDialog();
 
-            calendarContentChanged?.Invoke();
+            if (tableSource != "") { inputDialog.parentTable = tableSource; }
+
+            if (inputDialog.ShowDialog().Value)
+            {
+
+                calendarContentChanged?.Invoke();
+            }
         }
-        public static void addNewElement()
-        {
 
-            Add_Project inputDialog = new Add_Project();
-            inputDialog.Style = (Style)App.Current.Resources["BlankWindow"];
-            inputDialog.ShowDialog();
-
-            calendarContentChanged?.Invoke();
-        }
+        public static void addNewElement() { addNewElement(""); }
 
 
         public static calendarObject changeCalendarObjectColor(calendarObject cObj)
@@ -36,11 +33,14 @@ namespace SQL_lite_database_search_wpf.UI
 
             ElementColorPicker inputDialog = new ElementColorPicker(cObj);
             inputDialog.Style = (Style)App.Current.Resources["BlankWindow"];
-            inputDialog.ShowDialog();
+            if (inputDialog.ShowDialog().Value)
+            {
+                cObj = inputDialog.CalendarObject;
+                Core.AppCore.dCore.calendarObjectManager.updateCalendarObject((sqliteBase)cObj.color, cObj.elementID.value, cObj.tableName);
+                calendarContentChanged?.Invoke();
+            }
 
-            cObj = inputDialog.CalendarObject;
-            Core.AppCore.dCore.calendarObjectManager.updateCalendarObject((sqliteBase)cObj.color, cObj.elementID.value, cObj.tableName);
-            calendarContentChanged?.Invoke();
+
 
             return cObj;
         }
