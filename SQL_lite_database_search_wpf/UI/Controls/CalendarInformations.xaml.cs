@@ -22,14 +22,15 @@ namespace SQL_lite_database_search_wpf.UI.Controls
     /// </summary>
     public partial class CalendarInformations : UserControl
     {
-
+        calendarObject cObj { get; set; }
         public calendarObject CalendarObject
         {
             get
             {
                 // ===================== table elements ==========================
                 // create a new calendarObject element with it's name
-                calendarObject cObj = new calendarObject();
+
+                if (cObj == null) { cObj = new calendarObject(); }
 
                 cObj.name.value = UITbName.Text;
                 cObj.description.value = UITbDescription.Text;
@@ -69,7 +70,10 @@ namespace SQL_lite_database_search_wpf.UI.Controls
 
             set
             {
-                parentTable = value.tableName;
+                cObj = value;
+
+
+                ParentTable = value.tableName;
 
                 UITbName.Text = value.name.value;
                 UITbDescription.Text = value.description.value;
@@ -88,6 +92,11 @@ namespace SQL_lite_database_search_wpf.UI.Controls
                     UIDateTimemanager.time_end = value.endTime.value;
                 }
                 else { UIDateTimemanager.isDateUsed = false; }
+
+
+                // prevent deleting associated tables
+                // should be always false when doing modification because the code will not change the associated tables when the object is updated
+                UIIsMainProject.IsEnabled = false;
 
                 if (value.isRepository.value)
                 {
