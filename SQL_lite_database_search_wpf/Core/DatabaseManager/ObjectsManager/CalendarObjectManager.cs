@@ -162,7 +162,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
             {
                 if (cObj.values[i].Equals(old.values[i]) == false)
                 {
-                    updateCalendarObject(cObj.values[i], cObj.elementID, cObj.tableName);
+                    updateCalendarObject(cObj.values[i], cObj.elementID.value, cObj.tableName);
                 }
             }
             foreach (sqliteBase sb in cObj.values)
