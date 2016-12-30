@@ -7,16 +7,26 @@ using System.Threading.Tasks;
 
 namespace SQL_lite_database_search_wpf.Core.DatabaseItems
 {
-    public class EquipeMember
+    public class EquipeMember : DatabaseItem
     {
+        sqliteBase[] Values = new sqliteBase[2];
+
+
         public sqliteString name { get { return (sqliteString)values[0]; } set { values[0] = value; } }
-        public sqliteInt id { get { return (sqliteInt)values[1]; } set { values[1] = value; } }
+        public sqliteInt elementID { get { return (sqliteInt)values[1]; } set { values[1] = value; } }
 
-        public sqliteBase[] values = new sqliteBase[]
-          {
-            new sqliteString("name"),
-            new sqliteInt("memberID",  "INTEGER PRIMARY KEY AUTOINCREMENT"),
-          };
+        public sqliteBase[] values
+        {
+            get { return Values; }
+            set { Values = value; }
+        }
 
+        public string tableName { get; set; }
+
+        public void createCalendarObject()
+        {
+            Values[0] = new sqliteString("name");
+            Values[1] = new sqliteInt("memberID", "INTEGER PRIMARY KEY AUTOINCREMENT");
+        }
     }
 }

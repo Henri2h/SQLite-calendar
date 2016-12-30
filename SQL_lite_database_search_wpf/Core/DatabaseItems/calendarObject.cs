@@ -14,39 +14,45 @@ namespace SQL_lite_database_search_wpf
     /// <summary>
     /// base class of the calendar object
     /// </summary>
-    public class calendarObject
+    public class calendarObject : DatabaseItem
     {
 
         // ==============  data values ==============
-        public sqliteBase[] values = new sqliteBase[13];
+        public sqliteBase[] Values = new sqliteBase[13];
+
+        public sqliteBase[] values
+        {
+            get { return Values; }
+            set { Values = value; }
+        }
 
 
         // data access:
         //=============
 
         // definitions
-        public sqliteString name { get { return (sqliteString)values[0]; } set { values[0] = value; } }
-        public sqliteInt elementID { get { return (sqliteInt)values[1]; } set { values[1] = value; } }
+        public sqliteString name { get { return (sqliteString)Values[0]; } set { Values[0] = value; } }
+        public sqliteInt elementID { get { return (sqliteInt)Values[1]; } set { Values[1] = value; } }
 
 
         // date
-        public sqliteBool isDateUsed { get { return (sqliteBool)values[2]; } set { values[2] = value; } }
-        public sqliteDateTime startTime { get { return (sqliteDateTime)values[3]; } set { values[3] = value; } }
-        public sqliteDateTime endTime { get { return (sqliteDateTime)values[4]; } set { values[4] = value; } }
+        public sqliteBool isDateUsed { get { return (sqliteBool)Values[2]; } set { Values[2] = value; } }
+        public sqliteDateTime startTime { get { return (sqliteDateTime)Values[3]; } set { Values[3] = value; } }
+        public sqliteDateTime endTime { get { return (sqliteDateTime)Values[4]; } set { Values[4] = value; } }
 
-        public sqliteString description { get { return (sqliteString)values[5]; } set { values[5] = value; } }
-        public sqliteString domaine { get { return (sqliteString)values[6]; } set { values[6] = value; } }
+        public sqliteString description { get { return (sqliteString)Values[5]; } set { Values[5] = value; } }
+        public sqliteString domaine { get { return (sqliteString)Values[6]; } set { Values[6] = value; } }
 
-        public sqliteInt priorite { get { return (sqliteInt)values[7]; } set { values[7] = value; } }
-        public sqliteInt completion { get { return (sqliteInt)values[8]; } set { values[8] = value; } }
-        public sqliteString equipe { get { return (sqliteString)values[9]; } set { values[9] = value; } }
+        public sqliteInt priorite { get { return (sqliteInt)Values[7]; } set { Values[7] = value; } }
+        public sqliteInt completion { get { return (sqliteInt)Values[8]; } set { Values[8] = value; } }
+        public sqliteString equipe { get { return (sqliteString)Values[9]; } set { Values[9] = value; } }
 
         // table and repository
-        public sqliteBool isRepository { get { return (sqliteBool)values[10]; } set { values[10] = value; } }
-        public sqliteString projectTableName { get { return (sqliteString)values[11]; } set { values[11] = value; } }
+        public sqliteBool isRepository { get { return (sqliteBool)Values[10]; } set { Values[10] = value; } }
+        public sqliteString projectTableName { get { return (sqliteString)Values[11]; } set { Values[11] = value; } }
 
         // color
-        public sqliteColor color { get { return (sqliteColor)values[12]; } set { values[12] = value; } }
+        public sqliteColor color { get { return (sqliteColor)Values[12]; } set { Values[12] = value; } }
 
 
         public calendarObject() { createCalendarObject(); }
@@ -56,34 +62,34 @@ namespace SQL_lite_database_search_wpf
             this.name.value = name;
         }
 
-        void createCalendarObject()
+        public void createCalendarObject()
         {
-            values[0] = new sqliteString("name");
-            values[1] = new sqliteInt("elementID", "INTEGER PRIMARY KEY AUTOINCREMENT");
+            Values[0] = new sqliteString("name");
+            Values[1] = new sqliteInt("elementID", "INTEGER PRIMARY KEY AUTOINCREMENT");
 
             // date time
-            values[2] = new sqliteBool("isDateUsed");
-            values[3] = new sqliteDateTime("time_start");
-            values[4] = new sqliteDateTime("time_end");
+            Values[2] = new sqliteBool("isDateUsed");
+            Values[3] = new sqliteDateTime("time_start");
+            Values[4] = new sqliteDateTime("time_end");
 
-            values[5] = new sqliteString("description");
-            values[6] = new sqliteString("domain");
-            values[7] = new sqliteInt("priority");
-            values[8] = new sqliteInt("completion");
-            values[9] = new sqliteString("team");
+            Values[5] = new sqliteString("description");
+            Values[6] = new sqliteString("domain");
+            Values[7] = new sqliteInt("priority");
+            Values[8] = new sqliteInt("completion");
+            Values[9] = new sqliteString("team");
 
             // repository
 
-            values[10] = new sqliteBool("isRepository");
-            values[11] = new sqliteString("tableName");
+            Values[10] = new sqliteBool("isRepository");
+            Values[11] = new sqliteString("tableName");
 
-            values[12] = new sqliteColor("color");
+            Values[12] = new sqliteColor("color");
 
 
 
 
             setRandValueForColor();
-           
+
         }
 
         void setRandValueForColor()
@@ -108,7 +114,7 @@ namespace SQL_lite_database_search_wpf
             Random r = new Random(DateTime.Now.Millisecond);
             color.value = cs[r.Next(0, cs.Length)];
         }
-        
+
 
 
 
@@ -133,6 +139,7 @@ namespace SQL_lite_database_search_wpf
         List<calendarObject> eventsLocal;
 
         public string databaseName { get; set; }
+
 
 
         // others

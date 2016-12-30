@@ -30,7 +30,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
             }
 
             string sql_command = "CREATE TABLE " + tableName + " ( " + sbElements.ToString() + ")";
-            SQLiteCommandsExecuter.executeNonQuery(sql_command);
+            SQLiteCommandsExecuter.executeNonQuery(sql_command, Core.AppCore.dCore.m_dbConnection);
         }
 
 
@@ -64,7 +64,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
                     rb.addElement(sb.valueName, sb.baseValue);
                 }
 
-                SQLiteCommand cmd = Request.CommandBuilder.getCommand(rb);
+                SQLiteCommand cmd = Request.CommandBuilder.getCommand(rb, Core.AppCore.dCore.m_dbConnection);
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -110,8 +110,8 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
         public calendarObject getCalendarObject(int objectID, string tableName)
         {
             string sql = "select * from " + tableName + " where (" + elementID + "=" + objectID + ")  order by _rowid_ ASC LIMIT 1";
-            SQLiteDataReader reader = SQLiteCommandsExecuter.executeDataReader(sql);
-            calendarObject cObjects = ObjectManager.readerToCobj(reader, tableName);
+            SQLiteDataReader reader = SQLiteCommandsExecuter.executeDataReader(sql, Core.AppCore.dCore.m_dbConnection);
+            calendarObject cObjects = readerToCobj(reader, tableName);
             return cObjects;
 
         }
@@ -120,8 +120,8 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
         public List<calendarObject> listCalendarObjects(string tableName)
         {
             string sql = "select * from " + tableName + " order by _rowid_ ASC";
-            SQLiteDataReader reader = SQLiteCommandsExecuter.executeDataReader(sql);
-            List<calendarObject> cObjects = ObjectManager.readerToCobjs(reader, tableName);
+            SQLiteDataReader reader = SQLiteCommandsExecuter.executeDataReader(sql, Core.AppCore.dCore.m_dbConnection);
+            List<calendarObject> cObjects = readerToCobjs(reader, tableName);
             return cObjects;
         }
 
@@ -130,8 +130,8 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
             if (cObjs == null) { cObjs = new List<calendarObject>(); }
 
             string sql = "select * from " + tableName + " order by " + elementID + " ASC";
-            SQLiteDataReader reader = SQLiteCommandsExecuter.executeDataReader(sql);
-            foreach (calendarObject cObj in ObjectManager.readerToCobjs(reader, tableName))
+            SQLiteDataReader reader = SQLiteCommandsExecuter.executeDataReader(sql, Core.AppCore.dCore.m_dbConnection);
+            foreach (calendarObject cObj in readerToCobjs(reader, tableName))
             {
                 cObjs.Add(cObj);
                 if (cObj.isRepository.value)
@@ -154,9 +154,9 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
             if (cObjs == null) { cObjs = new List<calendarObject>(); }
 
             string sql = "select * from " + tableName + " order by " + elementID + " ASC";
-            SQLiteDataReader reader = SQLiteCommandsExecuter.executeDataReader(sql);
+            SQLiteDataReader reader = SQLiteCommandsExecuter.executeDataReader(sql, Core.AppCore.dCore.m_dbConnection);
 
-            foreach (calendarObject cObj in ObjectManager.readerToCobjs(reader, tableName))
+            foreach (calendarObject cObj in readerToCobjs(reader, tableName))
             {
                 if (cObj.isDateUsed.value && selType == selectionType.isDateUsed) { cObjs.Add(cObj); }
                 if (cObj.isRepository.value && selType == selectionType.isRepository) { cObjs.Add(cObj); }
@@ -201,5 +201,42 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
             }
 
         }
+        public calendarObject readerToCobj(SQLiteDataReader reader, string tableName, bool useReaderRead = true)
+        {
+            if (useReaderRead) { reader.Read(); }
+
+            if (reader != null)
+            {
+                bool hasRows = reader.HasRows;
+
+                calendarObject obj = new calendarObject();
+
+                for (int i = 0; i < obj.values.Length; i++)
+                {
+                    obj.values[i].baseValue = reader[obj.values[i].valueName];
+                }
+
+                obj.tableName = tableName;
+
+                return obj;
+            }
+            return null;
+        }
+        public List<calendarObject> readerToCobjs(SQLiteDataReader reader, string tableName)
+        {
+            List<calendarObject> cObjs = new List<calendarObject>();
+            while (reader.Read())
+            {
+                if (reader != null)
+                {
+                    cObjs.Add(readerToCobj(reader, tableName, false));
+                }
+            }
+            return cObjs;
+        }
+
+
+
+
     }
 }
