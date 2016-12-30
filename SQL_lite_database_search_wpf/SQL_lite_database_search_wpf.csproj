@@ -143,6 +143,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Core\AppCore.cs" />
+    <Compile Include="Core\DatabaseItems\DatabaseItem.cs" />
     <Compile Include="Core\DatabaseItems\EquipeMember.cs" />
     <Compile Include="Core\DatabaseItems\objects\sqliteBase.cs" />
     <Compile Include="Core\DatabaseItems\objects\sqliteObjects.cs" />

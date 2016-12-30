@@ -735,7 +735,7 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Doris' Agenda"
+        "ProductName" = "8:SQLiteAgenda"
         "ProductCode" = "8:{AE717199-4565-4CFA-8658-E10A92368165}"
         "PackageCode" = "8:{64A84007-8874-4030-8D14-8197CFB5A968}"
         "UpgradeCode" = "8:{6C275395-3F5B-40A5-9348-095C2B8E051B}"
