@@ -27,7 +27,7 @@
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
         
-        <mui:LinkGroup DisplayName="Day" >
+        <mui:LinkGroup DisplayName="Planing" >
             <mui:LinkGroup.Links >
                 <mui:Link Source="/UI/DayView/DayPage.xaml"/>
             </mui:LinkGroup.Links>
