@@ -14,19 +14,26 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
 {
     public class DatabaseCore
     {
-        //definition
-
-
+        public DatabaseCore()
+        {
+            objManager = new ObjectManager(this);
+            EquipeMemberManager = new EquipeManager();
+            calendarObjectManager = new CalendarObjectManager();
+        }
 
         // control types
-        public EquipeManager EquipeMemberManager = new EquipeManager();
-        public CalendarObjectManager calendarObjectManager = new CalendarObjectManager();
+        public ObjectManager objManager { get; set; }
+        public EquipeManager EquipeMemberManager { get; set; }
+        public CalendarObjectManager calendarObjectManager { get; set; }
 
         // sqlite
         string inputFile = @"D:\sqlite\cal.sqlite";
-        public SQLiteConnection m_dbConnection;
 
-        public void OpenDataBase()
+        //definition
+
+        public SQLiteConnection m_dbConnection { get; set; }
+
+        public bool OpenDataBase()
         {
             m_dbConnection = new SQLiteConnection("Data Source=" + inputFile + ";Version=3;");
             bool isTheFileJustCreated = false;
@@ -48,20 +55,33 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
                 EquipeMemberManager.createEquipeTable();
             }
 
+            return isTheFileJustCreated;
+
         }
 
 
         public void delElement(string tableName, sqliteInt rowID)
         {
             string sql = "DELETE FROM " + tableName + " WHERE " + rowID.valueName + " = " + rowID.value;
-            SQLiteCommandsExecuter.executeNonQuery(sql);
-        }
-        public void delTable(string tableName) {
-            string sql = "DROP TABLE " + tableName; ;
-            SQLiteCommandsExecuter.executeNonQuery(sql);
+            SQLiteCommandsExecuter.executeNonQuery(sql, m_dbConnection);
         }
 
-      
+        public void delTable(string tableName)
+        {
+            string sql = "DROP TABLE " + tableName; ;
+            SQLiteCommandsExecuter.executeNonQuery(sql, m_dbConnection);
+        }
+
+        public void updateElement(sqliteBase sb, sqliteBase seletcter, string tableName)
+        {
+            string request = "UPDATE " + tableName + " SET " + sb.valueName + " = " + "@param" + " WHERE " + seletcter.valueName + " = " + seletcter.baseValue;
+
+            SQLiteCommand Command = new SQLiteCommand(request, m_dbConnection);
+            Command.Parameters.AddWithValue("@param", sb.baseValue);
+
+            int updated = Command.ExecuteNonQuery();
+        }
+
         // just close the database anyway
         ~DatabaseCore()
         {
