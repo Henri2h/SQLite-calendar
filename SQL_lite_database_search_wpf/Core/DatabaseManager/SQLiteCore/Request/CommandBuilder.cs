@@ -9,9 +9,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.Request
 {
     public class CommandBuilder
     {
-        static SQLiteConnection m_dbConnection { get { return Core.AppCore.dCore.m_dbConnection; } }
-
-        public static SQLiteCommand getCommand(RequestBuilder rb)
+        public static SQLiteCommand getCommand(RequestBuilder rb, SQLiteConnection m_dbConnection)
         {
             string names = "";
             string parameterNames = "";
@@ -45,8 +43,6 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.Request
 
             return Command;
         }
-
-
 
     }
 }

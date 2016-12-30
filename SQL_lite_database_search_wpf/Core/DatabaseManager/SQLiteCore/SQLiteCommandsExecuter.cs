@@ -10,28 +10,18 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
 {
     public class SQLiteCommandsExecuter
     {
-        static SQLiteConnection m_dbConnection { get { return Core.AppCore.dCore.m_dbConnection; } }
-
-        public static void executeNonQuery(string request)
+        public static void executeNonQuery(string request, SQLiteConnection m_dbConnection)
         {
             SQLiteCommand command = new SQLiteCommand(request, m_dbConnection);
             command.ExecuteNonQuery();
         }
 
-        public static SQLiteDataReader executeDataReader(string request)
+        public static SQLiteDataReader executeDataReader(string request, SQLiteConnection m_dbConnection)
         {
             SQLiteCommand command = new SQLiteCommand(request, m_dbConnection);
             SQLiteDataReader reader = command.ExecuteReader();
             return reader;
         }
-
-        // todo : to complete
-        public static void select(string select, string tableName, string orderBy = "_rowid_")
-        {
-            string sql = "select " + select + " from " + tableName + " order by " + orderBy + " ASC";
-        }
-
-     
 
     }
 }
