@@ -28,15 +28,18 @@ namespace SQL_lite_database_search_wpf
 
         public MainWindow()
         {
+            Usefull_Tools.Logger.AppName = "SQLite_Agenda";
+            Usefull_Tools.Logger.logMain("Starting ...");
+
             new Core.AppCore(this);
             InitializeComponent();
 
-         //   MessageBox.Show(Files.getTempFile(".err"));
-           // MessageBox.Show(System.Environment.Version.ToString());
-           
+            //   MessageBox.Show(Files.getTempFile(".err"));
+            // MessageBox.Show(System.Environment.Version.ToString());
+
         }
 
-      
+
         public void showMessageBox(string content, string name)
         {
             MessageBoxButton btn = MessageBoxButton.OK;
@@ -124,7 +127,7 @@ namespace SQL_lite_database_search_wpf
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-           
+
         }
 
         private void ModernWindow_Closed(object sender, EventArgs e)
