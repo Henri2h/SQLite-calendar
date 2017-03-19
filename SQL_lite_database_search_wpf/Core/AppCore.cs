@@ -9,13 +9,20 @@ namespace SQL_lite_database_search_wpf.Core
         public static string mainProjectTableName = "projects";
         public static DatabaseCore dCore = new DatabaseCore();
         public static MainWindow Wi;
-        public static List<string> Equipe { get; set; }
 
-        public static List<string> getEquipe()
+        public static List<string> Equipe { get { return getEquipe(); } }
+
+        static List<string> getEquipe()
         {
             List<string> equipeMember = new List<string>();
 
-            return equipeMember ;
+            List<DatabaseItems.EquipeMember> eMemb = dCore.EquipeMemberManager.getEquipeMembers();
+            foreach (DatabaseItems.EquipeMember e in eMemb)
+            {
+                equipeMember.Add(e.name.value);
+            }
+
+            return equipeMember;
         }
 
         public static bool databaseOpened = false;
@@ -28,12 +35,6 @@ namespace SQL_lite_database_search_wpf.Core
             dCore.OpenDataBase();
             databaseOpened = true;
         }
-
-
-
-      
-
-
 
     }
 }
