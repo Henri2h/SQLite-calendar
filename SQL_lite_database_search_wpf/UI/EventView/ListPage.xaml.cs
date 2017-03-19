@@ -10,6 +10,9 @@ namespace SQL_lite_database_search_wpf.UI.EventView
     /// </summary>
     public partial class ListPage : UserControl
     {
+        /// <summary>
+        /// Initialize the list page and load the Project view and call loadElement
+        /// </summary>
         public ListPage()
         {
             InitializeComponent();

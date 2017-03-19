@@ -11,36 +11,75 @@ namespace SQL_lite_database_search_wpf.UI.EventView
     /// </summary>
     public partial class ProjectView : UserControl
     {
+        /// <summary>
+        /// Project view page creation and load the users
+        /// </summary>
         public ProjectView()
         {
             InitializeComponent();
-
+            loadUsers(true);
         }
 
         public List<string> tableSourceHistory = new List<string>();
         public string tableSource { get; set; }
 
+        /// <summary>
+        /// Load all elements
+        /// </summary>
         public void loadElement()
         {
-            UIStackCalendarObjects.Items.Clear();
+            loadElement("All");
+            loadUsers();
+        }
 
-            List<calendarObject> cObjs = AppCore.dCore.calendarObjectManager.listCalendarObjects(tableSource);
-            if (cObjs.ToArray().Length != 0)
+        /// <summary>
+        /// Load the element for a specific member
+        /// </summary>
+        /// <param name="seletction"></param>
+        public void loadElement(string seletction)
+        {
+            if (tableSource != null)
             {
+                UIStackCalendarObjects.Items.Clear();
 
-                foreach (calendarObject cObj in cObjs)
+                List<calendarObject> cObjs = AppCore.dCore.calendarObjectManager.listCalendarObjects(tableSource);
+                if (cObjs.ToArray().Length != 0)
                 {
-                    CalendarObjectView cObjView = new CalendarObjectView(cObj);
-                    cObjView.MouseDoubleClick += CObjView_MouseDoubleClick;
-                    UIStackCalendarObjects.Items.Add(cObjView);
+                    foreach (calendarObject cObj in cObjs)
+                    {
+                        CalendarObjectView cObjView = new CalendarObjectView(cObj);
+                        cObjView.MouseDoubleClick += CObjView_MouseDoubleClick;
+                        if (seletction == "All" || seletction == cObj.equipe.value) UIStackCalendarObjects.Items.Add(cObjView);
+                    }
+                }
+                else
+                {
+                    TextBlock tb = new TextBlock();
+                    tb.Text = "No events";
+                    UIStackCalendarObjects.Items.Add(tb);
                 }
             }
-            else
+        }
+
+        void loadUsers(bool changeSelection = false)
+        {
+            UIMemberSelection.Items.Clear();
+
+            TextBlock all = addUserMember("All");
+            if (changeSelection) UIMemberSelection.SelectedItem = all;
+
+            foreach (string e in AppCore.Equipe)
             {
-                TextBlock tb = new TextBlock();
-                tb.Text = "No events";
-                UIStackCalendarObjects.Items.Add(tb);
+                addUserMember(e);
             }
+
+        }
+        TextBlock addUserMember(string name)
+        {
+            TextBlock tb = new TextBlock();
+            tb.Text = name;
+            UIMemberSelection.Items.Add(tb);
+            return tb;
         }
 
         public void addNewElement()
@@ -75,8 +114,17 @@ namespace SQL_lite_database_search_wpf.UI.EventView
                 tableSourceHistory.RemoveAt(tableSourceHistory.Count - 1);
                 loadElement();
             }
+        }
 
-
+        private void UIMemberSelection_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (UIMemberSelection.SelectedItem != null)
+            {
+                TextBlock tb = (TextBlock)UIMemberSelection.SelectedItem;
+                if (tb.Text == "" || tb.Text == null) tb.Text = "All";
+                loadElement(tb.Text);
+            }
+            else { loadElement("All"); }
         }
     }
 }

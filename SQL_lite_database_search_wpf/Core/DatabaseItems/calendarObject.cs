@@ -45,6 +45,11 @@ namespace SQL_lite_database_search_wpf
 
         public sqliteInt priorite { get { return (sqliteInt)Values[7]; } set { Values[7] = value; } }
         public sqliteInt completion { get { return (sqliteInt)Values[8]; } set { Values[8] = value; } }
+
+        /// <summary>
+        /// Team member list
+        /// </summary>
+        // TODO : implement it as a list of all the team members evolved in it
         public sqliteString equipe { get { return (sqliteString)Values[9]; } set { Values[9] = value; } }
 
         // table and repository
@@ -85,11 +90,7 @@ namespace SQL_lite_database_search_wpf
 
             Values[12] = new sqliteColor("color");
 
-
-
-
             setRandValueForColor();
-
         }
 
         void setRandValueForColor()

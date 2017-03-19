@@ -85,6 +85,8 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
         // just close the database anyway
         ~DatabaseCore()
         {
+
+
             try
             {
                 m_dbConnection.Close();
@@ -93,6 +95,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
             {
                 ex.Source = "SQL_lite_database_search_wpf.Core.DatabaseManager.DatabaseCore.destructor";
                 ErrorHandeler.ErrorMessage.logError(ex);
+                Usefull_Tools.ErrorHandeler.printOut(ex);
             }
         }
     }
