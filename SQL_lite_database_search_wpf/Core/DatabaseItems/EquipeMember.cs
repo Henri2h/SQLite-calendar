@@ -9,8 +9,9 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseItems
 {
     public class EquipeMember : DatabaseItem
     {
-        sqliteBase[] Values = new sqliteBase[2];
+        public EquipeMember() { createCalendarObject(); }
 
+        sqliteBase[] Values = new sqliteBase[2];
 
         public sqliteString name { get { return (sqliteString)values[0]; } set { values[0] = value; } }
         public sqliteInt elementID { get { return (sqliteInt)values[1]; } set { values[1] = value; } }
