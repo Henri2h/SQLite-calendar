@@ -33,10 +33,6 @@ namespace SQL_lite_database_search_wpf
 
             new Core.AppCore(this);
             InitializeComponent();
-
-            //   MessageBox.Show(Files.getTempFile(".err"));
-            // MessageBox.Show(System.Environment.Version.ToString());
-
         }
 
 
@@ -51,7 +47,6 @@ namespace SQL_lite_database_search_wpf
 
 
         // updates
-
 
         private NAppUpdate.Framework.Sources.IUpdateSource PrepareUpdateSource()
         {
@@ -127,7 +122,7 @@ namespace SQL_lite_database_search_wpf
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-
+            Usefull_Tools.Logger.logMain("Stopping ...");
         }
 
         private void ModernWindow_Closed(object sender, EventArgs e)

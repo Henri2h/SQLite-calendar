@@ -134,6 +134,9 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="Usefull_Tools_Classic">
+      <HintPath>..\..\..\Usefull_Tools\Usefull_Tools_Classic\bin\Release\Usefull_Tools_Classic.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -161,6 +164,9 @@
     <Compile Include="Core\Files.cs" />
     <Compile Include="UI\Controls\AddElement.xaml.cs">
       <DependentUpon>AddElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\EquipeMemberSelection.xaml.cs">
+      <DependentUpon>EquipeMemberSelection.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\ObjectsModifier\CalendarObjectUIModifier.xaml.cs">
       <DependentUpon>CalendarObjectUIModifier.xaml</DependentUpon>
@@ -234,6 +240,10 @@
       <DependentUpon>UpdateWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="UI\Controls\AddElement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\EquipeMemberSelection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
