@@ -58,7 +58,7 @@
                 <!--equipe-->
                 <StackPanel Orientation="Horizontal" Height="30">
                     <TextBlock Text="Equipe :"/>
-                    <TextBox x:Name="UITbEquipe" MinWidth="50"/>
+                    <local:EquipeMemberSelection x:Name="UISelTeam"/>
                 </StackPanel>
             </StackPanel>
 

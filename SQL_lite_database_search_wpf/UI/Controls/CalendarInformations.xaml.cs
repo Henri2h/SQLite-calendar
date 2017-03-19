@@ -43,7 +43,7 @@ namespace SQL_lite_database_search_wpf.UI.Controls
 
                 // team
                 // TODO : change it's value to a JSON array of the ID of the element of the team
-                cObj.equipe.value = UITbEquipe.Text;
+                cObj.equipe.value = UISelTeam.selectedMemberName;
 
                 // 
                 // ======================   date and time  =========================
@@ -79,7 +79,7 @@ namespace SQL_lite_database_search_wpf.UI.Controls
                 UITbDescription.Text = value.description.value;
 
                 UITbDomaine.Text = value.domaine.value;
-                UITbEquipe.Text = value.equipe.value;
+                UISelTeam.selectedMemberName = value.equipe.value;
 
                 UIslPriorite.starPosition = value.priorite.value;
                 UIslCompletion.Value = (double)value.completion.value;
