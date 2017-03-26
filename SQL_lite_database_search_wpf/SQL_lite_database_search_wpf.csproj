@@ -162,8 +162,36 @@
     <Compile Include="Core\Date.cs" />
     <Compile Include="ErrorHandeler\ErrorMessage.cs" />
     <Compile Include="Core\Files.cs" />
+    <Compile Include="UI\CalendarView\CalendarView.xaml.cs">
+      <DependentUpon>CalendarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CalendarView\CalendarViewCore.cs" />
+    <Compile Include="UI\CalendarView\SpecificViews\Day.cs" />
+    <Compile Include="UI\CalendarView\DayElement.cs" />
+    <Compile Include="UI\CalendarView\SpecificViews\DayView.xaml.cs">
+      <DependentUpon>DayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CalendarView\SpecificViews\MonthView.xaml.cs">
+      <DependentUpon>MonthView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CalendarView\SpecificViews\SpecificControlls\DayElementView.xaml.cs">
+      <DependentUpon>DayElementView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CalendarView\SpecificViews\SpecificControlls\SmallCalendarView.xaml.cs">
+      <DependentUpon>SmallCalendarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CalendarView\SpecificViews\SpecificControlls\WeekView.xaml.cs">
+      <DependentUpon>WeekView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CalendarView\TimeSelectionEvents.cs" />
+    <Compile Include="UI\CalendarView\SpecificViews\WeekView.xaml.cs">
+      <DependentUpon>WeekView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Controls\AddElement.xaml.cs">
       <DependentUpon>AddElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\comboBoxSelection.xaml.cs">
+      <DependentUpon>comboBoxSelection.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Controls\EquipeMemberSelection.xaml.cs">
       <DependentUpon>EquipeMemberSelection.xaml</DependentUpon>
@@ -239,9 +267,41 @@
     <Compile Include="Update\UpdateWindow.xaml.cs">
       <DependentUpon>UpdateWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="UI\CalendarView\CalendarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CalendarView\SpecificViews\DayView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CalendarView\SpecificViews\MonthView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CalendarView\SpecificViews\SpecificControlls\DayElementView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CalendarView\SpecificViews\SpecificControlls\SmallCalendarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CalendarView\SpecificViews\SpecificControlls\WeekView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CalendarView\SpecificViews\WeekView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\Controls\AddElement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\comboBoxSelection.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UI\Controls\EquipeMemberSelection.xaml">
       <SubType>Designer</SubType>
@@ -412,6 +472,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.104.0\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.104.0\build\net451\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

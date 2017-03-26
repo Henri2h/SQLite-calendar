@@ -20,24 +20,29 @@
     </mui:ModernWindow.TitleLinks>
 
     <mui:ModernWindow.MenuLinkGroups>
-        
+
         <mui:LinkGroup DisplayName="List" >
             <mui:LinkGroup.Links >
                 <mui:Link Source="/UI/EventView/ListPage.xaml"/>
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
-        
+
         <mui:LinkGroup DisplayName="Planing" >
             <mui:LinkGroup.Links >
                 <mui:Link Source="/UI/DayView/DayPage.xaml"/>
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
-        
+        <mui:LinkGroup DisplayName="Planing2" >
+            <mui:LinkGroup.Links >
+                <mui:Link Source="/UI/CalendarView/CalendarView.xaml"/>
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+
         <mui:LinkGroup DisplayName="Equipe" >
             <mui:LinkGroup.Links >
                 <mui:Link Source="/UI/Team/TeamView.xaml"/>
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
-    
+
     </mui:ModernWindow.MenuLinkGroups>
 </mui:ModernWindow>
