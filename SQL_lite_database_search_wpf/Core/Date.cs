@@ -46,8 +46,6 @@ namespace SQL_lite_database_search_wpf.Core
         {
             if (element.isDateUsed.value == true)
             {
-
-
                 bool superior = isOneOfSlectedDateBetween(element.startTime.value, startDate, endDate);
                 bool inferior = isOneOfSlectedDateBetween(element.endTime.value, startDate, endDate);
 

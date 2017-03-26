@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SQL_lite_database_search_wpf.UI
+namespace SQL_lite_database_search_wpf.UI.DayView
 {
     public class Day
     {

@@ -122,7 +122,7 @@ namespace SQL_lite_database_search_wpf
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            Usefull_Tools.Logger.logMain("Stopping ...");
+            Usefull_Tools.Logger.logMain("Stopping ..." + Environment.NewLine);
         }
 
         private void ModernWindow_Closed(object sender, EventArgs e)

@@ -89,7 +89,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
 
             try
             {
-                m_dbConnection.Close();
+                //m_dbConnection.Close();
             }
             catch (Exception ex)
             {

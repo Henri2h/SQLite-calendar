@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 
 namespace SQL_lite_database_search_wpf.UI.Controls
 {
-
+    // TODO : to sîmplify
     public partial class NumberSelect : UserControl
     {
         List<int> objects = new List<int>();

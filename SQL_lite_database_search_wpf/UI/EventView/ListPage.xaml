@@ -8,8 +8,8 @@
              mc:Ignorable="d" >
     <Grid >
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <local:ProjectView x:Name="UIProjectView" Grid.Row="0"/>
        

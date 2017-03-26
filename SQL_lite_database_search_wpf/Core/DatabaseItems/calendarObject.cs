@@ -133,7 +133,7 @@ namespace SQL_lite_database_search_wpf
                 {
                     return eventsLocal;
                 }
-                throw new NotImplementedException();
+                throw new NullReferenceException();
             }
             set { eventsLocal = value; }
         }

@@ -9,7 +9,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
-            <RowDefinition/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal">
@@ -18,7 +18,8 @@
             <ComboBox x:Name="UIMemberSelection" SelectionChanged="UIMemberSelection_SelectionChanged"/>
         </StackPanel>
 
-        <ListView x:Name="UIStackCalendarObjects" Grid.Row="1"/>
-
+        <ScrollViewer Grid.Row="1">
+            <ListView x:Name="UIStackCalendarObjects" />
+        </ScrollViewer>
     </Grid>
 </UserControl>
