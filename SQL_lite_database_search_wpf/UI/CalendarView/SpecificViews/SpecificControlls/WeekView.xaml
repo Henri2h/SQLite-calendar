@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews.SpecificControlls"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid x:Name="UIGrid">
+    <Grid x:Name="UIGrid" Background="Gray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>

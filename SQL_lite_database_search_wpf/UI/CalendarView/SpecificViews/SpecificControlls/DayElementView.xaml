@@ -10,17 +10,17 @@
     <Grid Margin="5" Background="LightGray">
 
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Vertical" Grid.Row="0">
             <TextBlock x:Name="tbDay"/>
             <TextBlock x:Name="tbDate"/>
         </StackPanel>
+        <ScrollViewer Grid.Row="1">
+            <StackPanel x:Name="UIStackDayEvents"/>
+        </ScrollViewer>
 
-        <StackPanel x:Name="UIStackDayEvents" Grid.Row="1">
-
-        </StackPanel>
     </Grid>
 </UserControl>

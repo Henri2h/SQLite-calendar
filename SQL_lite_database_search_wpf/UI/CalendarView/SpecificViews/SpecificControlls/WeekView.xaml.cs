@@ -21,9 +21,9 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews.SpecificCon
     public partial class WeekCalendarView : UserControl
     {
         private DayElement[] dayElement;
+        private CalendarViewCore.CalendarViewMethods week;
 
-
-        public WeekCalendarView(DayElement[] elements)
+        public WeekCalendarView(DayElement[] elements, CalendarViewCore.CalendarViewMethods week = CalendarViewCore.CalendarViewMethods.month)
         {
             InitializeComponent();
 
@@ -33,6 +33,7 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews.SpecificCon
                     addChildren(elements[i], i);
                 }
         }
+
         void addChildren(DayElement d, int pos)
         {
             DayElementView dayElement = new DayElementView(d);

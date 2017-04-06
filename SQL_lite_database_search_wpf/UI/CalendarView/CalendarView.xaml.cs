@@ -53,7 +53,6 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView
             UIComboBoxSelection.clearElements();
             UIComboBoxSelection.AddObjectElement("Month");
             UIComboBoxSelection.AddObjectElement("Week");
-            UIComboBoxSelection.AddObjectElement("Day");
 
         }
         void loadContentObject(string selection)
@@ -67,15 +66,15 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView
                     break;
                 case "Week":
                     List<DayElement> days = TimeSelectionEvents.GetDayElements(currentDay, CalendarViewCore.CalendarViewMethods.week);
-                    UIEventView.Children.Add(new WeekView(days));
-                    break;
-                case "Day":
-                    SpecificViews.Day day = new SpecificViews.Day();
-                    day.name = "Today";
-                    day.Date = DateTime.Today;
 
-                    UIEventView.Children.Add(new SpecificViews.DayView(day));
+                    CalendarContent cOnt = new CalendarContent();
+                    cOnt.content = days;
+
+                    foreach (DayElement d in days) { cOnt.dayNames.Add(d.name); }
+
+                    UIEventView.Children.Add(new WeekView(cOnt));
                     break;
+
 
                 default:
                     List<DayElement> monthSel = TimeSelectionEvents.GetDayElements(currentDay, CalendarViewCore.CalendarViewMethods.month);
