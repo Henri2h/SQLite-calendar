@@ -166,11 +166,9 @@
       <DependentUpon>CalendarView.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\CalendarView\CalendarViewCore.cs" />
+    <Compile Include="UI\CalendarView\SpecificViews\CalendarContent.cs" />
     <Compile Include="UI\CalendarView\SpecificViews\Day.cs" />
     <Compile Include="UI\CalendarView\DayElement.cs" />
-    <Compile Include="UI\CalendarView\SpecificViews\DayView.xaml.cs">
-      <DependentUpon>DayView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UI\CalendarView\SpecificViews\MonthView.xaml.cs">
       <DependentUpon>MonthView.xaml</DependentUpon>
     </Compile>
@@ -268,10 +266,6 @@
       <DependentUpon>UpdateWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="UI\CalendarView\CalendarView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\CalendarView\SpecificViews\DayView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
