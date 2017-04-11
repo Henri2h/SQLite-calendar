@@ -16,7 +16,7 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView
     public partial class CalendarView : UserControl
     {
         CalendarViewCore.CalendarViewMethods cViewMethods = CalendarViewCore.CalendarViewMethods.month;
-        DateTime currentDay = DateTime.Now;
+        DateTime selectedDay = DateTime.Now;
         List<Day> days = new List<Day>();
 
 
@@ -61,11 +61,12 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView
             switch (selection)
             {
                 case "Month":
-                    List<DayElement> month = TimeSelectionEvents.GetDayElements(currentDay, CalendarViewCore.CalendarViewMethods.month);
+                    List<DayElement> month = TimeSelectionEvents.GetDayElements(selectedDay, CalendarViewCore.CalendarViewMethods.month);
+
                     UIEventView.Children.Add(new MonthView(month));
                     break;
                 case "Week":
-                    List<DayElement> days = TimeSelectionEvents.GetDayElements(currentDay, CalendarViewCore.CalendarViewMethods.week);
+                    List<DayElement> days = TimeSelectionEvents.GetDayElements(selectedDay, CalendarViewCore.CalendarViewMethods.week);
 
                     CalendarContent cOnt = new CalendarContent();
                     cOnt.content = days;
@@ -77,7 +78,7 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView
 
 
                 default:
-                    List<DayElement> monthSel = TimeSelectionEvents.GetDayElements(currentDay, CalendarViewCore.CalendarViewMethods.month);
+                    List<DayElement> monthSel = TimeSelectionEvents.GetDayElements(selectedDay, CalendarViewCore.CalendarViewMethods.month);
                     UIEventView.Children.Add(new MonthView(monthSel));
                     break;
             }

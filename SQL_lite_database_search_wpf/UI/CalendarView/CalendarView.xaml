@@ -15,7 +15,7 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal" Grid.Row="0" Background="DarkGray">
@@ -29,10 +29,10 @@
             <Button x:Name="UIBtAfter" Content="After" Click="UIBtAfter_Click"/>
         </StackPanel>
 
+        <Grid Grid.Row="2" x:Name="UIEventView"/>
 
 
-        <StackPanel x:Name="UIEventView" Grid.Row="2"/>
-        <UI:Controlls x:Name="UIControls" Grid.Row="3" VerticalAlignment="Bottom"/>
+        <UI:Controlls x:Name="UIControls" Grid.Row="3" VerticalAlignment="Stretch"/>
 
 
     </Grid>

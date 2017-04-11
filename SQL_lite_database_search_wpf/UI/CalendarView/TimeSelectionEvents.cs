@@ -17,11 +17,15 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews
             if (selectionMethod == CalendarViewCore.CalendarViewMethods.month)
             {
                 startDate = startDate.AddDays(1 - startDate.Day);
-                for (int i = 0; i < 31; i++)
+
+                while(startDate.DayOfWeek != DayOfWeek.Monday)
+                {
+                    startDate = startDate.AddDays(-1);
+                }
+
+                for (int i = 0; i < 35; i++)
                 {
                     DateTime dt = startDate.AddDays(i);
-                    // prevent having other date 
-                    if (i > 5 && dt.Day == 1) { break; }
 
                     DayElement d = new DayElement();
                     d.dateTime = dt;

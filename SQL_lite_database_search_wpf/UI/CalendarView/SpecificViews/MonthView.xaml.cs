@@ -36,25 +36,32 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews
 
             List<DayElement> dElemInWeek = new List<DayElement>();
             List<WeekCalendarView> wViews = new List<WeekCalendarView>();
-
+            int pos = 0;
             foreach (DayElement d in month)
             {
 
                 dElemInWeek.Add(d);
+                pos++;
 
-                if (d.dateTime.Day % 7 == 0)
+                if (pos == 7)
                 {
-                    if (dElemInWeek.Count == 7)
-                    {
-                        WeekCalendarView wView = new WeekCalendarView(dElemInWeek.ToArray());
-                        wViews.Add(wView);
-                        dElemInWeek = new List<DayElement>();
-                    }
+                    WeekCalendarView wView = new WeekCalendarView(dElemInWeek.ToArray());
+                    wViews.Add(wView);
+                    dElemInWeek = new List<DayElement>();
+
+                    pos = 0;
                 }
 
             }
 
-            foreach (WeekCalendarView wV in wViews) { UIGrid.Children.Add(wV); }
+            int position = 0;
+            foreach (WeekCalendarView wV in wViews)
+            {
+                UIGrid.Children.Add(wV);
+                Grid.SetRow(wV, position);
+                
+                position++;
+            }
         }
     }
 }
