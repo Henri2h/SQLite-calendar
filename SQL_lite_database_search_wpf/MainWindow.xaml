@@ -11,7 +11,9 @@
                   ContentSource="/UI/EventView/ListPage.xaml"
                   IsTitleVisible="True"
                   
-        Title="MainWindow" Height="500" Width="860" Closing="Window_Closing" Loaded="ModernWindow_Loaded" Closed="ModernWindow_Closed">
+                  Title="MainWindow" 
+                  Height="500" Width="860"
+                  Closing="Window_Closing">
 
 
     <mui:ModernWindow.TitleLinks>
@@ -39,7 +41,7 @@
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
 
-        <mui:LinkGroup DisplayName="Equipe" >
+        <mui:LinkGroup DisplayName="Team" >
             <mui:LinkGroup.Links >
                 <mui:Link Source="/UI/Team/TeamView.xaml"/>
             </mui:LinkGroup.Links>
