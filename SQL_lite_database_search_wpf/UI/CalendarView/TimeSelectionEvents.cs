@@ -11,14 +11,15 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews
     public class TimeSelectionEvents
     {
 
-        public static List<DayElement> GetDayElements(DateTime startDate, CalendarViewCore.CalendarViewMethods selectionMethod)
+        public static List<DayElement> GetDayElements(DateTime selectedDate, CalendarViewCore.CalendarViewMethods selectionMethod)
         {
+            DateTime startDate = selectedDate;
             List<DayElement> dElem = new List<DayElement>();
             if (selectionMethod == CalendarViewCore.CalendarViewMethods.month)
             {
                 startDate = startDate.AddDays(1 - startDate.Day);
 
-                while(startDate.DayOfWeek != DayOfWeek.Monday)
+                while (startDate.DayOfWeek != DayOfWeek.Monday)
                 {
                     startDate = startDate.AddDays(-1);
                 }
@@ -30,7 +31,16 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews
                     DayElement d = new DayElement();
                     d.dateTime = dt;
                     d.name = dt.Day.ToString() + " " + dt.DayOfWeek.ToString();
+
+                    if (d.dateTime.Month == selectedDate.Month)
+                    {
+                        d.isSameMonth = true;
+                    }
+                    else { d.isSameMonth = false; }
+                    if (d.dateTime.Date == selectedDate.Date) { d.isTheSameDay = true; }
+
                     d.cobjs = new List<calendarObject>();
+
                     dElem.Add(d);
                 }
 
@@ -54,6 +64,12 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews
                     DayElement day = new DayElement();
                     day.name = daysName[i];
                     day.dateTime = startDate.AddDays(i - dayPos);
+                    if (day.dateTime.Date == selectedDate.Date)
+                    {
+                        day.isTheSameDay = true;
+                    }
+
+
                     day.cobjs = new List<calendarObject>();
                     dElem.Add(day);
                 }
@@ -68,8 +84,21 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews
                     if (Date.isDateBetween(cObj, dElem[i].dateTime))
                     {
                         dElem[i].cobjs.Add(cObj);
+
+                        if (cObj.isMoreThanOneDay == true)
+                        {
+                            dElem[i].cobjsDifferentDays.Add(cObj);
+                        }
+                        else
+                        {
+                            dElem[i].cobjOneDay.Add(cObj);
+                        }
                     }
-                    else { dElem[i].cobjs.Add(null); }
+                    else
+                    {
+                        // what is the point of this method ?
+                        dElem[i].cobjs.Add(null);
+                    }
                 }
             }
 
