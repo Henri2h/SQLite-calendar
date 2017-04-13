@@ -139,6 +139,22 @@ namespace SQL_lite_database_search_wpf
         }
         List<calendarObject> eventsLocal;
 
+        public bool isMoreThanOneDay
+        {
+            get
+            {
+                if (this.isDateUsed.value == true)
+                {
+                    TimeSpan ts = this.endTime.value.Date - this.endTime.value.Date;
+                    if (ts.Days == 0)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+
         public string databaseName { get; set; }
 
 
