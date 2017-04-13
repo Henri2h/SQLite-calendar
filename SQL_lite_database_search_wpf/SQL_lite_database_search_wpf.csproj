@@ -130,8 +130,9 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="Usefull_Tools_Classic">
-      <HintPath>..\..\..\Usefull_Tools\Usefull_Tools_Classic\bin\Release\Usefull_Tools_Classic.dll</HintPath>
+    <Reference Include="Usefull_Tools_Classic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SpecialPackages\Usefull_Tools_Classic.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />

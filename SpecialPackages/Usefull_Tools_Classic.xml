@@ -1,0 +1,211 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Usefull_Tools_Classic</name>
+    </assembly>
+    <members>
+        <member name="T:Usefull_Tools.Files">
+            <summary>
+            Files
+            </summary>
+        </member>
+        <member name="P:Usefull_Tools.Files.fileDir">
+            <summary>
+            fileDirectory used to save the files
+            </summary>
+        </member>
+        <member name="P:Usefull_Tools.Files.tempDir">
+            <summary>
+            temporary file
+            </summary>
+        </member>
+        <member name="M:Usefull_Tools.Files.save(System.String[],System.String,System.String)">
+            <summary>
+            Save the specified content in a file
+            </summary>
+            <param name="dir"></param>
+            <param name="fileName"></param>
+            <param name="content"></param>
+        </member>
+        <member name="M:Usefull_Tools.Files.saveFile(System.String,System.String,System.String)">
+            <summary>
+            Save the specified content in a file
+            </summary>
+            <param name="dir"></param>
+            <param name="fileName"></param>
+            <param name="content"></param>
+        </member>
+        <member name="M:Usefull_Tools.Files.saveFile(System.String,System.String)">
+            <summary>
+            save the file
+            </summary>
+            <param name="path"></param>
+            <param name="content"></param>
+        </member>
+        <member name="M:Usefull_Tools.Files.HasFolderWritePermission(System.String)">
+            <summary>
+            Determine if the user has write access to the specified folder : not implemented for the moment
+            </summary>
+            <param name="destDir"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Usefull_Tools.Files.getTempFile(System.String)">
+            <summary>
+            Reyturn a tempr file
+            </summary>
+            <param name="extention"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Usefull_Tools.Files.getUniquePath(System.String,System.String,System.String)">
+            <summary>
+            Get a unique path
+            </summary>
+            <param name="dir"></param>
+            <param name="fileName"></param>
+            <param name="extention"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Usefull_Tools.Logger">
+            <summary>
+            Logger class
+            </summary>
+        </member>
+        <member name="P:Usefull_Tools.Logger.AppName">
+            <summary>
+            App name
+            </summary>
+        </member>
+        <member name="F:Usefull_Tools.Logger.logEnabled">
+            <summary>
+            is loggin enabled
+            </summary>
+        </member>
+        <member name="F:Usefull_Tools.Logger.debugEnabled">
+            <summary>
+            is debug enabled
+            </summary>
+        </member>
+        <member name="M:Usefull_Tools.Logger.logMain(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:Usefull_Tools.Logger.debugLine(System.String,System.Boolean)">
+            <summary>
+            Print debug Line, if modify is true, debug will be display at the start of the line
+            </summary>
+            <param name="data"></param>
+            <param name="modify"></param>
+        </member>
+        <member name="M:Usefull_Tools.Logger.logErrors(System.String,System.Exception)">
+            <summary>
+            Log and display an error
+            </summary>
+            <param name="data"></param>
+            <param name="ex"></param>
+        </member>
+        <member name="M:Usefull_Tools.Logger.logFile(System.String,System.String)">
+            <summary>
+            Log in a specified file
+            </summary>
+            <param name="data"></param>
+            <param name="app"></param>
+        </member>
+        <member name="T:Usefull_Tools.ErrorHandeler">
+            <summary>
+            Manage errors
+            </summary>
+        </member>
+        <member name="M:Usefull_Tools.ErrorHandeler.printOut(System.Exception)">
+            <summary>
+            Print and save the details of an error
+            </summary>
+            <param name="ex"></param>
+        </member>
+        <member name="M:Usefull_Tools.ErrorHandeler.getErrorString(System.Exception)">
+            <summary>
+            Return the string representation of an error
+            </summary>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Usefull_Tools.ErrorHandeler.saveOut(System.Exception)">
+            <summary>
+            Just save the content of an error
+            </summary>
+            <param name="ex"></param>
+        </member>
+        <member name="T:Usefull_Tools.Network.TCP.Client.Errors.CommandError">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Usefull_Tools.Network.TCP.Client.Errors.CommandError.#ctor(Usefull_Tools.Network.TCP.Client.Errors.CommandError.CommandErrors)">
+            <summary>
+            
+            </summary>
+            <param name="reason"></param>
+        </member>
+        <member name="T:Usefull_Tools.Network.TCP.Client.Errors.CommandError.CommandErrors">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Usefull_Tools.Network.TCP.Client.Errors.CommandError.CommandErrors.NotACommand">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Usefull_Tools.Network.TCP.Client.Errors.CommandError.CommandErrors.IsNull">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Usefull_Tools.Network.TCP.Client.Errors.ConnectionError">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Usefull_Tools.Network.TCP.Client.Errors.ConnectionError.#ctor(Usefull_Tools.Network.TCP.Client.Errors.ConnectionErrorReason)">
+            <summary>
+            
+            </summary>
+            <param name="reason"></param>
+        </member>
+        <member name="T:Usefull_Tools.Network.TCP.Client.Errors.ConnectionErrorReason">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Usefull_Tools.Network.TCP.Client.Errors.ConnectionErrorReason.ServerNotResponding">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Usefull_Tools.Network.TCP.Client.Errors.ConnectionErrorReason.ConnectionRefused">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Usefull_Tools.Network.TCP.Client.Errors.ConnectionErrorReason.InvalidResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Usefull_Tools.Network.TCP.server.commands.commandInterpretor.interpreteCommand(System.String)">
+            <summary>
+            This command try to create a command from the stream. Will return true if the command is created
+            </summary>
+            <param name="text"></param>
+            <returns name="bool"></returns>
+        </member>
+        <member name="M:Usefull_Tools.Network.TCP.server.commands.commandInterpretor.getCommand(System.Int32)">
+            <summary>
+            This command return the last command (in reverse order)
+            </summary>
+            <param name="pos"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
