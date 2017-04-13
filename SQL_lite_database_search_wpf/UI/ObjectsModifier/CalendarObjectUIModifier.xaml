@@ -9,14 +9,15 @@
                   IsTitleVisible="True"
                   
         Title="New project" Height="272" Width="909" >
-    <Grid VerticalAlignment="Top">
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
+        
         <UI:CalendarInformations x:Name="UICalendarInformation" Grid.Row="0"/>
 
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Grid.Row="1">
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
             <Button x:Name="btOk" Content="Ok" Margin="5" Click="btOk_Click"/>
             <Button x:Name="btCancel" Content="Cancel" Margin="5" Click="btCancel_Click"/>
         </StackPanel>
