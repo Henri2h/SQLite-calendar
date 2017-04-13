@@ -7,9 +7,10 @@ namespace SQL_lite_database_search_wpf.Core
     {
 
         public static string mainProjectTableName = "projects";
-        public static DatabaseCore dCore = new DatabaseCore(DatabasePath);
         public static MainWindow Wi;
         public static string DatabasePath = @"D:\sqlite\cal.sqlite";
+
+        public static DatabaseCore dCore = new DatabaseCore(DatabasePath);
         public static List<string> Equipe { get { return getEquipe(); } }
 
         static List<string> getEquipe()
