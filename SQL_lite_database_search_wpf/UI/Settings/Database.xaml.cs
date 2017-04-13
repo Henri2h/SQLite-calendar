@@ -23,6 +23,7 @@ namespace SQL_lite_database_search_wpf.UI.Settings
         public Database()
         {
             InitializeComponent();
+            UITbDPath.Text = Core.AppCore.DatabasePath;
         }
     }
 }

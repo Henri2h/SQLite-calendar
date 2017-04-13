@@ -7,5 +7,9 @@
     xmlns:mui="http://firstfloorsoftware.com/ModernUI" mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <TextBlock Text="To populate"/>
+        <StackPanel>
+            <TextBlock Text="Database path : "/>
+            <TextBlock x:Name="UITbDPath"/>
+        </StackPanel>
     </Grid>
 </UserControl>
