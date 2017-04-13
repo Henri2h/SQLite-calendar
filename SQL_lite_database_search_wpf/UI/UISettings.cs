@@ -10,8 +10,8 @@ namespace SQL_lite_database_search_wpf.UI
     public class UISettings
     {
         public static Color isSameDayColor = Colors.LightBlue;
-        public static Color isDifferentMontColor = Colors.LightGray;
+        public static Color isDifferentMonthColor = Colors.LightGray;
         public static Color defaultColor = Colors.White;
-        internal static Color defaultBorderColor = Colors.DarkGray;
+        public static Color defaultBorderColor = Colors.DarkGray;
     }
 }
