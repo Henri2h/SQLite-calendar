@@ -14,12 +14,15 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
 {
     public class DatabaseCore
     {
-        public DatabaseCore()
+        public DatabaseCore(string databasePath)
         {
+            this.databasePath = databasePath;
             objManager = new ObjectManager(this);
             EquipeMemberManager = new EquipeManager();
             calendarObjectManager = new CalendarObjectManager();
+
         }
+
 
         // control types
         public ObjectManager objManager { get; set; }
@@ -27,7 +30,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
         public CalendarObjectManager calendarObjectManager { get; set; }
 
         // sqlite
-        string inputFile = @"D:\sqlite\cal.sqlite";
+        private string databasePath;
 
         //definition
 
@@ -35,14 +38,14 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
 
         public bool OpenDataBase()
         {
-            m_dbConnection = new SQLiteConnection("Data Source=" + inputFile + ";Version=3;");
+            m_dbConnection = new SQLiteConnection("Data Source=" + databasePath + ";Version=3;");
             bool isTheFileJustCreated = false;
-            string direct = Directory.GetParent(inputFile).FullName;
+            string direct = Directory.GetParent(databasePath).FullName;
 
             if (Directory.Exists(direct) == false) { Directory.CreateDirectory(direct); }
-            if (File.Exists(inputFile) == false)
+            if (File.Exists(databasePath) == false)
             {
-                SQLiteConnection.CreateFile(inputFile);
+                SQLiteConnection.CreateFile(databasePath);
                 isTheFileJustCreated = true;
             }
 
