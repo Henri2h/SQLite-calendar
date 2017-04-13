@@ -31,7 +31,7 @@ namespace SQL_lite_database_search_wpf.UI.DayView
 
         public void addElement()
         {
-            UI.UIObjectManager.addNewElement();
+            UI.UIObjectManager.AddNewElement();
             loadElements();
         }
 
@@ -44,7 +44,7 @@ namespace SQL_lite_database_search_wpf.UI.DayView
             DateTime startTimeSelect = days[0].Date.Date;
             DateTime endTimeSelect = days[days.Count - 1].Date.Date;
 
-            List<calendarObject> cObjs = AppCore.dCore.calendarObjectManager.listAllCalendarObjectsBySelection(Core.AppCore.mainProjectTableName, CalendarObjectManager.selectionType.isDateUsed);
+            List<calendarObject> cObjs = AppCore.dCore.CalendarObjectManager.ListAllCalendarObjectsBySelection(Core.AppCore.mainProjectTableName, CalendarObjectManager.SelectionType.isDateUsed);
             foreach (Day d in days)
             {
                 bool isTheSameDay = false;

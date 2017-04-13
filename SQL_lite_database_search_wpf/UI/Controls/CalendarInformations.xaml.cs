@@ -1,19 +1,5 @@
-﻿using SQL_lite_database_search_wpf.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SQL_lite_database_search_wpf.UI.Controls
 {
@@ -22,7 +8,7 @@ namespace SQL_lite_database_search_wpf.UI.Controls
     /// </summary>
     public partial class CalendarInformations : UserControl
     {
-        calendarObject cObj { get; set; }
+        calendarObject CObj { get; set; }
         public calendarObject CalendarObject
         {
             get
@@ -30,47 +16,47 @@ namespace SQL_lite_database_search_wpf.UI.Controls
                 // ===================== table elements ==========================
                 // create a new calendarObject element with it's name
 
-                if (cObj == null) { cObj = new calendarObject(); }
+                if (CObj == null) { CObj = new calendarObject(); }
 
-                cObj.name.value = UITbName.Text;
-                cObj.description.value = UITbDescription.Text;
+                CObj.name.value = UITbName.Text;
+                CObj.description.value = UITbDescription.Text;
 
 
-                cObj.priorite.value = UIslPriorite.starPosition;
-                cObj.completion.value = Convert.ToInt32(UIslCompletion.Value);
+                CObj.priorite.value = UIslPriorite.starPosition;
+                CObj.completion.value = Convert.ToInt32(UIslCompletion.Value);
 
-                cObj.domaine.value = UITbDomaine.Text;
+                CObj.domaine.value = UITbDomaine.Text;
 
                 // team
                 // TODO : change it's value to a JSON array of the ID of the element of the team
-                cObj.equipe.value = UISelTeam.selectedMemberName;
+                CObj.equipe.value = UISelTeam.selectedMemberName;
 
                 // 
                 // ======================   date and time  =========================
-                cObj.isDateUsed.value = UIDateTimemanager.isDateUsed;
+                CObj.isDateUsed.value = UIDateTimemanager.isDateUsed;
 
-                if (cObj.isDateUsed.value)
+                if (CObj.isDateUsed.value)
                 {
-                    cObj.startTime.value = UIDateTimemanager.time_start;
-                    cObj.endTime.value = UIDateTimemanager.time_end;
+                    CObj.startTime.value = UIDateTimemanager.time_start;
+                    CObj.endTime.value = UIDateTimemanager.time_end;
                 }
 
 
                 // ====================== other properties =========================
-                cObj.isRepository.value = UIIsMainProject.IsChecked.Value;
-                if (isParentTableUsed) { cObj.tableName = parentTable; }
+                CObj.isRepository.value = UIIsMainProject.IsChecked.Value;
+                if (isParentTableUsed) { CObj.tableName = parentTable; }
                 else
                 {
-                    cObj.tableName = getTableName();
+                    CObj.tableName = GetTableName();
                 }
-                return cObj;
+                return CObj;
 
             }
 
 
             set
             {
-                cObj = value;
+                CObj = value;
 
 
                 ParentTable = value.tableName;
@@ -119,7 +105,7 @@ namespace SQL_lite_database_search_wpf.UI.Controls
             {
                 parentTable = value;
                 isParentTableUsed = true;
-                loadMenuItems();
+                LoadMenuItems();
             }
         }
 
@@ -128,7 +114,7 @@ namespace SQL_lite_database_search_wpf.UI.Controls
         string parentTable = "";
 
 
-        public string getTableName()
+        public string GetTableName()
         {
             try
             {
@@ -150,45 +136,46 @@ namespace SQL_lite_database_search_wpf.UI.Controls
             InitializeComponent();
             try
             {
-                loadMenuItems();
+                LoadMenuItems();
             }
             catch (Exception ex)
             {
                 ex.Source = "CalendarInformations.constructor";
-                ErrorHandeler.ErrorMessage.printOut(ex);
+                Usefull_Tools.ErrorHandeler.printOut(ex);
             }
         }
 
 
 
-        public void loadMenuItems()
+        public void LoadMenuItems()
         {
 
             UIProject.Items.Clear();
             if (isParentTableUsed)
             {
-                addSelectionInMenuItems(parentTable, parentTable);
+                AddSelectionInMenuItems(parentTable, parentTable);
             }
             else
             {
-                addSelectionInMenuItems("MainProjectTable", Core.AppCore.mainProjectTableName);
-                foreach (calendarObject pr in Core.AppCore.dCore.calendarObjectManager.listAllCalendarObjectsBySelection(Core.AppCore.mainProjectTableName, Core.DatabaseManager.ObjectsManager.CalendarObjectManager.selectionType.isRepository))
+                AddSelectionInMenuItems("MainProjectTable", Core.AppCore.mainProjectTableName);
+                foreach (calendarObject pr in Core.AppCore.dCore.CalendarObjectManager.ListAllCalendarObjectsBySelection(Core.AppCore.mainProjectTableName, Core.DatabaseManager.ObjectsManager.CalendarObjectManager.SelectionType.isRepository))
                 {
-                    if (pr.isRepository.value) { addSelectionInMenuItems(pr.name.value, pr.projectTableName.value); }
+                    if (pr.isRepository.value) { AddSelectionInMenuItems(pr.name.value, pr.projectTableName.value); }
                 }
 
-                addSelectionInMenuItems("<New project ...>", null);
-                addSelectionInMenuItems("<New empty project ...>", null);
+                AddSelectionInMenuItems("<New project ...>", null);
+                AddSelectionInMenuItems("<New empty project ...>", null);
             }
 
 
         }
 
-        void addSelectionInMenuItems(string name, string tableName)
+        void AddSelectionInMenuItems(string name, string tableName)
         {
-            ComboBoxItem cItem = new ComboBoxItem();
-
-            cItem.Content = name;
+            ComboBoxItem cItem = new ComboBoxItem()
+            {
+                Content = name
+            };
             cItem.Resources.Add("tableName", tableName);
 
             UIProject.Items.Add(cItem);

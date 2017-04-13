@@ -33,7 +33,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
             }
 
             string sql_command = "CREATE TABLE " + equipeTable + " ( " + sbElements.ToString() + ")";
-            SQLiteCommandsExecuter.executeNonQuery(sql_command, Core.AppCore.dCore.m_dbConnection);
+            SQLiteCommandsExecuter.executeNonQuery(sql_command, Core.AppCore.dCore.M_dbConnection);
 
         }
 
@@ -44,7 +44,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
             Request.RequestBuilder rb = new Request.RequestBuilder(equipeTable);
             rb.addElement(eMember.name.valueName, eMember.name.value);
 
-            SQLiteCommand cmd = Request.CommandBuilder.getCommand(rb, Core.AppCore.dCore.m_dbConnection);
+            SQLiteCommand cmd = Request.CommandBuilder.getCommand(rb, Core.AppCore.dCore.M_dbConnection);
             cmd.ExecuteNonQuery();
         }
 
@@ -52,7 +52,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
         public List<EquipeMember> getEquipeMembers()
         {
             string sql = "select * from " + equipeTable + " order by _rowid_ ASC";
-            SQLiteDataReader reader = SQLiteCommandsExecuter.executeDataReader(sql, Core.AppCore.dCore.m_dbConnection);
+            SQLiteDataReader reader = SQLiteCommandsExecuter.executeDataReader(sql, Core.AppCore.dCore.M_dbConnection);
             return getEquipeFromReader(reader);
         }
         public void deleteEquipeMember(EquipeMember member)
@@ -62,7 +62,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager.ObjectsManager
         public void deleteEquipeMember(int memberID)
         {
             string sql = "DELETE FROM " + equipeTable + " WHERE " + "memberID" + " = " + memberID;
-            SQLiteCommandsExecuter.executeNonQuery(sql, Core.AppCore.dCore.m_dbConnection);
+            SQLiteCommandsExecuter.executeNonQuery(sql, Core.AppCore.dCore.M_dbConnection);
         }
 
 

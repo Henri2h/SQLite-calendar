@@ -75,7 +75,7 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews
                 }
             }
 
-            List<calendarObject> cObjs = AppCore.dCore.calendarObjectManager.listAllCalendarObjectsBySelection(Core.AppCore.mainProjectTableName, CalendarObjectManager.selectionType.isDateUsed);
+            List<calendarObject> cObjs = AppCore.dCore.CalendarObjectManager.ListAllCalendarObjectsBySelection(Core.AppCore.mainProjectTableName, CalendarObjectManager.SelectionType.isDateUsed);
 
             foreach (calendarObject cObj in cObjs)
             {

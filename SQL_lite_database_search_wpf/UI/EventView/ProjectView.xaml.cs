@@ -42,7 +42,7 @@ namespace SQL_lite_database_search_wpf.UI.EventView
             {
                 UIStackCalendarObjects.Items.Clear();
 
-                List<calendarObject> cObjs = AppCore.dCore.calendarObjectManager.listCalendarObjects(tableSource);
+                List<calendarObject> cObjs = AppCore.dCore.CalendarObjectManager.ListCalendarObjects(tableSource);
                 if (cObjs.ToArray().Length != 0)
                 {
                     foreach (calendarObject cObj in cObjs)
@@ -84,7 +84,7 @@ namespace SQL_lite_database_search_wpf.UI.EventView
 
         public void addNewElement()
         {
-            UI.UIObjectManager.addNewElement(tableSource);
+            UI.UIObjectManager.AddNewElement(tableSource);
             loadElement();
         }
 

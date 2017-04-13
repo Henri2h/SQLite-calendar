@@ -15,9 +15,10 @@ namespace SQL_lite_database_search_wpf.UI.Team
         public TeamView()
         {
             InitializeComponent();
-            loadTeam();
+            LoadTeam();
         }
-        void loadTeam()
+
+        void LoadTeam()
         {
             try
             {
@@ -26,10 +27,11 @@ namespace SQL_lite_database_search_wpf.UI.Team
 
                 foreach (EquipeMember eMemb in equipeMembers)
                 {
-                    PersonView pView = new PersonView(eMemb);
-                    pView.HorizontalAlignment = HorizontalAlignment.Left;
-                    pView.VerticalAlignment = VerticalAlignment.Top;
-
+                    PersonView pView = new PersonView(eMemb)
+                    {
+                        HorizontalAlignment = HorizontalAlignment.Left,
+                        VerticalAlignment = VerticalAlignment.Top
+                    };
                     UIStackTeamElements.Children.Add(pView);
 
                 }
@@ -37,17 +39,21 @@ namespace SQL_lite_database_search_wpf.UI.Team
             catch (Exception ex)
             {
                 ex.Source = "SQL_lite_database_search_wpf.UI.Team.TeamView.loadTeam()";
-                ErrorHandeler.ErrorMessage.logError(ex);
+                Usefull_Tools.ErrorHandeler.printOut(ex);
 
 
                 UIStackTeamElements.Children.Clear();
 
-                TextBlock tb = new TextBlock();
-                tb.Text = "no team table";
+                TextBlock tb = new TextBlock()
+                {
+                    Text = "no team table"
+                };
                 UIStackTeamElements.Background = new SolidColorBrush(Colors.Red);
 
-                Button btAddTable = new Button();
-                btAddTable.Content = "Create new  Team table";
+                Button btAddTable = new Button()
+                {
+                    Content = "Create new  Team table"
+                };
                 btAddTable.Click += AddTableClick;
                 btAddTable.HorizontalAlignment = HorizontalAlignment.Left;
 
@@ -60,17 +66,19 @@ namespace SQL_lite_database_search_wpf.UI.Team
         private void AddTableClick(object sender, RoutedEventArgs e)
         {
             Core.AppCore.dCore.EquipeMemberManager.createEquipeTable();
-            loadTeam();
+            LoadTeam();
             UIStackTeamElements.Background = new SolidColorBrush(Colors.White);
         }
 
         private void UIBtAddUser_Click(object sender, RoutedEventArgs e)
         {
-            AddUserWindow inputDialog = new AddUserWindow();
-            inputDialog.Style = (Style)App.Current.Resources["BlankWindow"];
+            AddUserWindow inputDialog = new AddUserWindow()
+            {
+                Style = (Style)App.Current.Resources["BlankWindow"]
+            };
             inputDialog.ShowDialog();
 
-            loadTeam();
+            LoadTeam();
         }
     }
 }

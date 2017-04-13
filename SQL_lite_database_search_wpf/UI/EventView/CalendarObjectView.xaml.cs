@@ -83,13 +83,13 @@ namespace SQL_lite_database_search_wpf.UI.EventView
 
         private void UIMenuItemDeleteObject_Click(object sender, RoutedEventArgs e)
         {
-            Core.AppCore.dCore.calendarObjectManager.deleteCalendarObject(CalendarObject);
+            Core.AppCore.dCore.CalendarObjectManager.DeleteCalendarObject(CalendarObject);
             this.Visibility = Visibility.Collapsed;
         }
 
         private void UIMenuChangeItem_Click(object sender, RoutedEventArgs e)
         {
-            CalendarObject = UI.UIObjectManager.changeCalendarObject(CalendarObject);
+            CalendarObject = UI.UIObjectManager.ChangeCalendarObject(CalendarObject);
             loadCommponements();
         }
     }

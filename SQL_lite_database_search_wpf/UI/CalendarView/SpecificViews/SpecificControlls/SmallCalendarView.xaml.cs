@@ -37,7 +37,7 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews.SpecificCon
             if (height != 0) this.Height = height;
         }
 
-        private void UIMenuChangeColor_Click(object sender, RoutedEventArgs e) { UI.UIObjectManager.changeCalendarObjectColor(CalendarObject); }
-        private void UIMenuChangeItem_Click(object sender, RoutedEventArgs e) { UI.UIObjectManager.changeCalendarObject(CalendarObject); }
+        private void UIMenuChangeColor_Click(object sender, RoutedEventArgs e) { UI.UIObjectManager.ChangeCalendarObjectColor(CalendarObject); }
+        private void UIMenuChangeItem_Click(object sender, RoutedEventArgs e) { UI.UIObjectManager.ChangeCalendarObject(CalendarObject); }
     }
 }

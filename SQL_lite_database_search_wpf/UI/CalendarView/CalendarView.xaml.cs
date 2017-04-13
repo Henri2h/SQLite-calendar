@@ -36,7 +36,7 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView
 
         public void addElement()
         {
-            UI.UIObjectManager.addNewElement();
+            UI.UIObjectManager.AddNewElement();
             loadElements();
         }
 

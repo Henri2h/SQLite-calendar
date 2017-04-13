@@ -17,28 +17,28 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
         public DatabaseCore(string databasePath)
         {
             this.databasePath = databasePath;
-            objManager = new ObjectManager(this);
+            ObjManager = new ObjectManager(this);
             EquipeMemberManager = new EquipeManager();
-            calendarObjectManager = new CalendarObjectManager();
+            CalendarObjectManager = new CalendarObjectManager();
 
         }
 
 
         // control types
-        public ObjectManager objManager { get; set; }
+        public ObjectManager ObjManager { get; set; }
         public EquipeManager EquipeMemberManager { get; set; }
-        public CalendarObjectManager calendarObjectManager { get; set; }
+        public CalendarObjectManager CalendarObjectManager { get; set; }
 
         // sqlite
         private string databasePath;
 
         //definition
 
-        public SQLiteConnection m_dbConnection { get; set; }
+        public SQLiteConnection M_dbConnection { get; set; }
 
         public bool OpenDataBase()
         {
-            m_dbConnection = new SQLiteConnection("Data Source=" + databasePath + ";Version=3;");
+            M_dbConnection = new SQLiteConnection("Data Source=" + databasePath + ";Version=3;");
             bool isTheFileJustCreated = false;
             string direct = Directory.GetParent(databasePath).FullName;
 
@@ -50,11 +50,11 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
             }
 
             // just open the database in order to make changes or just dislay the infos
-            m_dbConnection.Open();
+            M_dbConnection.Open();
 
             if (isTheFileJustCreated == true)
             {
-                calendarObjectManager.createCalendarTable(AppCore.mainProjectTableName);
+                CalendarObjectManager.CreateCalendarTable(AppCore.mainProjectTableName);
                 EquipeMemberManager.createEquipeTable();
             }
 
@@ -63,23 +63,23 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
         }
 
 
-        public void delElement(string tableName, sqliteInt rowID)
+        public void DelElement(string tableName, sqliteInt rowID)
         {
             string sql = "DELETE FROM " + tableName + " WHERE " + rowID.valueName + " = " + rowID.value;
-            SQLiteCommandsExecuter.executeNonQuery(sql, m_dbConnection);
+            SQLiteCommandsExecuter.executeNonQuery(sql, M_dbConnection);
         }
 
-        public void delTable(string tableName)
+        public void DelTable(string tableName)
         {
             string sql = "DROP TABLE " + tableName; ;
-            SQLiteCommandsExecuter.executeNonQuery(sql, m_dbConnection);
+            SQLiteCommandsExecuter.executeNonQuery(sql, M_dbConnection);
         }
 
-        public void updateElement(sqliteBase sb, sqliteBase seletcter, string tableName)
+        public void UpdateElement(sqliteBase sb, sqliteBase seletcter, string tableName)
         {
             string request = "UPDATE " + tableName + " SET " + sb.valueName + " = " + "@param" + " WHERE " + seletcter.valueName + " = " + seletcter.baseValue;
 
-            SQLiteCommand Command = new SQLiteCommand(request, m_dbConnection);
+            SQLiteCommand Command = new SQLiteCommand(request, M_dbConnection);
             Command.Parameters.AddWithValue("@param", sb.baseValue);
 
             int updated = Command.ExecuteNonQuery();
@@ -97,7 +97,6 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
             catch (Exception ex)
             {
                 ex.Source = "SQL_lite_database_search_wpf.Core.DatabaseManager.DatabaseCore.destructor";
-                ErrorHandeler.ErrorMessage.logError(ex);
                 Usefull_Tools.ErrorHandeler.printOut(ex);
             }
         }

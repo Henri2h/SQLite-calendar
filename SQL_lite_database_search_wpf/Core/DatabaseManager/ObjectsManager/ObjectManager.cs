@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Text;
-using System.Windows.Media;
 
 namespace SQL_lite_database_search_wpf.Core.DatabaseManager
 {
@@ -14,14 +13,14 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
 
         public const string elementID = "elementID";
 
-        public DatabaseCore dCore { get; set; }
+        public DatabaseCore DCore { get; set; }
 
-        public ObjectManager(DatabaseCore d) { dCore = d; }
-
-
+        public ObjectManager(DatabaseCore d) { DCore = d; }
 
 
-        public void createElementTable<T>(string tableName) where T : DatabaseItem, new()
+
+
+        public void CreateElementTable<T>(string tableName) where T : DatabaseItem, new()
         {
             T dt = new T();
 
@@ -39,11 +38,11 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
             }
 
             string sql_command = "CREATE TABLE " + tableName + " ( " + sbElements.ToString() + ")";
-            SQLiteCommandsExecuter.executeNonQuery(sql_command, dCore.m_dbConnection);
+            SQLiteCommandsExecuter.executeNonQuery(sql_command, DCore.M_dbConnection);
         }
 
 
-        public void addElement(DatabaseItem ioElem, bool createAssociatedTable = false)
+        public void AddElement(DatabaseItem ioElem, bool createAssociatedTable = false)
         {
             try
             {
@@ -56,38 +55,39 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
                     rb.addElement(sb.valueName, sb.baseValue);
                 }
 
-                SQLiteCommand cmd = CommandBuilder.getCommand(rb, dCore.m_dbConnection);
+                SQLiteCommand cmd = CommandBuilder.getCommand(rb, DCore.M_dbConnection);
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
-                ErrorHandeler.ErrorMessage.logError(ex);
+                Usefull_Tools.ErrorHandeler.printOut(ex);
             }
 
         }
-        public void deleteElement(int id, string tableName)
+        public void DeleteElement(int id, string tableName)
         {
-            sqliteInt sIntID = new sqliteInt("elementID");
-            sIntID.value = id;
-
-            dCore.delElement(tableName, sIntID);
+            sqliteInt sIntID = new sqliteInt("elementID")
+            {
+                value = id
+            };
+            DCore.DelElement(tableName, sIntID);
         }
 
-        public T getElement<T>(int objectID, string tableName) where T : DatabaseItem, new()
+        public T GetElement<T>(int objectID, string tableName) where T : DatabaseItem, new()
         {
             string sql = "select * from " + tableName + " where (" + elementID + "=" + objectID + ")  order by _rowid_ ASC LIMIT 1";
-            SQLiteDataReader reader = SQLiteCommandsExecuter.executeDataReader(sql, dCore.m_dbConnection);
-            T Objects = readerToElement<T>(reader, tableName);
+            SQLiteDataReader reader = SQLiteCommandsExecuter.executeDataReader(sql, DCore.M_dbConnection);
+            T Objects = ReaderToElement<T>(reader, tableName);
             return Objects;
 
         }
 
 
-        public List<T> listIOElements<T>(string tableName) where T : DatabaseItem, new()
+        public List<T> ListIOElements<T>(string tableName) where T : DatabaseItem, new()
         {
             string sql = "select * from " + tableName + " order by _rowid_ ASC";
-            SQLiteDataReader reader = SQLiteCommandsExecuter.executeDataReader(sql, dCore.m_dbConnection);
-            List<T> ioElems = readerToElements<T>(reader, tableName);
+            SQLiteDataReader reader = SQLiteCommandsExecuter.executeDataReader(sql, DCore.M_dbConnection);
+            List<T> ioElems = ReaderToElements<T>(reader, tableName);
             return ioElems;
         }
 
@@ -95,16 +95,16 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
 
 
         // update or save, the same thing
-        public void updateElement<T>(DatabaseItem Obj) where T : DatabaseItem, new()
+        public void UpdateElement<T>(DatabaseItem Obj) where T : DatabaseItem, new()
         {
 
-            T old = getElement<T>(Obj.elementID.value, Obj.tableName);
+            T old = GetElement<T>(Obj.elementID.value, Obj.tableName);
             for (int i = 0; i < Obj.values.Length; i++)
             {
                 if (Obj.values[i].Equals(old.values[i]) == false)
                 {
 
-                    dCore.updateElement(Obj.values[i], Obj.elementID, Obj.tableName);
+                    DCore.UpdateElement(Obj.values[i], Obj.elementID, Obj.tableName);
                 }
             }
 
@@ -115,7 +115,7 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
 
 
 
-        T readerToElement<T>(SQLiteDataReader reader, string tableName, bool useReaderRead = true) where T : DatabaseItem, new()
+        T ReaderToElement<T>(SQLiteDataReader reader, string tableName, bool useReaderRead = true) where T : DatabaseItem, new()
         {
             if (useReaderRead) { reader.Read(); }
 
@@ -136,14 +136,15 @@ namespace SQL_lite_database_search_wpf.Core.DatabaseManager
             }
             return default(T);
         }
-        List<T> readerToElements<T>(SQLiteDataReader reader, string tableName) where T : DatabaseItem, new()
+
+        List<T> ReaderToElements<T>(SQLiteDataReader reader, string tableName) where T : DatabaseItem, new()
         {
             List<T> ioElems = new List<T>();
             while (reader.Read())
             {
                 if (reader != null)
                 {
-                    ioElems.Add(readerToElement<T>(reader, tableName, false));
+                    ioElems.Add(ReaderToElement<T>(reader, tableName, false));
                 }
             }
             return ioElems;

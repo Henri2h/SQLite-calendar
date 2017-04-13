@@ -99,10 +99,6 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Expression.Drawing, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="NAppUpdate.Framework, Version=0.5.1.0, Culture=neutral, PublicKeyToken=d1f1d1f19f9e5a56, processorArchitecture=MSIL">
-      <HintPath>..\packages\NAppUpdate.Framework.0.5.1.0\lib\net40\NAppUpdate.Framework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -160,7 +156,6 @@
     <Compile Include="Core\DatabaseManager\SQLiteCore\Request\RequestElement.cs" />
     <Compile Include="Core\DatabaseManager\SQLiteCore\SQLiteCommandsExecuter.cs" />
     <Compile Include="Core\Date.cs" />
-    <Compile Include="ErrorHandeler\ErrorMessage.cs" />
     <Compile Include="Core\Files.cs" />
     <Compile Include="UI\CalendarView\CalendarView.xaml.cs">
       <DependentUpon>CalendarView.xaml</DependentUpon>
@@ -259,11 +254,6 @@
       <DependentUpon>TeamView.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\UISettings.cs" />
-    <Compile Include="Update\UpdateTaskHelper.cs" />
-    <Compile Include="Update\UpdateTaskInfo.cs" />
-    <Compile Include="Update\UpdateWindow.xaml.cs">
-      <DependentUpon>UpdateWindow.xaml</DependentUpon>
-    </Compile>
     <Page Include="UI\CalendarView\CalendarView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -397,10 +387,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Update\UpdateWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -450,12 +436,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\appbar.page.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Update\AppUpdateFeed.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\throbber.gif" />
