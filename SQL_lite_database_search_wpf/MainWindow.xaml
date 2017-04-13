@@ -26,13 +26,14 @@
                 <mui:Link Source="/UI/EventView/ListPage.xaml"/>
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
-
+        <!-- old way to display in planing
         <mui:LinkGroup DisplayName="Planing" >
             <mui:LinkGroup.Links >
                 <mui:Link Source="/UI/DayView/DayPage.xaml"/>
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
-        <mui:LinkGroup DisplayName="Planing2" >
+        -->
+        <mui:LinkGroup DisplayName="Calendar" >
             <mui:LinkGroup.Links >
                 <mui:Link Source="/UI/CalendarView/CalendarView.xaml"/>
             </mui:LinkGroup.Links>
