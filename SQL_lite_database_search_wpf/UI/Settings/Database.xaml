@@ -6,10 +6,14 @@
     xmlns:local="clr-namespace:SQL_lite_database_search_wpf.UI.Settings" 
     xmlns:mui="http://firstfloorsoftware.com/ModernUI" mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <TextBlock Text="To populate"/>
         <StackPanel>
-            <TextBlock Text="Database path : "/>
-            <TextBlock x:Name="UITbDPath"/>
+            <TextBlock Text="To populate"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Database path : "/>
+                <TextBlock x:Name="UITbDPath"/>
+            </StackPanel>
+           
+            <Button Content="Change database path" x:Name="UIBtChangeDatabase" Click="UIBtChangeDatabase_Click"></Button>
         </StackPanel>
     </Grid>
 </UserControl>

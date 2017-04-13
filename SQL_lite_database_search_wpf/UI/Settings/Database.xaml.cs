@@ -25,5 +25,12 @@ namespace SQL_lite_database_search_wpf.UI.Settings
             InitializeComponent();
             UITbDPath.Text = Core.AppCore.DatabasePath;
         }
+
+
+
+        private void UIBtChangeDatabase_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Not implemented");
+        }
     }
 }
