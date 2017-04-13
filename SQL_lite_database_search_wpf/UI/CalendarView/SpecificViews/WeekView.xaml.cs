@@ -22,31 +22,35 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews
     public partial class WeekView : UserControl
     {
         private List<DayElement> days;
-
+        int UIElementHeight = 30;
 
         public WeekView(List<DayElement> days)
         {
             this.days = days;
             InitializeComponent();
 
-            loadElements();
+            LoadElements();
 
         }
-        void loadElements()
+        void LoadElements()
         {
             UIGrid.Children.Clear();
-            loadDaysNames();
-            loadSpecificDayContent();
-            loadStaticContent();
+            LoadDaysNames();
+            LoadSpecificDayContent();
+            LoadStaticContent();
+            LoadBorders();
         }
 
-        void loadDaysNames()
+        void LoadDaysNames()
         {
             int pos = 0;
             foreach (DayElement name in days)
             {
-                TextBlock tb = new TextBlock();
-                tb.Text = name.name;
+                TextBlock tb = new TextBlock()
+                {
+                    Background = new SolidColorBrush(UISettings.defaultColor),
+                    Text = name.name
+                };
                 UIGrid.Children.Add(tb);
 
                 Grid.SetColumn(tb, pos);
@@ -56,7 +60,7 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews
         }
 
         //TODO : to complete
-        void loadStaticContent()
+        void LoadStaticContent()
         {
             for (int i = 0; i < 7; i++)
             {
@@ -64,7 +68,7 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews
 
                 foreach (calendarObject cObj in days[i].cobjsDifferentDays)
                 {
-                    SmallCalendarView sView = new SmallCalendarView(cObj);
+                    SmallCalendarView sView = new SmallCalendarView(cObj, UIElementHeight);
                     sb.Children.Add(sView);
                 }
                 UIGrid.Children.Add(sb);
@@ -72,7 +76,7 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews
                 Grid.SetRow(sb, 1);
             }
         }
-        void loadSpecificDayContent()
+        void LoadSpecificDayContent()
         {
             for (int i = 0; i < 7; i++)
             {
@@ -80,12 +84,26 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews
 
                 foreach (calendarObject cObj in days[i].cobjOneDay)
                 {
-                    SmallCalendarView sView = new SmallCalendarView(cObj);
+                    SmallCalendarView sView = new SmallCalendarView(cObj, UIElementHeight);
                     sb.Children.Add(sView);
                 }
                 UIGrid.Children.Add(sb);
                 Grid.SetColumn(sb, i);
                 Grid.SetRow(sb, 2);
+            }
+        }
+        void LoadBorders()
+        {
+            for (int i = 0; i < 7; i++)
+            {
+
+                Border b = new Border()
+                {
+                    BorderThickness = new Thickness(5),
+                    BorderBrush = new SolidColorBrush(UISettings.defaultBorderColor)
+                };
+                UIGrid.Children.Add(b);
+                Grid.SetColumn(b, i);
             }
         }
     }

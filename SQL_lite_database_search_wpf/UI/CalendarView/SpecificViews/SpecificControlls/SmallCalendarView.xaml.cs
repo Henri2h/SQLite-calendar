@@ -22,7 +22,7 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews.SpecificCon
     {
         calendarObject CalendarObject { get; set; }
 
-        public SmallCalendarView(calendarObject cObj)
+        public SmallCalendarView(calendarObject cObj, int height = 0)
         {
             InitializeComponent();
             CalendarObject = cObj;
@@ -34,6 +34,7 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews.SpecificCon
             {
                 this.ToolTip = cObj.description.value;
             }
+            if (height != 0) this.Height = height;
         }
 
         private void UIMenuChangeColor_Click(object sender, RoutedEventArgs e) { UI.UIObjectManager.changeCalendarObjectColor(CalendarObject); }
