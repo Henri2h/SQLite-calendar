@@ -17,8 +17,6 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView
     {
         CalendarViewCore.CalendarViewMethods cViewMethods = CalendarViewCore.CalendarViewMethods.month;
         DateTime selectedDay = DateTime.Now;
-        List<Day> days = new List<Day>();
-
 
 
         public CalendarView()
@@ -67,13 +65,7 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView
                     break;
                 case "Week":
                     List<DayElement> days = TimeSelectionEvents.GetDayElements(selectedDay, CalendarViewCore.CalendarViewMethods.week);
-
-                    CalendarContent cOnt = new CalendarContent();
-                    cOnt.content = days;
-
-                    foreach (DayElement d in days) { cOnt.dayNames.Add(d.name); }
-
-                    UIEventView.Children.Add(new WeekView(cOnt));
+                    UIEventView.Children.Add(new WeekView(days));
                     break;
 
 

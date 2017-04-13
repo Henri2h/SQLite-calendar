@@ -21,45 +21,72 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews
     /// </summary>
     public partial class WeekView : UserControl
     {
-        private CalendarContent days;
+        private List<DayElement> days;
 
 
-        public WeekView(CalendarContent days)
+        public WeekView(List<DayElement> days)
         {
             this.days = days;
             InitializeComponent();
+
             loadElements();
 
-            loadDaysNames();
         }
         void loadElements()
         {
-            //  WeekCalendarView wViews = new WeekCalendarView(days, CalendarViewCore.CalendarViewMethods.week);
-
+            UIGrid.Children.Clear();
+            loadDaysNames();
+            loadSpecificDayContent();
+            loadStaticContent();
         }
 
         void loadDaysNames()
         {
             int pos = 0;
-            foreach (string name in days.dayNames)
+            foreach (DayElement name in days)
             {
                 TextBlock tb = new TextBlock();
-                tb.Text = name;
+                tb.Text = name.name;
                 UIGrid.Children.Add(tb);
+
                 Grid.SetColumn(tb, pos);
                 Grid.SetRow(tb, 0);
                 pos++;
             }
         }
 
+        //TODO : to complete
         void loadStaticContent()
         {
             for (int i = 0; i < 7; i++)
             {
                 StackPanel sb = new StackPanel();
 
+                foreach (calendarObject cObj in days[i].cobjsDifferentDays)
+                {
+                    SmallCalendarView sView = new SmallCalendarView(cObj);
+                    sb.Children.Add(sView);
+                }
+                UIGrid.Children.Add(sb);
+                Grid.SetColumn(sb, i);
+                Grid.SetRow(sb, 1);
             }
         }
-        void loadSpecificDayContent() { }
+        void loadSpecificDayContent()
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                StackPanel sb = new StackPanel();
+
+                foreach (calendarObject cObj in days[i].cobjOneDay)
+                {
+                    SmallCalendarView sView = new SmallCalendarView(cObj);
+                    sb.Children.Add(sView);
+                }
+                UIGrid.Children.Add(sb);
+                Grid.SetColumn(sb, i);
+                Grid.SetRow(sb, 2);
+            }
+        }
     }
 }

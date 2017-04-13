@@ -166,8 +166,6 @@
       <DependentUpon>CalendarView.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\CalendarView\CalendarViewCore.cs" />
-    <Compile Include="UI\CalendarView\SpecificViews\CalendarContent.cs" />
-    <Compile Include="UI\CalendarView\SpecificViews\Day.cs" />
     <Compile Include="UI\CalendarView\DayElement.cs" />
     <Compile Include="UI\CalendarView\SpecificViews\MonthView.xaml.cs">
       <DependentUpon>MonthView.xaml</DependentUpon>
@@ -178,8 +176,8 @@
     <Compile Include="UI\CalendarView\SpecificViews\SpecificControlls\SmallCalendarView.xaml.cs">
       <DependentUpon>SmallCalendarView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\CalendarView\SpecificViews\SpecificControlls\WeekView.xaml.cs">
-      <DependentUpon>WeekView.xaml</DependentUpon>
+    <Compile Include="UI\CalendarView\SpecificViews\SpecificControlls\WeekCalendarView.xaml.cs">
+      <DependentUpon>WeekCalendarView.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\CalendarView\TimeSelectionEvents.cs" />
     <Compile Include="UI\CalendarView\SpecificViews\WeekView.xaml.cs">
@@ -260,6 +258,7 @@
     <Compile Include="UI\Team\TeamView.xaml.cs">
       <DependentUpon>TeamView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\UISettings.cs" />
     <Compile Include="Update\UpdateTaskHelper.cs" />
     <Compile Include="Update\UpdateTaskInfo.cs" />
     <Compile Include="Update\UpdateWindow.xaml.cs">
@@ -281,7 +280,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\CalendarView\SpecificViews\SpecificControlls\WeekView.xaml">
+    <Page Include="UI\CalendarView\SpecificViews\SpecificControlls\WeekCalendarView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

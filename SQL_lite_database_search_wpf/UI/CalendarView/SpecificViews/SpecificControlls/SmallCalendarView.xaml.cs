@@ -27,7 +27,6 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews.SpecificCon
             InitializeComponent();
             CalendarObject = cObj;
 
-
             this.Background = new SolidColorBrush(cObj.color.value);
             this.UITbName.Text = cObj.name.value;
 
@@ -37,14 +36,7 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews.SpecificCon
             }
         }
 
-        private void UIMenuChangeColor_Click(object sender, RoutedEventArgs e)
-        {
-            UI.UIObjectManager.changeCalendarObjectColor(CalendarObject);
-        }
-
-        private void UIMenuChangeItem_Click(object sender, RoutedEventArgs e)
-        {
-            UI.UIObjectManager.changeCalendarObject(CalendarObject);
-        }
+        private void UIMenuChangeColor_Click(object sender, RoutedEventArgs e) { UI.UIObjectManager.changeCalendarObjectColor(CalendarObject); }
+        private void UIMenuChangeItem_Click(object sender, RoutedEventArgs e) { UI.UIObjectManager.changeCalendarObject(CalendarObject); }
     }
 }

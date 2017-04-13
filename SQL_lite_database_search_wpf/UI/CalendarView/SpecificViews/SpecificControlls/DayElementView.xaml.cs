@@ -21,14 +21,29 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews.SpecificCon
     public partial class DayElementView : UserControl
     {
         private DayElement d;
-        public DayElementView(DayElement d, bool isTheSameDay = false)
+        public DayElementView(DayElement d)
         {
 
             this.d = d;
 
             InitializeComponent();
             loadComponements();
-            if (isTheSameDay) { this.Background = new SolidColorBrush(Colors.LightGray); }
+
+            if (d.isTheSameDay)
+            {
+                UIGrid.Background = new SolidColorBrush(UISettings.isSameDayColor);
+            }
+            else
+            if (d.isSameMonth == false)
+            {
+                UIGrid.Background = new SolidColorBrush(UISettings.isDifferentMontColor);
+            }
+            else
+            {
+                UIGrid.Background = new SolidColorBrush(UISettings.defaultColor);
+            }
+
+            UIBorder.Background = new SolidColorBrush(UISettings.defaultBorderColor);
         }
 
 

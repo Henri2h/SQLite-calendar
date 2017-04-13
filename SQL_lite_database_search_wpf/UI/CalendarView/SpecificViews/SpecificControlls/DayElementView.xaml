@@ -6,21 +6,24 @@
              xmlns:local="clr-namespace:SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews.SpecificControlls"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <Border x:Name="UIBorder" Margin="1">
+        <Grid x:Name="UIGrid">
 
-    <Grid Margin="5" Background="LightGray">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Vertical" Grid.Row="0">
-            <TextBlock x:Name="tbDay"/>
-            <TextBlock x:Name="tbDate"/>
-        </StackPanel>
-        <ScrollViewer Grid.Row="1">
-            <StackPanel x:Name="UIStackDayEvents"/>
-        </ScrollViewer>
+            <StackPanel Orientation="Horizontal" Grid.Row="0">
+                <TextBlock x:Name="tbDay"/>
+                <TextBlock x:Name="tbDate"/>
+            </StackPanel>
 
-    </Grid>
+            <ScrollViewer Grid.Row="1">
+                <StackPanel x:Name="UIStackDayEvents"/>
+            </ScrollViewer>
+
+        </Grid>
+    </Border>
 </UserControl>
