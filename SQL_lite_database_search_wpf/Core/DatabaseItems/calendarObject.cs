@@ -145,7 +145,7 @@ namespace SQL_lite_database_search_wpf
             {
                 if (this.isDateUsed.value == true)
                 {
-                    TimeSpan ts = this.endTime.value.Date - this.endTime.value.Date;
+                    TimeSpan ts = this.endTime.value.Date - this.startTime.value.Date;
                     if (ts.Days == 0)
                     {
                         return false;
