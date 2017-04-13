@@ -30,7 +30,7 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView
 
             loadElement();
 
-            UIComboBoxSelection.selectedObjectChanged += UIComboBoxSelection_selectedObjectChanged;
+            UIComboBoxSelection.SelectedObjectChanged += UIComboBoxSelection_selectedObjectChanged;
             loadContentObject("Month");
         }
 
@@ -49,9 +49,9 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView
         void loadElement()
         {
             UIComboBoxSelection.clearElements();
-            UIComboBoxSelection.AddObjectElement("Month");
+            UIComboBoxSelection.defaultValue = "Month";
             UIComboBoxSelection.AddObjectElement("Week");
-
+            UIComboBoxSelection.LoadUsers(true);
         }
         void loadContentObject(string selection)
         {

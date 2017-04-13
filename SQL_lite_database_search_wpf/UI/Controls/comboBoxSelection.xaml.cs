@@ -8,53 +8,60 @@ namespace SQL_lite_database_search_wpf.UI.Controls
     /// </summary>
     public partial class comboBoxSelection : UserControl
     {
-        public string selectedObjectName
+        public string SelectedObjectName
         {
             get { return getSelectedObjectName(); }
             set
             {
-                TextBlock tb = addUserMember(value);
+                TextBlock tb = AddUserMember(value);
                 UICBTeamMembers.SelectedItem = tb;
             }
         }
 
         List<string> elements = new List<string>();
+
         public string defaultValue = "All";
+        public bool useDefaultValue = true;
 
         // events
         public delegate void CustomEventHandeler(string selectedObject);
-        public event CustomEventHandeler selectedObjectChanged;
+        public event CustomEventHandeler SelectedObjectChanged;
 
         public comboBoxSelection()
         {
             InitializeComponent();
-            loadUsers(true);
+            LoadUsers(true);
         }
 
         public void AddObjectElement(string name)
         {
             elements.Add(name);
-            loadUsers();
+            LoadUsers();
         }
 
-        public void loadUsers(bool changeSelection = false)
+        public void LoadUsers(bool changeSelection = false)
         {
             UICBTeamMembers.Items.Clear();
 
-            TextBlock all = addUserMember(defaultValue);
-            if (changeSelection) UICBTeamMembers.SelectedItem = all;
+            if (useDefaultValue)
+            {
+                TextBlock all = AddUserMember(defaultValue);
+                if (changeSelection) UICBTeamMembers.SelectedItem = all;
+            }
 
             foreach (string e in elements)
             {
-                addUserMember(e);
+                AddUserMember(e);
             }
 
         }
 
-        TextBlock addUserMember(string name)
+        TextBlock AddUserMember(string name)
         {
-            TextBlock tb = new TextBlock();
-            tb.Text = name;
+            TextBlock tb = new TextBlock()
+            {
+                Text = name
+            };
             UICBTeamMembers.Items.Add(tb);
             return tb;
         }
@@ -73,13 +80,13 @@ namespace SQL_lite_database_search_wpf.UI.Controls
         public void clearElements()
         {
             elements = new List<string>();
-            loadUsers();
+            LoadUsers();
         }
-       
+
 
         private void UICBTeamMembers_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            selectedObjectChanged?.Invoke(getSelectedObjectName());
+            SelectedObjectChanged?.Invoke(getSelectedObjectName());
         }
     }
 }

@@ -87,8 +87,10 @@ namespace SQL_lite_database_search_wpf
                     DispatcherPriority.Background,
                     (System.Threading.SendOrPostCallback)delegate (object arg)
                     {
-                        var f = arg as DispatcherFrame;
-                        if (f != null) f.Continue = false;
+                        if (arg is DispatcherFrame f)
+                        {
+                            f.Continue = false;
+                        }
                     },
                     frame
                 );
@@ -115,8 +117,7 @@ namespace SQL_lite_database_search_wpf
 
         public void InvokePropertyChanged(string propertyName)
         {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         #endregion

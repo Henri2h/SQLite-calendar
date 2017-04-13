@@ -36,7 +36,7 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews.SpecificCon
             else
             if (d.isSameMonth == false)
             {
-                UIGrid.Background = new SolidColorBrush(UISettings.isDifferentMontColor);
+                UIGrid.Background = new SolidColorBrush(UISettings.isDifferentMonthColor);
             }
             else
             {

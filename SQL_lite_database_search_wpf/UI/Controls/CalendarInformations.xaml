@@ -5,22 +5,22 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SQL_lite_database_search_wpf.UI.Controls"
              xmlns:star="clr-namespace:SQL_lite_database_search_wpf.UI.Controls.StarSelection"
-             
+               d:DesignHeight="300" d:DesignWidth="300"
              mc:Ignorable="d">
 
     <Grid VerticalAlignment="Top">
-        <WrapPanel Orientation="Horizontal" MaxWidth="700">
+        <WrapPanel Orientation="Horizontal" >
 
-
-            <StackPanel Orientation="Vertical" Margin="0,0,5,0">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Name : "/>
-                    <TextBox x:Name="UITbName" MinWidth="50"/>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Name : " Margin="5" Height="25"/>
+                    <TextBlock Text="Description" Margin="5" Height="25"/>
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Description"/>
-                    <TextBox x:Name="UITbDescription" MinWidth="50"/>
+                <StackPanel Orientation="Vertical">
+
+                    <TextBox x:Name="UITbName" MinWidth="50" Margin="5" Height="25"/>
+                    <TextBox x:Name="UITbDescription" MinWidth="50" Margin="5" Height="25"/>
                 </StackPanel>
             </StackPanel>
 
@@ -33,15 +33,15 @@
 
 
             <!--Completion and priority-->
-            <StackPanel Orientation="Vertical" Margin="5,0">
-                <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" Margin="5,0">
+                <StackPanel Orientation="Vertical" Margin="5">
                     <TextBlock Text="Priorité :"/>
-                    <star:StarsSelecter x:Name="UIslPriorite"/>
-
+                    <TextBlock Text="Completion :"/>
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Completion :"/>
+                <StackPanel Orientation="Vertical" Margin="5">
+                    
+                    <star:StarsSelecter x:Name="UIslPriorite"/>
                     <Slider x:Name="UIslCompletion" Value="0" Width="100" Maximum="100" SmallChange="10"/>
                 </StackPanel>
             </StackPanel>
