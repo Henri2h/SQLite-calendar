@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              xmlns:local="clr-namespace:SQL_lite_database_search_wpf.UI.Controls"
               xmlns:mui="http://firstfloorsoftware.com/ModernUI">
-    
+
     <Grid VerticalAlignment="Top">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -21,6 +21,8 @@
         <StackPanel Orientation="Horizontal" Grid.Row="2">
             <TextBlock Text="Is date used : "/>
             <mui:ModernToggleButton x:Name="UITbtIsDateUsed" Click="ModernToggleButton_Click" IsChecked="True"/>
+            <TextBlock Text="Is several days : "/>
+            <mui:ModernToggleButton x:Name="UITbtIsSeveralDay" Click="UITbtIsSeveralDay_Click" IsChecked="True"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal"  x:Name="UIStackDate" Grid.Row="3">

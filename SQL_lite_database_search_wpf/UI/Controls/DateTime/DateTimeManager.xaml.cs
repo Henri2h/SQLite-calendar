@@ -12,10 +12,23 @@ namespace SQL_lite_database_search_wpf.UI.Controls
     {
         public bool isDateUsed { get; set; }
         public DateTime time_start { get { return dpTime_start.Value; } set { dpTime_start.Value = value; } }
-        public DateTime time_end { get { return dpTime_end.Value; } set { dpTime_end.Value = value; } }
+        public DateTime time_end
+        {
+            get
+            {
+                if (isSeveralDays) return dpTime_end.Value;
+                else return time_start;
+            }
+            set
+            {
+                dpTime_end.Value = value;
+                isSeveralDays = true;
+            }
+        }
 
         public bool isHoursUsed { get { return IsHourUsed; } set { IsHourUsed = value; updateUI(); } }
         bool IsHourUsed = false;
+        bool isSeveralDays = true;
 
         public DateTimeManager()
         {
@@ -23,7 +36,6 @@ namespace SQL_lite_database_search_wpf.UI.Controls
 
             // default
             setValue(false);
-
         }
 
         private void ModernToggleButton_Click(object sender, RoutedEventArgs e) { setValue(UITbtIsDateUsed.IsChecked.Value); }
@@ -32,6 +44,7 @@ namespace SQL_lite_database_search_wpf.UI.Controls
         {
             if (val) { isDateUsed = true; }
             else { isDateUsed = false; }
+
             updateUI();
         }
 
@@ -47,8 +60,27 @@ namespace SQL_lite_database_search_wpf.UI.Controls
                 UIStackDate.Visibility = Visibility.Collapsed;
             }
 
+            if (isSeveralDays)
+            {
+                dpTime_end.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                dpTime_end.Visibility = Visibility.Collapsed;
+            }
+
+
             dpTime_start.isHoursUsed = isHoursUsed;
             dpTime_end.isHoursUsed = IsHourUsed;
+        }
+
+        private void UITbtIsSeveralDay_Click(object sender, RoutedEventArgs e)
+        {
+            bool val = UITbtIsSeveralDay.IsChecked.Value;
+            if (val) { isSeveralDays = true; }
+            else { isSeveralDays = false; }
+
+            updateUI();
         }
     }
 }
