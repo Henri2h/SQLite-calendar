@@ -28,7 +28,7 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews
             LoadDaysNames();
             LoadSpecificDayContent();
             LoadStaticContent();
-            LoadBorders();
+          //  LoadBorders();
         }
 
         void LoadDaysNames()

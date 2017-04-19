@@ -21,16 +21,20 @@
         <StackPanel Orientation="Horizontal" Grid.Row="0" Background="DarkGray">
             <TextBlock Text="Week number :  "/>
             <TextBlock x:Name="UITbWeekNumber"/>
+
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="1">
             <UIC:comboBoxSelection x:Name="UIComboBoxSelection"/>
             <Button x:Name="UIBtBefore" Content="Precendent" Click="UIBtBefore_Click"/>
             <Button x:Name="UIBtAfter" Content="After" Click="UIBtAfter_Click"/>
+            <TextBlock Text="Selected date :" Margin="0,0,5,0"/>
+            <TextBlock x:Name="UITbSelectedDate"/>
+
+            <Button x:Name="UIBtReturnToday" Content="Today" Click="UIBtReturnToday_Click"/>
         </StackPanel>
 
         <Grid Grid.Row="2" x:Name="UIEventView"/>
-
 
         <UI:Controlls x:Name="UIControls" Grid.Row="3" VerticalAlignment="Stretch"/>
 
