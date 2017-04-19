@@ -16,7 +16,9 @@ namespace SQL_lite_database_search_wpf.UI
 
             Add_Project inputDialog = new Add_Project()
             {
-                Style = (Style)App.Current.Resources["BlankWindow"]
+                Style = (Style)App.Current.Resources["BlankWindow"],
+                Height = 500,
+                Width = 600
             };
             if (tableSource != "") { inputDialog.parentTable = tableSource; }
 
