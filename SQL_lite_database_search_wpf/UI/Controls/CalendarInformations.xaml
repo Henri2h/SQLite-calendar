@@ -5,65 +5,75 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SQL_lite_database_search_wpf.UI.Controls"
              xmlns:star="clr-namespace:SQL_lite_database_search_wpf.UI.Controls.StarSelection"
-               d:DesignHeight="300" d:DesignWidth="300"
+               d:DesignHeight="300" d:DesignWidth="900"
              mc:Ignorable="d">
 
     <Grid VerticalAlignment="Top">
-        <WrapPanel Orientation="Horizontal" >
 
-            <StackPanel Orientation="Horizontal" Margin="5">
+        <StackPanel Orientation="Horizontal">
+            <StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Name : " Margin="5" Height="25"/>
+                        <TextBox x:Name="UITbName" MinWidth="150" Margin="5" Height="25"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" x:Name="UIStackProjects">
+                        <TextBlock Text="Projects : "/>
+                        <ComboBox x:Name="UIProject" Text="Project : "/>
+                    </StackPanel>
+                </StackPanel>
+
+
                 <StackPanel Orientation="Vertical">
-                    <TextBlock Text="Name : " Margin="5" Height="25"/>
-                    <TextBlock Text="Description" Margin="5" Height="25"/>
+                    <TextBlock Text="Description :" Margin="5" Height="25"/>
+                    <TextBox x:Name="UITbDescription"  MinHeight="250" 
+                             Width="300"
+                             SpellCheck.IsEnabled="True" 
+                             AcceptsReturn="True" 
+                             AcceptsTab="True" 
+                             TextWrapping="Wrap"
+                             />
                 </StackPanel>
 
-                <StackPanel Orientation="Vertical">
-
-                    <TextBox x:Name="UITbName" MinWidth="50" Margin="5" Height="25"/>
-                    <TextBox x:Name="UITbDescription" MinWidth="50" Margin="5" Height="25"/>
-                </StackPanel>
-            </StackPanel>
-
-
-            <StackPanel Orientation="Horizontal" Grid.Column="1" x:Name="UIStackProjects">
-                <TextBlock Text="Projects : "/>
-                <ComboBox x:Name="UIProject" Text="Project : "/>
             </StackPanel>
 
 
 
-            <!--Completion and priority-->
-            <StackPanel Orientation="Horizontal" Margin="5,0">
-                <StackPanel Orientation="Vertical" Margin="5">
-                    <TextBlock Text="Priorité :"/>
-                    <TextBlock Text="Completion :"/>
+
+            <StackPanel>
+                <!--Completion and priority-->
+                <StackPanel Orientation="Horizontal" Margin="5,0">
+                    <StackPanel Orientation="Vertical" Margin="5">
+                        <TextBlock Text="Priorité :"/>
+                        <TextBlock Text="Completion :"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical" Margin="5">
+                        <star:StarsSelecter x:Name="UIslPriorite"/>
+                        <Slider x:Name="UIslCompletion" Value="0" Width="100" Maximum="100" SmallChange="10"/>
+                    </StackPanel>
                 </StackPanel>
 
-                <StackPanel Orientation="Vertical" Margin="5">
-                    
-                    <star:StarsSelecter x:Name="UIslPriorite"/>
-                    <Slider x:Name="UIslCompletion" Value="0" Width="100" Maximum="100" SmallChange="10"/>
+                <!--domain and team-->
+                <StackPanel Orientation="Horizontal" Margin="5,0">
+
+                    <StackPanel Orientation="Vertical" >
+                        <TextBlock Text="Domaine : " Height="30" Margin="5"/>
+                        <TextBlock Text="Team :" Margin="5"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical" >
+                        <TextBox x:Name="UITbDomaine" AcceptsReturn="True" MinWidth="150" Height="30" Margin="5"/>
+                        <local:EquipeMemberSelection x:Name="UISelTeam" Margin="5"/>
+                    </StackPanel>
                 </StackPanel>
+
+                <RadioButton x:Name="UIIsMainProject" Content="isMainProject" Margin="5"/>
+                <local:DateTimeManager x:Name="UIDateTimemanager" Margin="5"/>
             </StackPanel>
 
-            <!--domain and equipe-->
-            <StackPanel Orientation="Vertical" Margin="5,0">
+        </StackPanel>
 
-                <!--domaine-->
-                <StackPanel Orientation="Horizontal" Height="30">
-                    <TextBlock Text="Domaine"/>
-                    <TextBox x:Name="UITbDomaine" AcceptsReturn="True" MinWidth="50"/>
-                </StackPanel>
-
-                <!--equipe-->
-                <StackPanel Orientation="Horizontal" Height="30">
-                    <TextBlock Text="Equipe :"/>
-                    <local:EquipeMemberSelection x:Name="UISelTeam"/>
-                </StackPanel>
-            </StackPanel>
-
-            <RadioButton x:Name="UIIsMainProject" Content="isMainProject" Margin="5,0"/>
-            <local:DateTimeManager x:Name="UIDateTimemanager" Margin="5,0"/>
-        </WrapPanel>
     </Grid>
 </UserControl>

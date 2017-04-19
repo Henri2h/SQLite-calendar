@@ -40,7 +40,7 @@
 
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Description :  "/>
-                        <TextBlock x:Name="UITbDexcription"/>
+                        <TextBlock x:Name="UITbDexcription" MaxWidth="200"/>
                     </StackPanel>
                 </StackPanel>
 
