@@ -23,54 +23,60 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView
         {
             InitializeComponent();
 
-            UIObjectManager.calendarContentChanged += loadElements;
-            UIControls.RefreshISNeeded += loadElements;
-            UIControls.AddNewElementAsked += addElement;
+            UIObjectManager.calendarContentChanged += LoadElements;
+            UIControls.RefreshISNeeded += LoadElements;
+            UIControls.AddNewElementAsked += AddElement;
 
 
-            loadElement();
+            LoadComboBoxSelection();
 
             UIComboBoxSelection.SelectedObjectChanged += UIComboBoxSelection_selectedObjectChanged;
-            loadContentObject("Month");
+
+            LoadElements();
         }
 
-        public void addElement()
+        public void AddElement()
         {
             UI.UIObjectManager.AddNewElement();
-            loadElements();
+            LoadElements();
         }
 
 
-        public void loadElements()
+        public void LoadElements()
         {
-            loadContentObject(cViewMethods.ToString());
+            LoadContentObject(cViewMethods.ToString());
+            UITbSelectedDate.Text = selectedDay.Date.ToLongDateString();
         }
 
-        void loadElement()
+        void LoadComboBoxSelection()
         {
             UIComboBoxSelection.clearElements();
-            UIComboBoxSelection.defaultValue = "Month";
-            UIComboBoxSelection.AddObjectElement("Week");
+            UIComboBoxSelection.defaultValue = "month";
+            UIComboBoxSelection.AddObjectElement("week");
             UIComboBoxSelection.LoadUsers(true);
         }
-        void loadContentObject(string selection)
+
+        void LoadContentObject(string selection)
         {
             UIEventView.Children.Clear();
             switch (selection)
             {
-                case "Month":
-                    List<DayElement> month = TimeSelectionEvents.GetDayElements(selectedDay, CalendarViewCore.CalendarViewMethods.month);
-
+                case "month":
+                    cViewMethods = CalendarViewCore.CalendarViewMethods.month;
+                    List<DayElement> month = TimeSelectionEvents.GetDayElements(selectedDay, cViewMethods);
                     UIEventView.Children.Add(new MonthView(month));
                     break;
-                case "Week":
-                    List<DayElement> days = TimeSelectionEvents.GetDayElements(selectedDay, CalendarViewCore.CalendarViewMethods.week);
+
+                case "week":
+                    cViewMethods = CalendarViewCore.CalendarViewMethods.week;
+                    List<DayElement> days = TimeSelectionEvents.GetDayElements(selectedDay, cViewMethods);
                     UIEventView.Children.Add(new WeekView(days));
                     break;
 
 
                 default:
-                    List<DayElement> monthSel = TimeSelectionEvents.GetDayElements(selectedDay, CalendarViewCore.CalendarViewMethods.month);
+                    cViewMethods = CalendarViewCore.CalendarViewMethods.month;
+                    List<DayElement> monthSel = TimeSelectionEvents.GetDayElements(selectedDay, cViewMethods);
                     UIEventView.Children.Add(new MonthView(monthSel));
                     break;
             }
@@ -78,28 +84,43 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView
 
         private void UIComboBoxSelection_selectedObjectChanged(string selectedObject)
         {
-            //
-            loadContentObject(selectedObject);
+            LoadContentObject(selectedObject);
         }
 
         private void UIBtBefore_Click(object sender, RoutedEventArgs e)
         {
-            effect(-1);
+            EffectTime(-1);
         }
 
         private void UIBtAfter_Click(object sender, RoutedEventArgs e)
         {
-            effect(1);
+            EffectTime(1);
         }
 
 
 
 
-        void effect(int pos)
+        void EffectTime(int pos)
         {
-
+            if (cViewMethods == CalendarViewCore.CalendarViewMethods.month)
+            {
+                selectedDay = selectedDay.AddDays(pos * 35);
+            }
+            else if (cViewMethods == CalendarViewCore.CalendarViewMethods.week)
+            {
+                selectedDay = selectedDay.AddDays(pos * 7);
+            }
+            else if (cViewMethods == CalendarViewCore.CalendarViewMethods.day)
+            {
+                selectedDay = selectedDay.AddDays(pos);
+            }
+            LoadElements();
         }
 
-
+        private void UIBtReturnToday_Click(object sender, RoutedEventArgs e)
+        {
+            selectedDay = DateTime.Today;
+            LoadElements();
+        }
     }
 }

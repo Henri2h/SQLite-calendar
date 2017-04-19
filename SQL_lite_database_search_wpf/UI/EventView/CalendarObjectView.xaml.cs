@@ -27,10 +27,10 @@ namespace SQL_lite_database_search_wpf.UI.EventView
 
 
             CalendarObject = cObj;
-            loadCommponements();
+            LoadCommponements();
         }
 
-        public void loadCommponements()
+        public void LoadCommponements()
         {
             //   this.Background = new SolidColorBrush(CalendarObject.color);
 
@@ -75,10 +75,7 @@ namespace SQL_lite_database_search_wpf.UI.EventView
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            Add_Project inputDialog = new Add_Project();
-            inputDialog.Style = (Style)App.Current.Resources["BlankWindow"];
-            inputDialog.parentTable = CalendarObject.tableName;
-            inputDialog.ShowDialog();
+            UI.UIObjectManager.AddNewElement(CalendarObject.tableName);
         }
 
         private void UIMenuItemDeleteObject_Click(object sender, RoutedEventArgs e)
@@ -90,7 +87,7 @@ namespace SQL_lite_database_search_wpf.UI.EventView
         private void UIMenuChangeItem_Click(object sender, RoutedEventArgs e)
         {
             CalendarObject = UI.UIObjectManager.ChangeCalendarObject(CalendarObject);
-            loadCommponements();
+            LoadCommponements();
         }
     }
 }

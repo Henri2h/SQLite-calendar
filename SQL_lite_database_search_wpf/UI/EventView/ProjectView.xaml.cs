@@ -17,26 +17,30 @@ namespace SQL_lite_database_search_wpf.UI.EventView
         public ProjectView()
         {
             InitializeComponent();
-            loadUsers(true);
+            LoadUsers();
         }
 
         public List<string> tableSourceHistory = new List<string>();
         public string tableSource { get; set; }
 
+        public string DefaultUser = "All";
+        public string CurrentUser = "All";
+
+
         /// <summary>
         /// Load all elements
         /// </summary>
-        public void loadElement()
+        public void LoadElements()
         {
-            loadElement("All");
-            loadUsers();
+            LoadUsers();
+            LoadElement(CurrentUser);
         }
 
         /// <summary>
         /// Load the element for a specific member
         /// </summary>
         /// <param name="seletction"></param>
-        public void loadElement(string seletction)
+        public void LoadElement(string selection)
         {
             if (tableSource != null)
             {
@@ -49,43 +53,51 @@ namespace SQL_lite_database_search_wpf.UI.EventView
                     {
                         CalendarObjectView cObjView = new CalendarObjectView(cObj);
                         cObjView.MouseDoubleClick += CObjView_MouseDoubleClick;
-                        if (seletction == "All" || seletction == cObj.equipe.value) UIStackCalendarObjects.Items.Add(cObjView);
+                        if (selection == DefaultUser || selection == cObj.equipe.value) UIStackCalendarObjects.Items.Add(cObjView);
                     }
                 }
                 else
                 {
-                    TextBlock tb = new TextBlock();
-                    tb.Text = "No events";
+                    TextBlock tb = new TextBlock()
+                    {
+                        Text = "No events"
+                    };
                     UIStackCalendarObjects.Items.Add(tb);
                 }
             }
         }
 
-        void loadUsers(bool changeSelection = false)
+        void LoadUsers()
         {
             UIMemberSelection.Items.Clear();
 
-            TextBlock all = addUserMember("All");
-            if (changeSelection) UIMemberSelection.SelectedItem = all;
+            TextBlock all = AddUserMember(CurrentUser);
+            UIMemberSelection.SelectedItem = all;
+
+            if (CurrentUser != DefaultUser) AddUserMember(DefaultUser);
 
             foreach (string e in AppCore.Equipe)
             {
-                addUserMember(e);
+                if (e != CurrentUser) AddUserMember(e);
             }
 
         }
-        TextBlock addUserMember(string name)
+
+        TextBlock AddUserMember(string name)
         {
-            TextBlock tb = new TextBlock();
-            tb.Text = name;
+            TextBlock tb = new TextBlock()
+            {
+                Text = name
+            };
             UIMemberSelection.Items.Add(tb);
             return tb;
         }
 
-        public void addNewElement()
+        public void AddNewElement()
         {
             UI.UIObjectManager.AddNewElement(tableSource);
-            loadElement();
+            LoadElements();
+
         }
 
         private void CObjView_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -93,17 +105,19 @@ namespace SQL_lite_database_search_wpf.UI.EventView
             CalendarObjectView cView = (CalendarObjectView)sender;
             if (cView.CalendarObject.isRepository.value == true && cView.CalendarObject.projectTableName.value != null)
             {
-                setNewValue(cView.CalendarObject.projectTableName.value);
+                SetNewValue(cView.CalendarObject.projectTableName.value);
             }
-            else MessageBox.Show("Not a repository");
+            else
+            { UI.UIObjectManager.ChangeCalendarObject(cView.CalendarObject); }
+
         }
 
 
-        public void setNewValue(string tableName)
+        public void SetNewValue(string tableName)
         {
             tableSourceHistory.Add(tableSource);
             tableSource = tableName;
-            loadElement();
+            LoadElements();
         }
 
         private void UIBtGoBack_Click(object sender, RoutedEventArgs e)
@@ -112,7 +126,7 @@ namespace SQL_lite_database_search_wpf.UI.EventView
             {
                 tableSource = tableSourceHistory[tableSourceHistory.Count - 1];
                 tableSourceHistory.RemoveAt(tableSourceHistory.Count - 1);
-                loadElement();
+                LoadElements();
             }
         }
 
@@ -121,10 +135,11 @@ namespace SQL_lite_database_search_wpf.UI.EventView
             if (UIMemberSelection.SelectedItem != null)
             {
                 TextBlock tb = (TextBlock)UIMemberSelection.SelectedItem;
-                if (tb.Text == "" || tb.Text == null) tb.Text = "All";
-                loadElement(tb.Text);
+                if (tb.Text == "" || tb.Text == null) tb.Text = DefaultUser;
+                CurrentUser = tb.Text;
+                LoadElement(CurrentUser);
             }
-            else { loadElement("All"); }
+            else { LoadElement(DefaultUser); }
         }
     }
 }

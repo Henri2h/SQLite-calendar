@@ -15,6 +15,7 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews
         {
             DateTime startDate = selectedDate;
             List<DayElement> dElem = new List<DayElement>();
+
             if (selectionMethod == CalendarViewCore.CalendarViewMethods.month)
             {
                 startDate = startDate.AddDays(1 - startDate.Day);
@@ -28,16 +29,17 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews
                 {
                     DateTime dt = startDate.AddDays(i);
 
-                    DayElement d = new DayElement();
-                    d.dateTime = dt;
-                    d.name = dt.Day.ToString() + " " + dt.DayOfWeek.ToString();
-
+                    DayElement d = new DayElement()
+                    {
+                        dateTime = dt,
+                        name = dt.DayOfWeek.ToString()
+                    };
                     if (d.dateTime.Month == selectedDate.Month)
                     {
                         d.isSameMonth = true;
                     }
                     else { d.isSameMonth = false; }
-                    if (d.dateTime.Date == selectedDate.Date) { d.isTheSameDay = true; }
+                    if (d.dateTime.Date == DateTime.Now.Date) { d.isTheSameDay = true; }
 
                     d.cobjs = new List<calendarObject>();
 
@@ -61,9 +63,12 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews
 
                 for (int i = 0; i < daysName.Length; i++)
                 {
-                    DayElement day = new DayElement();
-                    day.name = daysName[i];
-                    day.dateTime = startDate.AddDays(i - dayPos);
+                    DayElement day = new DayElement()
+                    {
+                        name = daysName[i],
+                        dateTime = startDate.AddDays(i - dayPos)
+                    };
+
                     if (day.dateTime.Date == selectedDate.Date)
                     {
                         day.isTheSameDay = true;

@@ -27,7 +27,7 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews.SpecificCon
             this.d = d;
 
             InitializeComponent();
-            loadComponements();
+            LoadComponements();
 
             if (d.isTheSameDay)
             {
@@ -44,10 +44,11 @@ namespace SQL_lite_database_search_wpf.UI.CalendarView.SpecificViews.SpecificCon
             }
 
             UIBorder.Background = new SolidColorBrush(UISettings.defaultBorderColor);
+            
         }
 
 
-        public void loadComponements()
+        public void LoadComponements()
         {
             tbDay.Text = d.name;
             tbDate.Text = d.dateTime.ToShortDateString();
