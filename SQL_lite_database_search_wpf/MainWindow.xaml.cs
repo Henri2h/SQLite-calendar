@@ -3,6 +3,7 @@ using FirstFloor.ModernUI.Windows.Controls;
 using System.IO;
 using System;
 using System.ComponentModel;
+using Microsoft.HockeyApp;
 
 namespace SQL_lite_database_search_wpf
 {
@@ -24,11 +25,18 @@ namespace SQL_lite_database_search_wpf
 
         public MainWindow()
         {
+            LaunchHockeyReportingAsync();
             Usefull_Tools.Logger.AppName = "SQLite_Agenda";
             Usefull_Tools.Logger.logMain("Starting ...");
 
             new Core.AppCore(this);
             InitializeComponent();
+        }
+
+        public async void LaunchHockeyReportingAsync()
+        {
+            HockeyClient.Current.Configure("478c98e3be7049778423ff194e5c50d1");
+            await HockeyClient.Current.SendCrashesAsync();
         }
 
 
