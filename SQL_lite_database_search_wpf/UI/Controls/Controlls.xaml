@@ -7,8 +7,8 @@
              mc:Ignorable="d"            >
     <Grid>
         <StackPanel VerticalAlignment="Stretch" Orientation="Horizontal">
-            <Button x:Name="btRefresch" Content="Refresch" Click="btRefresch_Click" />
-            <Button x:Name="btAdd" Content="add" Click="btAdd_Click" />
+            <Button x:Name="btRefresch" Content="Refresch" Click="BtRefresch_Click" />
+            <Button x:Name="btAdd" Content="add" Click="BtAdd_Click" />
         </StackPanel>
     </Grid>
 </UserControl>

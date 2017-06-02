@@ -14,7 +14,7 @@ namespace SQL_lite_database_search_wpf.UI.Controls
             InitializeComponent();
         }
 
-        public calendarObject getCalendarObject() { return UICalendarInformations.CalendarObject; }
+        public calendarObject GetCalendarObject() { return UICalendarInformations.CalendarObject; }
         private void UIBtRefresh_Click(object sender, System.Windows.RoutedEventArgs e) { UICalendarInformations.LoadMenuItems(); }
 
 

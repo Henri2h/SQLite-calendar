@@ -15,11 +15,11 @@ namespace SQL_lite_database_search_wpf.UI
 
         public Controlls() { InitializeComponent(); }
 
-        private void btAdd_Click(object sender, RoutedEventArgs e)
+        private void BtAdd_Click(object sender, RoutedEventArgs e)
         {
             AddNewElementAsked?.Invoke();
         }
-        private void btRefresch_Click(object sender, RoutedEventArgs e)
+        private void BtRefresch_Click(object sender, RoutedEventArgs e)
         {
             RefreshISNeeded?.Invoke();
         }
